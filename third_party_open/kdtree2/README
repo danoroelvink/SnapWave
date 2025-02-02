@@ -1,0 +1,32 @@
+This directory contains the Fortran interface to KDTREE 2, exported from
+https://github.com/jmhodges/kdtree2 on Nov 11, 2013.
+More original and license information in kdtree-README and LICENSE.
+
+Additional configuration in this directoy:
+   * Autotools (autoconf+automake) setup for inclusion in other
+     autotools-based packages.
+   * Use libtool to produce both static and dynamic libraries.
+     (libkdtree2f)
+
+Inclusion in your own package:
+   * In your own package's configure.ac include:
+
+     AC_CONFIG_SUBDIRS([third_party_open/kdtree2])
+
+     This will run configure recursively when invoked from your toplevel
+     package directory.
+   * In your own package's toplevel Makefile.am include:
+
+     SUBDIRS = third_party_open/kdtree2
+   * In the Makefile.am that builds your source files that need kdtree2
+     include:
+     FCFLAGS = -I$(top_builddir)/third_party_open/kdtree2/src-f90
+
+     LDADD = $(top_builddir)/third_party_open/kdtree2/src-f90/libkdtree2f.la
+
+Building instructions/
+   * Run ./autogen.sh in this kdtree2 dir (and possibly your own package's
+     toplevel dir) to generate missing libtool and autotools files.
+   * Just run ./configure in your package's toplevel dir. kdtree2 will inherit
+     the Fortran compiler, but needs no further configuration settings.
+   * Run make in your package's toplevel dir.
