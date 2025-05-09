@@ -27,7 +27,7 @@
 			<Tool Name="VFPostBuildEventTool"/>
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
-		<Configuration Name="Debug|x64" UseCompiler="ifortCompiler">
+		<Configuration Name="Debug|x64" UseCompiler="ifxCompiler">
 			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" HeapArrays="0" Preprocess="preprocessYes" WarnInterfaces="true" LocalSavedScalarsSNaN="true" LocalSavedScalarsZero="true" InitArrays="true" Traceback="true" NullPointerCheck="true" BoundsCheck="true" UninitializedVariablesCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="$(SolutionDir)\third_party_open\netcdf\$(Platform)\Debug;$(SolutionDir)\third_party_open\netcdf\netCDF 4.6.1\lib\" GenerateDebugInformation="true" SubSystem="subSystemConsole" HeapReserveSize="10000000" HeapCommitSize="10000000" StackReserveSize="10000000" StackCommitSize="10000000" AdditionalDependencies="netcdf4.lib netcdf.lib"/>
 			<Tool Name="VFResourceCompilerTool"/>
@@ -38,7 +38,7 @@
 			<Tool Name="VFPostBuildEventTool"/>
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
-		<Configuration Name="Release|x64" UseCompiler="ifortCompiler">
+		<Configuration Name="Release|x64" UseCompiler="ifxCompiler">
 			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" FavorSizeOrSpeed="favorNone" Preprocess="preprocessYes" AdditionalIncludeDirectories="netcdf-fortran-4.4.4\libsrc" WarnInterfaces="true" FloatingPointModel="source" FloatingPointSpeculation="fpSpeculationStrict" Traceback="true" RuntimeLibrary="rtMultiThreadedDLL"/>
 			<Tool Name="VFLinkerTool" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="$(SolutionDir)\third_party_open\netcdf\$(Platform)\Release;$(SolutionDir)\third_party_open\netcdf\netCDF 4.6.1\lib\" SubSystem="subSystemConsole" AdditionalDependencies="netcdf4.lib netcdf.lib"/>
 			<Tool Name="VFResourceCompilerTool"/>
