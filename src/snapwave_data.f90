@@ -167,10 +167,10 @@
    integer                                   :: ig                  ! switch whether include IG or not
    real*4                                    :: fwcutoff            ! depth below which to apply space-varying fw
    real*4                                    :: alpha,gamma         ! coefficients in Baldock breaking dissipation model
+   real*4                                    :: gammax              ! max wave height/water depth ratio
    real*4                                    :: hmin                ! minimum water depth
    character*232                             :: gridfile            ! name of gridfile (Delft3D .grd format)
    integer                                   :: sferic              ! sferical (1) or cartesian (0) grid
-   integer                                   :: refraction_method   ! central (0) or upwind (1)
    integer                                   :: niter               ! maximum number of iterations
    real*4                                    :: crit                ! relative accuracy for stopping criterion
    character*232                             :: depfile             ! name of bathymetry file (Delft3D .dep format)
@@ -214,9 +214,9 @@
    !
    ! Local constants
    !
-   real*4                                    :: rho             ! water density
-   real*4                                    :: pi              ! cake circumference divided by twice its radius
-   real*4                                    :: g               ! acceleration of gravity
+   real*4,parameter                          :: rho             =1025.! water density
+   real*4,parameter                          :: pi=4.*atan(1.)! cake circumference divided by twice its radius
+   real*4,parameter                          :: g=9.813! acceleration of gravity
    real*4                                    :: t0,t1,t2,t3,t4,t5,t6  ! timers
    integer                                   :: nb
    integer                                   :: np

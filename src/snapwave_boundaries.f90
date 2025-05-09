@@ -804,7 +804,7 @@ subroutine read_wind_data_from_list()
    !
    close(11)
    !
-   u10dir_bwv=mod(270.0-u10dir_bwv, 360.0)*(4.0*atan(1.0))/180.0 ! from nautical coming from in degrees to cartesian going to in radians
+   u10dir_bwv=mod(270.0-u10dir_bwv, 360.0)*pi/180.0 ! from nautical coming from in degrees to cartesian going to in radians
    !
 end subroutine read_wind_data_from_list
 !
