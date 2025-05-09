@@ -1220,5 +1220,23 @@ Interface
  End Function nc_get_var
 End Interface
 
+interface
+ Function nf_put_vars(ncid, varid, start, counts, strides, values) &
+                      RESULT(status)
+
+! Write out a variable of any type. We use a C interop character string to
+! hold the values. Therefore, an explicit interface to nf_put_vars should NOT
+! be used in the calling program. Just use external 
+USE ISO_C_BINDING, ONLY: C_CHAR
+ Implicit NONE
+
+ Integer,                Intent(IN)         :: ncid, varid
+ Integer,                Intent(IN)         :: start(*), counts(*), strides(*)
+ Character(KIND=C_CHAR), Intent(IN), TARGET :: values(*) 
+  Integer                  :: status
+  
+ end Function nf_put_vars
+ end interface
+
 !--------------------------End of Module netcdf4_c_interfaces -----------------
 End Module netcdf4_nc_interfaces
