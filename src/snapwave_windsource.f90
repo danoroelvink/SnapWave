@@ -65,6 +65,7 @@ module snapwave_windsource
    end subroutine numerical_limiter
    !
    subroutine compute_celerities(hh, sig, sinth, costh, ntheta, gamma, dhdx, dhdy, sinhkh, Hmx, kwav, cg, ctheta)
+      use snapwave_data, only: pi
       implicit none
       integer,  intent(in)                   :: ntheta
       real*4, intent(in)                     :: hh, sig, dhdx, dhdy
@@ -74,16 +75,15 @@ module snapwave_windsource
       real*4, intent(out)                    :: sinhkh, Hmx, cg, kwav
       real*4,  dimension(ntheta), intent(out):: ctheta
       !
-      real*4                                 :: pi
       integer                                :: itheta
       !
-      pi = 4.0*atan(1.0)
       ! Compute celerities and refraction speed
       ! in a seperate routine because will be called more often in a model with varying wave period
-      call disper_approx_1(hh,2.0*pi/sig,kwav,cg)
+      call disper_nr(hh, 2.0 * pi / sig, kwav, cg) ! 15% faster
       !   
       sinhkh = sinh(min(kwav*hh,50.0))
-      Hmx =0.88/kwav*tanh(gamma*kwav*hh/0.88)
+      !Hmx =0.88/kwav*tanh(gamma*kwav*hh/0.88)
+      Hmx=gamma*hh      
       !   
       do itheta=1,ntheta
          ctheta(itheta)= sig/sinh(min(2.0*kwav*hh,50.0))*(dhdx*sinth(itheta)-dhdy*costh(itheta))
@@ -177,8 +177,8 @@ module snapwave_windsource
          !
          Tprev = 2.d0*pi*aaprev(itheta)/eeprev(itheta)
          deltaT = T-Tprev
-         call disper_approx_1(hh,T,kdum,cg1)
-         call disper_approx_1(hh,Tprev,kdum,cg2)  
+         call disper_nr(hh,T,kdum,cg1)
+         call disper_nr(hh,Tprev,kdum,cg2)  
          if (abs(deltaT)>1e-6) then
             dcgdT = (cg1-cg2)/deltaT      
          else
@@ -210,23 +210,44 @@ module snapwave_windsource
      !
    end subroutine windinput
    !
-   subroutine disper_approx_1(h,Tp,dkk,Cg)
-      !
-      real*4, intent(in)                 :: h
-      real*4, intent(in)                 :: Tp
-      real*4, intent(out)                :: dkk,cg
-      real*4                             :: sigma,g,pi,n,C,arg
-      ! same as disper_approx, but on only one node instead of the whole grid   
-      g=9.81
-      pi=4.0*atan(1.0)
-      sigma=2.0*pi/Tp
-      arg=max((1.0-exp(-(sigma*sqrt(h/g))**(2.5))),1e-10)
-      dkk = ((sigma**2)/g)*arg**(-0.4)
-      !
-      C = sigma/dkk
-      arg = min(2.0*dkk*h,50.0)
-      n = 0.5+dkk*h/sinh(arg)
-      Cg=n*C
-   end subroutine disper_approx_1
-   !
-end module
+   subroutine disper_nr(h, T, k, cg)
+   use snapwave_data, only: pi, g
+   implicit none
+   real*4, intent(in) :: h ! water depth (m)
+   real*4, intent(in) :: T ! wave period (s)
+   real*4, intent(out) :: k ! wavenumber (rad/m)
+   real*4, intent(out) :: cg ! wavenumber (rad/m)
+
+   real*4, parameter :: tol = 1.0d-5 ! convergence tolerance
+   real*4 :: omega, kh, f, df, k_old, c, arg, n
+   integer :: i, max_iter = 20
+
+   ! Calculate angular frequency from period
+   omega = 2.0d0 * pi / T
+
+   ! Initial guess using deep water approximation: k = ?²/g
+   k = omega * omega / g
+
+   ! Newton-Raphson iteration
+   do i = 1, max_iter
+      kh = k * h
+      f = g * k * tanh(kh) - omega * omega ! residual
+      df = g * (tanh(kh) + kh * (1.0d0 - tanh(kh)**2)) ! derivative
+      k_old = k
+      k = k - f / df
+
+      ! Check convergence
+      if (abs(k - k_old) < tol * abs(k)) then
+         kh = k * h
+         exit
+      end if
+   end do
+
+   C = omega / k
+   arg=min(2.0*kh,50.0)
+   n=0.5+kh/sinh(arg)
+   Cg=n*C
+
+   end subroutine disper_nr
+   
+ end module

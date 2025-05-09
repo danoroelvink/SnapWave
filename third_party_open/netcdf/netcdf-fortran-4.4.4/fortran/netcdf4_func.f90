@@ -739,6 +739,7 @@
   end function nf90_get_att_any
   ! -----------
    function nf90_put_var_any(ncid, varid, values, start, count, stride, map)
+      use netcdf4_nc_interfaces
      integer,                         intent( in) :: ncid, varid
      character (len = *),             intent( in) :: values
      integer, dimension(:), optional, intent( in) :: start, count, stride, map

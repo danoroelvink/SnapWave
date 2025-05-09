@@ -13,7 +13,6 @@ module snapwave_solver
       real*4               :: tpb
       !
       real*4, parameter    :: waveps = 1e-5
-      !real*4, dimension(:), allocatable   :: sig
       real*4, dimension(:), allocatable   :: sigm_ig
       real*4, dimension(:), allocatable   :: Tp_ig
       real*4, dimension(:), allocatable   :: expon
@@ -21,12 +20,8 @@ module snapwave_solver
       integer   :: itheta
       integer   :: k
       !
-      !allocate(sig(no_nodes))
       allocate(sigm_ig(no_nodes))
       allocate(Tp_ig(no_nodes))
-      !
-      g     = 9.81
-      pi    = 4.*atan(1.)
       !
       write(*,*)'Compute wave field started'
       !
@@ -85,7 +80,7 @@ module snapwave_solver
       !
       do k = 1, no_nodes
          sinhkh(k)    = sinh(min(kwav(k)*depth(k), 50.0))
-         Hmx(k)       = 0.88/kwav(k)*tanh(gamma*kwav(k)*depth(k)/0.88)
+         Hmx(k) = gamma * depth(k)
       enddo
       if (ig==1) then
          do k = 1, no_nodes
@@ -96,12 +91,17 @@ module snapwave_solver
       endif
       !   
       do itheta = 1, ntheta
-         ctheta(itheta,:)    = sig/sinh(min(2.0*kwav*depth, 50.0))*(dhdx*sin(theta(itheta)) - dhdy*cos(theta(itheta)))
-      enddo
+         do k = 1, no_nodes
+            ctheta(itheta, k) = sig(k) / sinh(min(2.0 * kwav(k) * depth(k), 50.0)) * (dhdx(k) * sin(theta(itheta)) - dhdy(k) * cos(theta(itheta)))
+         enddo
+      end do
+
       !
       if (ig==1) then
          do itheta = 1, ntheta
-            ctheta_ig(itheta,:) = sigm_ig/sinh(min(2.0*kwav_ig*depth, 50.0))*(dhdx*sin(theta(itheta)) - dhdy*cos(theta(itheta)))
+            do k = 1, no_nodes
+               ctheta_ig(itheta, k) = sigm_ig(k) / sinh(min(2.0 * kwav_ig(k) * depth(k), 50.0)) * (dhdx(k) * sin(theta(itheta)) - dhdy(k) * cos(theta(itheta)))
+            enddo
          enddo
       else
          ctheta_ig = 0.0
@@ -111,7 +111,6 @@ module snapwave_solver
       !
       do k = 1, no_nodes
           ctheta(:,k)    = sign(1.0, ctheta(:,k))*min(abs(ctheta(:, k)), sig(k)/4)
-      !   ctheta(:,k)    = sign(1.0, ctheta(:,k))*min(abs(ctheta(:, k)),pi/2*cg(k)/max(ds(:,k),1.d-10))
       enddo
       !
       if (ig == 1) then
@@ -129,8 +128,8 @@ module snapwave_solver
                                          neumannconnected,       &
                                          theta,ntheta,thetamean, &
                                          depth,kwav,cg,ctheta,fw,     &
-                                         Tp,dt,rho,alpha,gamma, &
-                                         refraction_method,wind,   &
+                                         Tp,dt,rho,alpha,gamma, gammax,&
+                                         wind,   &
                                          H,Dw,F,Df,thetam,sinhkh,&
                                          Hmx, ee, windspreadfac, u10, niter, crit,&
                                          aa, sig, jadcgdx, sigmin, sigmax,&
@@ -155,8 +154,8 @@ module snapwave_solver
                                          neumannconnected,       &
                                          theta,ntheta,thetamean, &
                                          depth,kwav,cg,ctheta,fw,     &
-                                         Tp,dt,rho,alfa,gamma, &
-                                         refraction_method,wind,   &
+                                         Tp,dt,rho,alfa,gamma, gammax,&
+                                         wind,   &
                                          H,Dw,F,Df,thetam,sinhkh,&
                                          Hmx, ee, windspreadfac, u10, niter, crit,&
                                          aa, sig, jadcgdx, sigmin, sigmax,&
@@ -181,7 +180,6 @@ module snapwave_solver
    real*4, intent(in)                               :: thetamean              ! mean offshore wave direction (rad)
    real*4, dimension(ntheta), intent(in)            :: theta                  ! distribution of wave angles and offshore wave energy density
    logical, dimension(no_nodes), intent(inout)      :: inner                  ! mask of inner grid points (not on boundary)
-   integer, intent(in)                              :: refraction_method      ! central(0, default) or upwind (1) refraction
    integer, intent(in)                              :: wind                   ! wind on/off (1/0)
    integer, intent(in)                              :: ig                     ! IG waves on/off (1/0)
    integer, dimension(no_nodes),intent(in)          :: neumannconnected       ! number of neumann boundary point if connected to inner point
@@ -198,7 +196,7 @@ module snapwave_solver
    real*4, dimension(no_nodes), intent(in)          :: fw_ig                  ! wave friction factor
    real*4, intent(in)                               :: dt                     ! time step (s)
    real*4, intent(in)                               :: rho                    ! water density
-   real*4, intent(in)                               :: alfa,gamma             ! coefficients in Baldock wave breaking dissipation
+   real*4, intent(in)                               :: alfa, gamma, gammax ! coefficients in Baldock wave breaking dissipation
    real*4, dimension(no_nodes), intent(out)         :: H                      ! wave height
    real*4, dimension(no_nodes), intent(out)         :: H_ig                   ! wave height
    real*4, dimension(no_nodes), intent(out)         :: Dw                     ! wave breaking dissipation
@@ -262,14 +260,13 @@ module snapwave_solver
    real*4, dimension(:), allocatable          :: E_ig                   ! mean wave energy
    real*4, dimension(:), allocatable          :: diff                   ! maximum difference of wave energy relative to previous iteration
    real*4, dimension(:), allocatable          :: ra                     ! coordinate in sweep direction
-   !real*4, dimension(:), allocatable          :: sig
    real*4, dimension(:), allocatable          :: T_ig, sigm_ig
    integer, dimension(4)                      :: shift
    real*4                                     :: pi = 4.*atan(1.0)
    real*4                                     :: g=9.81
 
    real*4                                     :: hmin=0.1             ! minimum water depth
-   real*4                                     :: fac=0.25             ! underrelaxation factor for DoverE
+   real*4                                     :: fac = 1.0 ! underrelaxation factor for DoverA
    real*4                                     :: oneoverdt
    real*4                                     :: oneover2dtheta
    real*4                                     :: rhog8
@@ -551,7 +548,7 @@ module snapwave_solver
                   !
                   Ek = sum(eeprev)*dtheta     ! to check                
                   !
-                  depthlimfac = max(1.0, (sqrt(Ek/rhog8)/(gamma*depth(k)))**2.0)
+                  depthlimfac = max(1.0, (sqrt(Ek / rhog8) / (gammax * depth(k)))**2.0)
                   Hk = min(sqrt(Ek/rhog8), gamma*depth(k))
                   Ek = Ek/depthlimfac
                   !
@@ -614,66 +611,26 @@ module snapwave_solver
                   !
                   do itheta = 1, ntheta
                      !
-                     R(itheta) = oneoverdt*ee(itheta, k) + cgprev(itheta)*eeprev(itheta)/ds(itheta, k) - srcsh(itheta, k)*ee(itheta,k)
+                     !R(itheta) = oneoverdt*ee(itheta, k) + cgprev(itheta)*eeprev(itheta)/ds(itheta, k) - srcsh(itheta, k)*ee(itheta,k)
+                     R(itheta) = oneoverdt * ee(itheta, k) + cgprev(itheta) * eeprev(itheta) / ds(itheta, k)
                      !
                   enddo                  
                   !
-                  if (refraction_method==1) then
-                     do itheta = 2, ntheta - 1
-                        !
-                        if (ctheta(itheta,k)<0) then
-                           A(itheta) = 0.0
-                           B(itheta) = oneoverdt - ctheta(itheta, k)/dtheta + cg(k)/ds(itheta, k) + DoverE(k)
-                           C(itheta) = ctheta(itheta+1, k)/dtheta
-                        else
-                           A(itheta) = -ctheta(itheta - 1, k)/dtheta
-                           B(itheta) = oneoverdt + ctheta(itheta, k)/dtheta + cg(k)/ds(itheta, k) + DoverE(k)
-                           C(itheta) = 0.0
-                        endif
-                     enddo
-                  else
-                     do itheta = 2, ntheta - 1
-                        !
-                        A(itheta) = -ctheta(itheta - 1, k)*oneover2dtheta
-                        B(itheta) = oneoverdt + cg(k)/ds(itheta,k) + DoverE(k)
-                        C(itheta) = ctheta(itheta + 1, k)*oneover2dtheta
-                        !
-                     enddo
-                  endif
+                  do itheta = 2, ntheta - 1
+                     !
+                     A(itheta) = -ctheta(itheta - 1, k)*oneover2dtheta
+                     B(itheta) = oneoverdt + cg(k) / ds(itheta, k) + DoverE(k) + srcsh(itheta, k)
+                     C(itheta) = ctheta(itheta + 1, k)*oneover2dtheta
+                     !
+                  enddo
                   !
-                  if (.true.) then  !(ntheta*dtheta*180d0/pi<350) then
-                     if (ctheta(1,k)<0) then
-                        A(1) = 0.0
-                        B(1) = oneoverdt - ctheta(1, k)/dtheta + cg(k)/ds(1, k) + DoverE(k)
-                        C(1) = ctheta(2, k)/dtheta
-                     else
-                        A(1) = 0.0
-                     !  B(1) = oneoverdt + cg(k)/ds(1, k) + DoverE(k)
-                        B(1) = 1.0
-                        C(1) = 0.0
-                        R(1) = 0.0
-                     endif
-                     !
-                     if (ctheta(ntheta, k)>0) then
-                        A(ntheta) = -ctheta(ntheta - 1, k)/dtheta
-                        B(ntheta) = oneoverdt + ctheta(ntheta, k)/dtheta + cg(k)/ds(ntheta, k) + DoverE(k)
-                        C(ntheta) = 0.0
-                     else
-                        A(ntheta) = 0.0
-                     !  B(ntheta) = oneoverdt + cg(k)/ds(ntheta, k) + DoverE(k)
-                        B(ntheta) = 1.0
-                        C(ntheta) = 0.0
-                        R(ntheta) = 0.0
-                     endif
-                  else
-                     A(1) = -ctheta(ntheta, k)*oneover2dtheta
-                     B(1) = oneoverdt + cg(k)/ds(1,k) + DoverE(k)
-                     C(1) = ctheta(2, k)*oneover2dtheta
-                     !
-                     A(ntheta) = -ctheta(ntheta - 1, k)*oneover2dtheta
-                     B(ntheta) = oneoverdt + cg(k)/ds(ntheta,k) + DoverE(k)
-                     C(ntheta) = ctheta(1, k)*oneover2dtheta
-                  endif
+                  A(1) = -ctheta(ntheta, k)*oneover2dtheta
+                  B(1) = oneoverdt + cg(k) / ds(1, k) + DoverE(k) + srcsh(1, k)
+                  C(1) = ctheta(2, k)*oneover2dtheta
+                  !
+                  A(ntheta) = -ctheta(ntheta - 1, k)*oneover2dtheta
+                  B(ntheta) = oneoverdt + cg(k) / ds(ntheta, k) + DoverE(k) + srcsh(ntheta, k)
+                  C(ntheta) = ctheta(1, k)*oneover2dtheta
 
                   !
                   ! Solve tridiagonal system per point
@@ -711,7 +668,7 @@ module snapwave_solver
                      Ek       = sum(ee(:, k))*dtheta     
                      Ak       = sum(aa(:,k))*dtheta
                      !
-                     depthlimfac = max(1.0, (sqrt(Ek/rhog8)/(gamma*depth(k)))**2.0)
+                        depthlimfac = max(1.0, (sqrt(Ek / rhog8) / (gammax * depth(k)))**2.0)
                      Hk = sqrt(Ek/rhog8/depthlimfac)
                      Ek = Ek/depthlimfac
                      Ak = Ak/depthlimfac
@@ -1053,13 +1010,13 @@ module snapwave_solver
    real*4 :: rra
    !
    ! initialize index array
-   IF (ind (1) .eq.0) then
-      DO i = 1, n
+   if (ind(1) == 0) then
+      do i = 1, n
          ind (i) = i
-      ENDDO
-   ENDIF
+      enddo
+   endif
    ! nothing to order
-   IF (n.lt.2) return
+   if (n < 2) return
    ! initialize indices for hiring and retirement-promotion phase
    l = n / 2 + 1
 
@@ -1068,7 +1025,7 @@ module snapwave_solver
    sorting: do
 
       ! still in hiring phase
-      IF ( l .gt. 1 ) then
+      if (l > 1) then
          l    = l - 1
          rra  = ra (l)
          iind = ind (l)
@@ -1085,21 +1042,21 @@ module snapwave_solver
          ! decrease the size of the corporation
          ir = ir - 1
          ! done with the last promotion
-         IF ( ir .eq. 1 ) then
+         if (ir == 1) then
             ! the least competent worker at all !
             ra (1)  = rra
             !
             ind (1) = iind
             exit sorting
-         ENDIF
-      ENDIF
+         endif
+      endif
       ! wheter in hiring or promotion phase, we
       i = l
       ! set up to place rra in its proper level
       j = l + l
       !
-      DO while ( j .le. ir )
-         IF ( j .lt. ir ) then
+      do while ( j <= ir )
+         IF ( j < ir ) then
             ! compare to better underling
             IF ( hslt( ra (j),  ra (j + 1) ) ) then
                j = j + 1

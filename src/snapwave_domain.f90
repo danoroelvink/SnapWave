@@ -26,9 +26,6 @@ subroutine initialize_snapwave_domain()
    !
    ! First set some constants
    !
-   pi   = 4.*atan(1.0)
-   g    = 9.81
-   rho  = 1025.0
    np   = 22 ! why?
    cosrot = cos(rotation*pi/180)
    sinrot = sin(rotation*pi/180)
@@ -631,7 +628,7 @@ subroutine find_upwind_neighbours(x,y,no_nodes,sferic,theta,ntheta,kp,np,w,prev,
    ! Find upwind neighbours for each cell in an unstructured grid x,y (1d
    ! vectors) given vector of directions theta
    !
-   pi = 4*atan(1.0)
+   pi = 4.0*atan(1.0)
    !
    do k = 1, no_nodes
       call findloc(kp(:,k), np, 0, nploc)
@@ -1327,7 +1324,7 @@ subroutine veggie_init()
     ! Solve XT_X * coeffs = XT_z for coeffs (a, b, c)
     call solve_linear_system(XT_X, XT_z, coeffs)
 
-    ! Coëfficients of the plane
+    ! Coefficients of the plane
     dzdx = coeffs(1)
     dzdy = coeffs(2)
 
@@ -1353,8 +1350,10 @@ subroutine veggie_init()
         ! Gaussiaanse eliminatie
         do i = 1, 3
             factor = A_inv(i, i)
-            A_inv(i, :) = A_inv(i, :) / factor
-            x(i) = x(i) / factor
+            if (abs(factor) >= 1.d-10) then
+               A_inv(i, :) = A_inv(i, :) / factor
+               x(i) = x(i) / factor
+            endif
 
             do j = 1, 3
                 if (i /= j) then
