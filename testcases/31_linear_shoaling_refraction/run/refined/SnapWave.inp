@@ -1,0 +1,40 @@
+tref           = 20240417 000000
+tstart         = 20240417 000000
+tstop          = 20240417 020000
+timestep       = 3600.0
+
+gamma = 0.75
+alpha = 0.0
+
+encfile        = ..\seabnd.txt
+neumannfile    = ..\neubnd.txt
+
+bndfile        = ..\bnd_pts.txt
+bhsfile        = ..\bnd_hm0.txt
+btpfile        = ..\bnd_tp.txt
+bwdfile        = ..\bnd_dir.txt
+bdsfile        = ..\bnd_dspr.txt
+bzsfile        = ..\bnd_wl.txt
+obsfile        = ..\central_obs.txt
+
+hmin = 1
+fw = 0.0
+
+gridfile       = UGbakker_devroeg_refined_net.nc
+
+niter =  200
+dtheta         = 1
+sector         = 180
+
+wind=0
+map_file       = ..\..\output\shoalref_refined_neu_map.nc
+his_file       = ..\..\output\shoalref_refined_neu_his.nc
+
+map_Dw = 1
+map_ee = 1
+map_Hm0 = 1
+map_Tp = 1
+map_dir = 1
+map_Cg = 1
+his_ee = 1
+

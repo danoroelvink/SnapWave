@@ -16,6 +16,7 @@ program snapwave
    use snapwave_ncoutput
    use snapwave_obspoints
    use snapwave_results
+   use omp_lib
    !
    implicit none
    !
@@ -43,6 +44,11 @@ program snapwave
    !
    ! Start time loop
    !
+   !$omp parallel
+   !$omp single
+   write(*,'(A,I2,A)') 'Running with ', omp_get_num_threads(), ' OMP threads.' 
+   !$omp end single
+   !$omp end parallel
    it = 0
    t  = tstart
    !

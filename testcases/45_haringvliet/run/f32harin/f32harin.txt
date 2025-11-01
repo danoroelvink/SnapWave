@@ -1,0 +1,8 @@
+This directory contains the following files:
+
+f32har01.swn      : SWAN command file
+f31hari.bot       : contains bottom values
+f31hari.loc       : contains output locations
+f31har01.bnd      : contains boundary conditions given as spectra
+f32hari.node      : contains vertices of unstructured mesh
+f32hari.ele       : contains triangles of unstructured mesh

@@ -1,0 +1,28 @@
+tref           = 20080901 000000
+tstart         = 20081101 000000
+tstop          = 20081231 230000
+timestep       = 3600.0
+gamma          = 0.75
+gridfile         UGdcsm_fine_ERA5bnd_casulli_net.nc
+gridfile         ugdcsm-fm_100mgrid_netherlands_era5bnd_net.nc
+gridfile         UGameland_net.nc
+gridfile       = UGameland_bathy2008_casulli_net.nc
+sferic         = 1
+bndfile        = ERA5_bndpoints.txt
+bhsfile        = ERA5_hs.txt
+btpfile        = ERA5_tp.txt
+bwdfile        = ERA5_wd.txt
+bdsfile        = ERA5_ds.txt
+bzsfile        = GTSM_Ameland_zs.txt
+encfile        = bndenc_nl.txt
+obsfile        = locations_WGS_obs.xyn
+jonswapfile    = 
+dtheta         = 10.0
+hmin           = 0.1
+sector         = 360
+niter          = 80
+uuupwindfile   = 
+restart        = 0
+his_file       = ..\output\ameland_his.nc
+map_file       = ..\output\ameland_map.nc
+writetestfiles = 0

@@ -1,0 +1,25 @@
+tref           = 19981018 120000
+tstart         = 19981101 000000
+tstop          = 19981113 000000
+timestep       = 1800.0
+gamma          = 0.70
+gridfile       = UGegm51_net.nc
+sferic         = 0
+obsfile        = coast3d_obs.txt
+bndfile        = none
+bhsfile        = 
+btpfile        = 
+bwdfile        = 
+bdsfile        = 
+bzsfile        = 
+encfile        = boundenc.txt
+jonswapfile    = jonswap.txt
+dtheta         = 10.0
+hmin           = 0.1
+sector         = 180
+uuupwindfile   = snapwave.upw
+restart        = 0
+niter          = 80
+his_file       = ..\..\output\snapwave_his.nc
+map_file       = ..\..\output\snapwave_map.nc
+

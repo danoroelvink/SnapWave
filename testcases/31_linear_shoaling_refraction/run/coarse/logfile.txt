@@ -1,0 +1,298 @@
+ Reading input file ...
+    Uniform wave period in entire domain.
+ Initializing SnapWave domain ...
+    fw has uniform value of 0.0
+    fw_ig has uniform value of 0.015
+    Getting surrounding points ...
+    Finding upwind neighbors ...
+    Reading wave boundary enclosure ...
+ ..\n
+    Reading neumann boundary locations ...
+           3           1
+           4           2
+        1004        1003
+        1505        1504
+        2006        2005
+        2507        2506
+        3008        3007
+        3509        3508
+        4010        4009
+        4511        4510
+        5012        5011
+        5513        5512
+        6014        6013
+        6515        6514
+        7016        7015
+        7517        7516
+        8018        8017
+        8519        8518
+        9020        9019
+        9521        9520
+       10022       10021
+       10523       10522
+       11024       11023
+       11525       11524
+       12026       12025
+       12527       12526
+       13028       13027
+       13529       13528
+       14030       14029
+       14531       14530
+       15032       15031
+       15533       15532
+       16034       16033
+       16535       16534
+       17036       17035
+       17537       17536
+       18038       18037
+       18539       18538
+       19040       19039
+       19541       19540
+       20042       20041
+       20543       20542
+       21044       21043
+       21545       21544
+       22046       22045
+       22547       22546
+       23048       23047
+       23549       23548
+       24050       24049
+       24551       24550
+       25052       25051
+       25553       25552
+       26054       26053
+       26555       26554
+       27056       27055
+       27557       27556
+       28058       28057
+       28559       28558
+       29060       29059
+       29561       29560
+       30062       30061
+       30563       30562
+       31064       31063
+       31565       31564
+       32066       32065
+       32567       32566
+       33068       33067
+       33569       33568
+       34070       34069
+       34571       34570
+       35072       35071
+       35573       35572
+       36074       36073
+       36575       36574
+       37076       37075
+       37577       37576
+       38078       38077
+       38579       38578
+       39080       39079
+       39581       39580
+       40082       40081
+       40583       40582
+       41084       41083
+       41585       41584
+       42086       42085
+       42587       42586
+       43088       43087
+       43589       43588
+       44090       44089
+       44591       44590
+       45092       45091
+       45593       45592
+       46094       46093
+       46595       46594
+       47096       47095
+       47597       47596
+       48098       48097
+       48599       48598
+       49100       49099
+       49601       49600
+         999        1001
+        1000        1002
+        1502        1503
+        2003        2004
+        2504        2505
+        3005        3006
+        3506        3507
+        4007        4008
+        4508        4509
+        5009        5010
+        5510        5511
+        6011        6012
+        6512        6513
+        7013        7014
+        7514        7515
+        8015        8016
+        8516        8517
+        9017        9018
+        9518        9519
+       10019       10020
+       10520       10521
+       11021       11022
+       11522       11523
+       12023       12024
+       12524       12525
+       13025       13026
+       13526       13527
+       14027       14028
+       14528       14529
+       15029       15030
+       15530       15531
+       16031       16032
+       16532       16533
+       17033       17034
+       17534       17535
+       18035       18036
+       18536       18537
+       19037       19038
+       19538       19539
+       20039       20040
+       20540       20541
+       21041       21042
+       21542       21543
+       22043       22044
+       22544       22545
+       23045       23046
+       23546       23547
+       24047       24048
+       24548       24549
+       25049       25050
+       25550       25551
+       26051       26052
+       26552       26553
+       27053       27054
+       27554       27555
+       28055       28056
+       28556       28557
+       29057       29058
+       29558       29559
+       30059       30060
+       30560       30561
+       31061       31062
+       31562       31563
+       32063       32064
+       32564       32565
+       33065       33066
+       33566       33567
+       34067       34068
+       34568       34569
+       35069       35070
+       35570       35571
+       36071       36072
+       36572       36573
+       37073       37074
+       37574       37575
+       38075       38076
+       38576       38577
+       39077       39078
+       39578       39579
+       40079       40080
+       40580       40581
+       41081       41082
+       41582       41583
+       42083       42084
+       42584       42585
+       43085       43086
+       43586       43587
+       44087       44088
+       44588       44589
+       45089       45090
+       45590       45591
+       46091       46092
+       46592       46593
+       47093       47094
+       47594       47595
+       48095       48096
+       48596       48597
+       49097       49098
+       49598       49599
+       50099       50100
+ Finished initializing SnapWave.
+ Reading observation points ...
+ Reading wave boundary locations ...
+ Reading wave boundaries ...
+    Input boundary points found:            1
+    Magnitude of u10 has uniform value of 0.0
+    Direction of u10 has uniform value of 270.0
+ Initialize ncoutput
+Running with 20 OMP threads.
+ Start time loop
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.00000   %ok =    0.99
+   iteration      2 error =    0.01233   %ok =    6.04
+   iteration      3 error =    0.00007   %ok =   91.98
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                  1.406250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.00000   %ok =    0.99
+   iteration      2 error =    0.38128   %ok =    5.74
+   iteration      3 error =    0.15428   %ok =   81.93
+   iteration      4 error =    0.07136   %ok =   86.70
+   iteration      5 error =    0.03615   %ok =   87.67
+   iteration      6 error =    0.01962   %ok =   88.71
+   iteration      7 error =    0.01104   %ok =   89.76
+   iteration      8 error =    0.00641   %ok =   90.80
+   iteration      9 error =    0.00373   %ok =   91.84
+   iteration     10 error =    0.00218   %ok =   92.85
+   iteration     11 error =    0.00127   %ok =   93.86
+   iteration     12 error =    0.00072   %ok =   94.85
+   iteration     13 error =    0.00039   %ok =   95.84
+   iteration     14 error =    0.00021   %ok =   96.81
+   iteration     15 error =    0.00012   %ok =   97.98
+   iteration     16 error =    0.00002   %ok =   99.58
+   iteration     17 error =    0.00002   %ok =   99.94
+   iteration     18 error =    0.00002   %ok =   99.95
+   iteration     19 error =    0.00002   %ok =   99.96
+   iteration     20 error =    0.00002   %ok =   99.97
+   iteration     21 error =    0.00001   %ok =   99.98
+   iteration     22 error =    0.00001   %ok =   99.98
+   iteration     23 error =    0.00001   %ok =   99.99
+   iteration     24 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                  2.125000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.03801   %ok =    0.99
+   iteration      2 error =    0.04037   %ok =    2.93
+   iteration      3 error =    0.04465   %ok =   60.32
+   iteration      4 error =    0.03745   %ok =   75.78
+   iteration      5 error =    0.03125   %ok =   76.67
+   iteration      6 error =    0.02699   %ok =   77.52
+   iteration      7 error =    0.02417   %ok =   78.37
+   iteration      8 error =    0.02224   %ok =   79.21
+   iteration      9 error =    0.02075   %ok =   80.03
+   iteration     10 error =    0.01940   %ok =   80.88
+   iteration     11 error =    0.01799   %ok =   81.70
+   iteration     12 error =    0.01648   %ok =   82.54
+   iteration     13 error =    0.01487   %ok =   83.36
+   iteration     14 error =    0.01321   %ok =   84.18
+   iteration     15 error =    0.01154   %ok =   84.99
+   iteration     16 error =    0.00993   %ok =   85.79
+   iteration     17 error =    0.00839   %ok =   86.60
+   iteration     18 error =    0.00698   %ok =   87.40
+   iteration     19 error =    0.00572   %ok =   88.19
+   iteration     20 error =    0.00461   %ok =   88.98
+   iteration     21 error =    0.00367   %ok =   89.77
+   iteration     22 error =    0.00289   %ok =   90.54
+   iteration     23 error =    0.00224   %ok =   91.30
+   iteration     24 error =    0.00172   %ok =   92.06
+   iteration     25 error =    0.00130   %ok =   92.81
+   iteration     26 error =    0.00097   %ok =   93.55
+   iteration     27 error =    0.00072   %ok =   94.26
+   iteration     28 error =    0.00052   %ok =   94.98
+   iteration     29 error =    0.00037   %ok =   95.68
+   iteration     30 error =    0.00027   %ok =   96.38
+   iteration     31 error =    0.00019   %ok =   97.09
+   iteration     32 error =    0.00013   %ok =   97.85
+   iteration     33 error =    0.00009   %ok =   98.91
+   iteration     34 error =    0.00002   %ok =   99.59
+   iteration     35 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                  3.546875      seconds

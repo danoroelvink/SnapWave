@@ -1,0 +1,14 @@
+ Reading input file ...
+ create_surrounding_points:   1.799999998183921E-002  seconds
+ find_upwind_neighbours:      0.178000000014435       seconds
+iteration      1 error =    0.87078   %ok =    2.00
+iteration      2 error =    1.73093   %ok =    7.23
+iteration      3 error =    0.28056   %ok =   16.51
+iteration      4 error =    0.06338   %ok =   40.65
+iteration      5 error =    0.01125   %ok =   95.74
+iteration      6 error =    0.00119   %ok =   99.89
+iteration      7 error =    0.00032   %ok =  100.00
+ Stop
+ computation:                  5.03599999999278       seconds
+ output:                      9.999999892897904E-004  seconds
+ total:                        5.23299999997835       seconds

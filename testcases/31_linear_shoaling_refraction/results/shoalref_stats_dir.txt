@@ -1,0 +1,7 @@
+               runid  dir       r2      sci  relbias     bias    skill     rmse
+ shoalref_coarse_neu   30   0.9917    0.015   -0.009   -0.348    1.000    0.577
+   shoalref_fine_neu   30   0.9934    0.011   -0.009   -0.333    1.000    0.444
+shoalref_refined_neu   30   0.9933    0.013   -0.010   -0.392    1.000    0.508
+ shoalref_coarse_neu   45   0.9912    0.017   -0.010   -0.508    1.000    0.841
+   shoalref_fine_neu   45   0.9933    0.013   -0.011   -0.537    1.000    0.663
+shoalref_refined_neu   45   0.9932    0.014   -0.012   -0.588    1.000    0.721

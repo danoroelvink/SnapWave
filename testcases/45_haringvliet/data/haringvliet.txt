@@ -1,0 +1,8 @@
+This directory contains the following files:
+
+f31har0?.swn      : SWAN command files
+f31hari.bot       : contains bottom values
+f31hari.loc       : contains output locations
+f31har0?.bnd      : contains boundary conditions given as spectra
+
+In subdirectory data you can found measurement data (*.dat)

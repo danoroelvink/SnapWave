@@ -1,0 +1,347 @@
+1
+
+                    Execution started at 20220812.083259         
+
+
+
+                    ---------------------------------------
+                                     SWAN
+                    SIMULATION OF WAVES IN NEAR SHORE AREAS
+                             VERSION NUMBER 41.41               
+                    ---------------------------------------
+
+
+    
+ $*************************HEADING************************
+    
+ $
+    
+ PROJ 'F31har01' 'F31'
+    
+ $
+    
+ $ Field case: the Haringvliet test
+    
+ $ Time of simulation: 21:00 UTC on October 14, 1982
+    
+ $
+    
+ $********************MODEL INPUT*************************
+    
+ $
+    
+ SET LEVEL 0.30
+    
+ $
+    
+ CGRID 6960.2 0. 0. 14789.8 22000. 98 88 CIRCLE 36 0.0521 1. 31
+ Resolution in sigma-space: df/f =  0.1000
+    
+ $
+    
+ $ use exception value as indicated in bottom file
+    
+ INPGRID BOTTOM 0. 0. 0. 87 116 250. 250. EXC -99.
+    
+ READINP BOTTOM 1. 'f31hari.bot' 3 0 FREE
+    
+ $
+    
+ WIND 12. 8.8
+    
+ $
+    
+ BOU SIDE W CCW CON FILE 'f31har01.bnd' 1
+    
+ $
+    
+ GEN3 DRAG WU
+    
+ BREAKING
+    
+ FRICTION
+    
+ TRIADS
+    
+ $
+    
+ $*************************************************************
+    
+ $
+    
+ POINTS 'BUOYS' FILE   'f31hari.loc'
+    
+ TABLE  'BUOYS' HEAD   'f31har01.tab' DIST DEP HS RTP TM01 TM02 DSPR DIR FORCE
+    
+ TABLE  'BUOYS' NOHEAD 'f31har01.tbl' HS RTP TPS TM01 TM02
+    
+ SPEC   'BUOYS' SPEC1D 'f31har01.spc'
+    
+ $
+    
+ $ generate binary Matlab file to be viewed with Matlab
+    
+ BLOCK  'COMPGRID' NOHEAD 'f31har01.mat' LAYOUT 3 XP YP BOTLEV HS TM01 DSPR
+    
+ $
+    
+ $ generate file in xml/vtk format to be viewed with Paraview
+    
+ BLOCK  'COMPGRID' NOHEAD 'f31har01.vtk' BOTLEV HS TM01 DSPR
+    
+ $
+    
+ $ set itest=1 in order to get detailed information in PRINT file
+    
+ TEST 1,0
+    
+ COMPUTE
+
+----------------------------------------------------------------
+                  COMPUTATIONAL PART OF SWAN
+----------------------------------------------------------------
+
+ Gridresolution       : MXC              99 MYC             89
+                      : MCGRD          5165
+                      : MSC              32 MDC             36
+                      : MTC               1
+                      : NSTATC            0 ITERMX          50
+ Propagation flags    : ITFRE             1 IREFR            1
+ Source term flags    : IBOT              1 ISURF            1
+                      : IWCAP             1 IWIND            3
+                      : ITRIAD           11 IQUAD            2
+                      : IBRAG             0 IQCM             0
+                      : IVEG              0 ITURBV           0
+                      : IMUD              0 IICE             0
+ Spatial step         : DX       0.1509E+03 DY      0.2500E+03
+ Spectral bin         : df/f     0.1000E+00 DDIR    0.1000E+02
+ Physical constants   : GRAV     0.9810E+01 RHO     0.1025E+04
+ Wind input           : WSPEED   0.1200E+02 DIR     0.8800E+01
+                      : ICEWIND  0.00
+ Tail parameters      : E(f)     0.4000E+01 E(k)    0.2500E+01
+                      : A(f)     0.5000E+01 A(k)    0.3000E+01
+ Accuracy parameters  : DREL     0.1000E-01 NPNTS   0.9950E+02
+                      : DHABS    0.5000E-02 CURVAT  0.5000E-02
+                      : GRWMX    0.1000E+00
+ Drying/flooding      : LEVEL    0.3000E+00 DEPMIN  0.5000E-01
+ The Cartesian convention for wind and wave directions is used
+ Scheme for geographic propagation is SORDUP
+ Scheme geogr. space  : PROPSC            2 ICMAX            7
+ Scheme spectral space: CSS      0.5000E+00 CDD     0.5000E+00
+ Current is off
+ Quadruplets          : IQUAD             2
+                      : LAMBDA   0.2500E+00 CNL4    0.3000E+08
+                      : CSH1     0.5500E+01 CSH2    0.8330E+00
+                      : CSH3    -0.1250E+01
+ Maximum Ursell nr for Snl4 :    0.1000E+02
+ Triads               : ITRIAD           11 TRFAC   0.5000E-01
+                      : CUTFR    0.2500E+01 URCRI   0.2000E+00
+ Minimum Ursell nr for Snl3 :    0.1000E-01
+ Bragg scattering is off
+ QC scattering is off
+ Surfbeat (IEM) is off
+ JONSWAP (`73)        : GAMMA    0.3800E-01
+ Vegetation is off
+ Turbulence is off
+ Fluid mud is off
+ Dissipation by sea ice is off
+ W-cap Komen (`84)    : EMPCOF (CDS2):   0.2360E-04
+ W-cap Komen (`84)    : APM (STPM)   :   0.3020E-02
+ W-cap Komen (`84)    : POWST        :   0.2000E+01
+ W-cap Komen (`84)    : DELTA        :   0.1000E+01
+ W-cap Komen (`84)    : POWK         :   0.1000E+01
+ Wind drag is Wu
+ Snyder/Komen wind input
+ Battjes&Janssen (`78): ALPHA    0.1000E+01 GAMMA   0.7300E+00
+ Set-up is off
+ Diffraction is off
+ Janssen (`89,`90)    : ALPHA    0.1000E-01 KAPPA   0.4100E+00
+ Janssen (`89,`90)    : RHOA     0.1280E+01 RHOW    0.1025E+04
+ 
+ 1st and 2nd gen. wind: CF10     0.1880E+03 CF20    0.5900E+00
+                      : CF30     0.1200E+00 CF40    0.2500E+03
+                      : CF50     0.2300E-02 CF60   -0.2230E+00
+                      : CF70     0.0000E+00 CF80   -0.5600E+00
+                      : RHOAW    0.1249E-02 EDMLPM  0.3600E-02
+                      : CDRAG    0.1230E-02 UMIN    0.1000E+01
+                      : LIM_PM   0.1300E+00
+ 
+  ---------------------------------------------------------------
+  First guess by 2nd generation model flags for first iteration:
+  ITER       1 GRWMX      0.1000E+23 ALFA       0.0000E+00
+  IWIND      2 IWCAP      0 IQUAD      0
+  ITRIAD    11 IBOT       1 ISURF      1
+  IVEG       0 ITURBV     0 IMUD       0        IBRAG    0
+  IICE       0 ICEWIND    0.00
+  ---------------------------------------------------------------
+ iteration    1; sweep 1
+ iteration    1; sweep 2
+ iteration    1; sweep 3
+ iteration    1; sweep 4
+ use of rescaling in  93.00 % of wet points with maximum in spectral space =  416
+ not possible to compute, first iteration
+
+  ---------------------------------------------------------------
+  Options given by user are activated for proceeding calculation:
+  ITER       2 GRWMX      0.1000E+00 ALFA       0.0000E+00
+  IWIND      3 IWCAP      1 IQUAD      2
+  ITRIAD    11 IBOT       1 ISURF      1
+  IVEG       0 ITURBV     0 IMUD       0        IBRAG    0
+  IICE       0 ICEWIND    0.00
+  ---------------------------------------------------------------
+ iteration    2; sweep 1
+ iteration    2; sweep 2
+ iteration    2; sweep 3
+ iteration    2; sweep 4
+ use of   limiter in  99.38 % of wet points with maximum in spectral space =  247
+ lowest frequency occured above which limiter is applied =  0.0923 Hz
+ use of rescaling in  93.00 % of wet points with maximum in spectral space =  389
+ accuracy OK in  51.04 % of wet grid points ( 99.50 % required)
+
+ iteration    3; sweep 1
+ iteration    3; sweep 2
+ iteration    3; sweep 3
+ iteration    3; sweep 4
+ use of   limiter in  98.18 % of wet points with maximum in spectral space =  189
+ lowest frequency occured above which limiter is applied =  0.0923 Hz
+ use of rescaling in  92.74 % of wet points with maximum in spectral space =  388
+ accuracy OK in   1.79 % of wet grid points ( 99.50 % required)
+
+ iteration    4; sweep 1
+ iteration    4; sweep 2
+ iteration    4; sweep 3
+ iteration    4; sweep 4
+ use of   limiter in  98.18 % of wet points with maximum in spectral space =  182
+ lowest frequency occured above which limiter is applied =  0.1015 Hz
+ use of rescaling in  92.46 % of wet points with maximum in spectral space =  445
+ accuracy OK in  51.50 % of wet grid points ( 99.50 % required)
+
+ iteration    5; sweep 1
+ iteration    5; sweep 2
+ iteration    5; sweep 3
+ iteration    5; sweep 4
+ use of   limiter in  98.18 % of wet points with maximum in spectral space =  174
+ lowest frequency occured above which limiter is applied =  0.1015 Hz
+ use of rescaling in  92.34 % of wet points with maximum in spectral space =  493
+ accuracy OK in  71.58 % of wet grid points ( 99.50 % required)
+
+ iteration    6; sweep 1
+ iteration    6; sweep 2
+ iteration    6; sweep 3
+ iteration    6; sweep 4
+ use of   limiter in  96.74 % of wet points with maximum in spectral space =  165
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.36 % of wet points with maximum in spectral space =  516
+ accuracy OK in  84.24 % of wet grid points ( 99.50 % required)
+
+ iteration    7; sweep 1
+ iteration    7; sweep 2
+ iteration    7; sweep 3
+ iteration    7; sweep 4
+ use of   limiter in  92.28 % of wet points with maximum in spectral space =  161
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.34 % of wet points with maximum in spectral space =  541
+ accuracy OK in  90.94 % of wet grid points ( 99.50 % required)
+
+ iteration    8; sweep 1
+ iteration    8; sweep 2
+ iteration    8; sweep 3
+ iteration    8; sweep 4
+ use of   limiter in  90.54 % of wet points with maximum in spectral space =  159
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.40 % of wet points with maximum in spectral space =  592
+ accuracy OK in  93.74 % of wet grid points ( 99.50 % required)
+
+ iteration    9; sweep 1
+ iteration    9; sweep 2
+ iteration    9; sweep 3
+ iteration    9; sweep 4
+ use of   limiter in  89.26 % of wet points with maximum in spectral space =  155
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.50 % of wet points with maximum in spectral space =  623
+ accuracy OK in  95.12 % of wet grid points ( 99.50 % required)
+
+ iteration   10; sweep 1
+ iteration   10; sweep 2
+ iteration   10; sweep 3
+ iteration   10; sweep 4
+ use of   limiter in  88.58 % of wet points with maximum in spectral space =  152
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.36 % of wet points with maximum in spectral space =  650
+ accuracy OK in  96.26 % of wet grid points ( 99.50 % required)
+
+ iteration   11; sweep 1
+ iteration   11; sweep 2
+ iteration   11; sweep 3
+ iteration   11; sweep 4
+ use of   limiter in  87.22 % of wet points with maximum in spectral space =  155
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.32 % of wet points with maximum in spectral space =  682
+ accuracy OK in  97.22 % of wet grid points ( 99.50 % required)
+
+ iteration   12; sweep 1
+ iteration   12; sweep 2
+ iteration   12; sweep 3
+ iteration   12; sweep 4
+ use of   limiter in  86.70 % of wet points with maximum in spectral space =  156
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.26 % of wet points with maximum in spectral space =  720
+ accuracy OK in  98.02 % of wet grid points ( 99.50 % required)
+
+ iteration   13; sweep 1
+ iteration   13; sweep 2
+ iteration   13; sweep 3
+ iteration   13; sweep 4
+ use of   limiter in  85.14 % of wet points with maximum in spectral space =  158
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.34 % of wet points with maximum in spectral space =  746
+ accuracy OK in  98.48 % of wet grid points ( 99.50 % required)
+
+ iteration   14; sweep 1
+ iteration   14; sweep 2
+ iteration   14; sweep 3
+ iteration   14; sweep 4
+ use of   limiter in  84.48 % of wet points with maximum in spectral space =  158
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.36 % of wet points with maximum in spectral space =  762
+ accuracy OK in  98.90 % of wet grid points ( 99.50 % required)
+
+ iteration   15; sweep 1
+ iteration   15; sweep 2
+ iteration   15; sweep 3
+ iteration   15; sweep 4
+ use of   limiter in  83.12 % of wet points with maximum in spectral space =  158
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.40 % of wet points with maximum in spectral space =  778
+ accuracy OK in  99.00 % of wet grid points ( 99.50 % required)
+
+ iteration   16; sweep 1
+ iteration   16; sweep 2
+ iteration   16; sweep 3
+ iteration   16; sweep 4
+ use of   limiter in  82.22 % of wet points with maximum in spectral space =  158
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.34 % of wet points with maximum in spectral space =  782
+ accuracy OK in  99.26 % of wet grid points ( 99.50 % required)
+
+ iteration   17; sweep 1
+ iteration   17; sweep 2
+ iteration   17; sweep 3
+ iteration   17; sweep 4
+ use of   limiter in  80.84 % of wet points with maximum in spectral space =  158
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.44 % of wet points with maximum in spectral space =  777
+ accuracy OK in  99.32 % of wet grid points ( 99.50 % required)
+
+ iteration   18; sweep 1
+ iteration   18; sweep 2
+ iteration   18; sweep 3
+ iteration   18; sweep 4
+ use of   limiter in  80.36 % of wet points with maximum in spectral space =  157
+ lowest frequency occured above which limiter is applied =  0.1117 Hz
+ use of rescaling in  92.44 % of wet points with maximum in spectral space =  769
+ accuracy OK in  99.52 % of wet grid points ( 99.50 % required)
+
+ 
+    
+ STOP

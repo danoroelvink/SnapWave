@@ -79,6 +79,7 @@ contains
 !
       ! Allocate arrays output variables at observation points
       allocate(hm0obs(nobs)) 
+      allocate(zsobs(nobs)) 
       allocate(tpobs(nobs)) 
       allocate(hm0igobs(nobs))
       allocate(dwobs(nobs))
@@ -91,6 +92,7 @@ contains
       
       !
       hm0obs = 0.d0
+      zsobs = 0.d0
       tpobs = 0.d0
       hm0igobs = 0.d0
       dwobs = 0.d0
@@ -113,9 +115,11 @@ contains
    if (nobs>0) then
       buf=H*sqrt(2.)
       call grmap(buf, no_nodes, hm0obs, nobs, irefobs, wobs, 4,  0)
+      buf = depth + zb
+      call grmap(buf, no_nodes, zsobs, nobs, irefobs, wobs, 4,  0)
       if (ig==1) then
          buf=H_ig*sqrt(2.)
-         call grmap(buf, no_nodes, hm0igobs, nobs, irefobs, wobs, 4,  0)  
+         call grmap(buf, no_nodes, hm0igobs, nobs, irefobs, wobs, 4,  0)
       endif
       buf=Tp
       call grmap(buf, no_nodes, tpobs, nobs, irefobs, wobs, 4,  0)

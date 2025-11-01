@@ -1,0 +1,53 @@
+$*************************HEADING************************
+$
+PROJ 'F31har03' 'F31'
+$
+$ Field case: The Haringvliet test 3 of 4
+$ test 1 Time of simulation: 21:00 UTC  on October 14, 1982
+$ test 2 Time of simulation: 22:00 UTC  on October 14, 1982
+$ test 3 Time of simulation: 23:00 UTC  on October 14, 1982
+$ test 4 Time of simulation: 24:00 UTC  on October 14, 1982
+$
+$ Time of simulation: 23:00 UTC
+$
+$ WL   = + 1.70
+$ Hs   = 3.56 m
+$ Tm01 = 6.7 s
+$ Tp   = 8.3 s
+$
+$ --|--------------------------------------------------------------|--
+$   | This SWAN input file is part of the bench mark tests for     |
+$   | SWAN.                                                        |
+$ --|--------------------------------------------------------------|--
+$
+$********************MODEL INPUT*************************
+$
+SET LEVEL 1.70
+$
+CGRID 6960.2 0. 0. 14789.8 22000. 98 88 CIRCLE 36 0.0521 1. 31
+$
+INPGRID BOTTOM 0. 0. 0. 87 116 250. 250. EXC -99.
+READINP BOTTOM 1. 'f31hari.bot' 3 0 FREE
+$
+WIND 14. 8.8
+$
+BOU SIDE W CCW CON FILE 'f31har03.bnd' 1
+$
+GEN3
+BREA
+FRIC
+TRIAD
+$
+$*************************************************************
+$
+POINTS 'buoy' FILE 'f31hari.loc'
+TABLE  'buoy' XP YP DEP HS TM01 RTP
+TABLE  'buoy' XP YP DIR DSPR WLEN
+TABLE  'buoy' NOHEAD 'f31har03.tab' XP YP DEP HS TM01 RTP
+SPEC   'buoy' SPEC1D 'f31har03.spc'
+TABLE  'buoy' HEAD   'f31har03.tbl' HS RTP TM01 TM02 FSPR
+$
+TEST 1,0
+COMPUTE
+STOP
+$

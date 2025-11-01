@@ -1,0 +1,27 @@
+tref           = 20090612 000000
+tstart         = 20090612 000000
+tstop          = 20090630 230000
+timestep       = 3600.0
+gamma          = 0.75
+fw             = fw60.xyz
+gridfile       = UGningaloo_5xref_net.nc
+sferic         = 1
+bndfile        = ERA5_bndpoints.txt
+bhsfile        = ERA5_hs.txt
+btpfile        = ERA5_tp.txt
+bwdfile        = ERA5_wd.txt
+bdsfile        = ERA5_ds.txt
+bzsfile        = ERA5_zs.txt
+encfile        = enclosure.txt
+obsfile        = ningaloo_obs_WGS.txt
+jonswapfile    = 
+dtheta         = 5.0
+hmin           = 0.1
+sector         = 180
+niter          = 80
+uuupwindfile   = 
+restart        = 0
+his_file       = ningaloo_fw60_his.nc
+map_file       = 
+writetestfiles = 0
+

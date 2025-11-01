@@ -28,6 +28,7 @@ contains
    call read_real_input(500,'x0',x0,0.0)
    call read_real_input(500,'y0',y0,0.0)
    call read_real_input(500,'rotation',rotation,0.0)
+   call read_real_input(500,'posdwn',posdwn,1.0)
    call read_char_input(500,'tref',trefstr,'20000101 000000')
    call read_char_input(500,'tstart',tstartstr,'20000101 000000')
    call read_char_input(500,'tstop',tstopstr,'20000101 000000')
@@ -38,9 +39,9 @@ contains
    call read_real_input(500,'gamma',gamma,0.7)
    call read_real_input(500,'alpha',alpha,1.0)
    call read_real_input(500,'hmin',hmin,0.1)
+   call read_real_input(500,'gammax',gammax,0.6)
    call read_char_input(500,'gridfile',gridfile,'.txt')
    call read_int_input(500,'sferic',sferic,0)
-   call read_int_input(500,'refraction_method',refraction_method,0)
    call read_char_input(500,'fw',fwstr,'0.01')
    call read_char_input(500,'fwig',fw_igstr,'0.015')
    call read_real_input(500,'fwcutoff',fwcutoff,200.0)
@@ -65,6 +66,7 @@ contains
    call read_char_input(500,'outputformat',outputformat,'bin')
    call read_char_input(500,'map_file',map_filename,'')
    call read_char_input(500,'his_file',his_filename,'')
+   call read_int_input(500,'map_depth',map_dep,1)
    call read_int_input(500,'map_Hm0',map_Hm0,1)
    call read_int_input(500,'map_Hig',map_Hig,0)
    call read_int_input(500,'map_Tp',map_Tp,1)
@@ -94,6 +96,7 @@ contains
    call read_real_input(500,'c_dispT',c_dispT,1.0)
    call read_real_input(500,'zsini',zsini,0.0)
    call read_int_input (500,'ig',ig, 0)
+   call read_int_input (500,'upwindref',upwindref, 0)
    !
    ! Vegetation input
    !

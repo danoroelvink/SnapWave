@@ -1,0 +1,170 @@
+ Reading input file ...
+    Uniform wave period in entire domain.
+ Initializing SnapWave domain ...
+    fw has uniform value of 0.0
+    fw_ig has uniform value of 0.015
+    Getting surrounding points ...
+    Finding upwind neighbors ...
+    Reading wave boundary enclosure ...
+ ..\n
+    Reading neumann boundary locations ...
+           3           1
+           4           2
+         254         253
+         380         379
+         506         505
+         632         631
+         758         757
+         884         883
+        1010        1009
+        1136        1135
+        1262        1261
+        1388        1387
+        1514        1513
+        1640        1639
+        1766        1765
+        1892        1891
+        2018        2017
+        2144        2143
+        2270        2269
+        2396        2395
+        2522        2521
+        2648        2647
+        2774        2773
+        2900        2899
+        3026        3025
+        3152        3151
+        3278        3277
+        3404        3403
+        3530        3529
+        3656        3655
+        3782        3781
+        3908        3907
+        4034        4033
+        4160        4159
+        4286        4285
+        4412        4411
+        4538        4537
+        4664        4663
+        4790        4789
+        4916        4915
+        5292        5291
+        5543        5542
+        5794        5793
+        6045        6044
+        6296        6295
+        6547        6546
+        6798        6797
+        7049        7048
+        7300        7299
+        7551        7550
+         249         251
+         250         252
+         377         378
+         503         504
+         629         630
+         755         756
+         881         882
+        1007        1008
+        1133        1134
+        1259        1260
+        1385        1386
+        1511        1512
+        1637        1638
+        1763        1764
+        1889        1890
+        2015        2016
+        2141        2142
+        2267        2268
+        2393        2394
+        2519        2520
+        2645        2646
+        2771        2772
+        2897        2898
+        3023        3024
+        3149        3150
+        3275        3276
+        3401        3402
+        3527        3528
+        3653        3654
+        3779        3780
+        3905        3906
+        4031        4032
+        4157        4158
+        4283        4284
+        4409        4410
+        4535        4536
+        4661        4662
+        4787        4788
+        4913        4914
+        5289        5290
+        5540        5541
+        5791        5792
+        6042        6043
+        6293        6294
+        6544        6545
+        6795        6796
+        7046        7047
+        7297        7298
+        7548        7549
+        7799        7800
+ Finished initializing SnapWave.
+ Reading observation points ...
+ Reading wave boundary locations ...
+ Reading wave boundaries ...
+    Input boundary points found:            1
+    Magnitude of u10 has uniform value of 0.0
+    Direction of u10 has uniform value of 270.0
+ Initialize ncoutput
+Running with 20 OMP threads.
+ Start time loop
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.00000   %ok =    0.81
+   iteration      2 error =    0.01271   %ok =    6.49
+   iteration      3 error =    0.00007   %ok =   89.90
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.8559570      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.02638   %ok =    0.81
+   iteration      2 error =    0.39783   %ok =    4.44
+   iteration      3 error =    0.08543   %ok =   83.84
+   iteration      4 error =    0.02581   %ok =   94.93
+   iteration      5 error =    0.00894   %ok =   95.76
+   iteration      6 error =    0.00318   %ok =   96.57
+   iteration      7 error =    0.00112   %ok =   97.36
+   iteration      8 error =    0.00039   %ok =   98.14
+   iteration      9 error =    0.00014   %ok =   99.20
+   iteration     10 error =    0.00002   %ok =   99.99
+   iteration     11 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.9555664      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   10.30650      min depth =    1.000000    
+   iteration      1 error =    1.06940   %ok =    0.81
+   iteration      2 error =    0.07910   %ok =    1.59
+   iteration      3 error =    0.06114   %ok =   55.74
+   iteration      4 error =    0.04847   %ok =   84.17
+   iteration      5 error =    0.04042   %ok =   85.98
+   iteration      6 error =    0.03298   %ok =   87.77
+   iteration      7 error =    0.02620   %ok =   89.53
+   iteration      8 error =    0.01989   %ok =   91.16
+   iteration      9 error =    0.01434   %ok =   92.74
+   iteration     10 error =    0.00984   %ok =   93.83
+   iteration     11 error =    0.00645   %ok =   94.57
+   iteration     12 error =    0.00407   %ok =   95.21
+   iteration     13 error =    0.00247   %ok =   95.85
+   iteration     14 error =    0.00146   %ok =   96.47
+   iteration     15 error =    0.00084   %ok =   97.07
+   iteration     16 error =    0.00047   %ok =   97.69
+   iteration     17 error =    0.00026   %ok =   98.28
+   iteration     18 error =    0.00014   %ok =   98.89
+   iteration     19 error =    0.00007   %ok =   99.69
+   iteration     20 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                  1.341797      seconds

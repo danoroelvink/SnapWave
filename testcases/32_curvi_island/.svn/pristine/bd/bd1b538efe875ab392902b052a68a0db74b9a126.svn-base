@@ -1,0 +1,197 @@
+ Reading input file ...
+ Initializing SnapWave domain ...
+ Getting surrounding points ...
+ Finding upwind neighbors ...
+ Reading wave boundary enclosure ...
+ Finished initializing SnapWave.
+ Reading observation points ...
+ Reading boundary file jonswap.txt ...
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    1.00000   %ok =   17.77
+iteration      2 error =    0.08822   %ok =   27.67
+iteration      3 error =    0.00041   %ok =   81.69
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.41816   %ok =   17.74
+iteration      2 error =    0.07543   %ok =   43.89
+iteration      3 error =    0.00093   %ok =   83.65
+iteration      4 error =    0.00002   %ok =   99.35
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.96480   %ok =   17.65
+iteration      2 error =    0.09196   %ok =   33.01
+iteration      3 error =    0.00085   %ok =   79.99
+iteration      4 error =    0.00002   %ok =   99.83
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.96007   %ok =   17.65
+iteration      2 error =    0.02590   %ok =   35.91
+iteration      3 error =    0.00152   %ok =   83.65
+iteration      4 error =    0.00001   %ok =  100.00
+ Stop
+ computation:                 3.9062500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.39661   %ok =   17.65
+iteration      2 error =    0.03498   %ok =   32.27
+iteration      3 error =    0.00159   %ok =   81.33
+iteration      4 error =    0.00005   %ok =   98.24
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.82278   %ok =   17.65
+iteration      2 error =    0.11313   %ok =   34.07
+iteration      3 error =    0.00106   %ok =   81.84
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.46370   %ok =   17.74
+iteration      2 error =    0.07973   %ok =   44.25
+iteration      3 error =    0.00038   %ok =   82.96
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.41828   %ok =   17.74
+iteration      2 error =    0.07450   %ok =   44.67
+iteration      3 error =    0.00096   %ok =   81.95
+iteration      4 error =    0.00002   %ok =   99.32
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.95917   %ok =   17.65
+iteration      2 error =    0.09248   %ok =   32.82
+iteration      3 error =    0.00096   %ok =   79.93
+iteration      4 error =    0.00002   %ok =   99.86
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.48167   %ok =   17.65
+iteration      2 error =    0.03344   %ok =   30.60
+iteration      3 error =    0.00248   %ok =   79.25
+iteration      4 error =    0.00002   %ok =   99.77
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.79723   %ok =   17.65
+iteration      2 error =    0.04292   %ok =   36.00
+iteration      3 error =    0.00062   %ok =   80.89
+iteration      4 error =    0.00002   %ok =   99.63
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.82888   %ok =   17.65
+iteration      2 error =    0.11351   %ok =   34.24
+iteration      3 error =    0.00098   %ok =   81.57
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.46443   %ok =   17.74
+iteration      2 error =    0.07967   %ok =   44.19
+iteration      3 error =    0.00039   %ok =   82.85
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.41560   %ok =   17.74
+iteration      2 error =    0.07363   %ok =   44.16
+iteration      3 error =    0.00099   %ok =   82.49
+iteration      4 error =    0.00002   %ok =   99.35
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.94724   %ok =   17.65
+iteration      2 error =    0.09454   %ok =   32.64
+iteration      3 error =    0.00114   %ok =   79.60
+iteration      4 error =    0.00002   %ok =   99.78
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.96380   %ok =   17.65
+iteration      2 error =    0.02633   %ok =   35.91
+iteration      3 error =    0.00129   %ok =   84.47
+iteration      4 error =    0.00001   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.40836   %ok =   17.65
+iteration      2 error =    0.03591   %ok =   31.94
+iteration      3 error =    0.00166   %ok =   81.46
+iteration      4 error =    0.00006   %ok =   97.21
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 7.0312500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.82749   %ok =   17.65
+iteration      2 error =    0.11391   %ok =   34.54
+iteration      3 error =    0.00095   %ok =   81.60
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.45828   %ok =   17.76
+iteration      2 error =    0.07865   %ok =   44.65
+iteration      3 error =    0.00039   %ok =   83.42
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.41115   %ok =   17.72
+iteration      2 error =    0.07533   %ok =   43.75
+iteration      3 error =    0.00094   %ok =   82.89
+iteration      4 error =    0.00002   %ok =   99.37
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 4.6875000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.96101   %ok =   17.65
+iteration      2 error =    0.09539   %ok =   32.99
+iteration      3 error =    0.00132   %ok =   79.60
+iteration      4 error =    0.00002   %ok =   99.41
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.48322   %ok =   17.65
+iteration      2 error =    0.03487   %ok =   30.77
+iteration      3 error =    0.00227   %ok =   79.57
+iteration      4 error =    0.00002   %ok =   99.86
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.80502   %ok =   17.65
+iteration      2 error =    0.04902   %ok =   36.13
+iteration      3 error =    0.00071   %ok =   80.41
+iteration      4 error =    0.00002   %ok =   99.71
+iteration      5 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 3.1250000E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.80919   %ok =   17.65
+iteration      2 error =    0.11289   %ok =   34.58
+iteration      3 error =    0.00086   %ok =   81.66
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds
+ max depth=   21.00000      min depth =   0.1000000    
+iteration      1 error =    0.46050   %ok =   17.76
+iteration      2 error =    0.07946   %ok =   44.03
+iteration      3 error =    0.00039   %ok =   83.28
+iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+ computation:                 5.4687500E-02  seconds

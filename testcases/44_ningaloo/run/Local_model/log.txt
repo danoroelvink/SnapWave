@@ -1,0 +1,3679 @@
+ Reading input file ...
+    Uniform wave period in entire domain.
+ Initializing SnapWave domain ...
+    Reading samples from fw60.xyz
+      100146 samples read from fw60.xyz
+    Interpolation of samples on mesh started...
+          100146  samples interpolated on        46146  mesh nodes in 
+  0.2968750      s.
+    fw_ig has uniform value of 0.015
+    Getting surrounding points ...
+    Finding upwind neighbors ...
+    Reading wave boundary enclosure ...
+ Finished initializing SnapWave.
+ Reading observation points ...
+ Reading wave boundary locations ...
+ Reading wave boundaries ...
+    Input boundary points found:            2
+    Magnitude of u10 has uniform value of 0.0
+    Direction of u10 has uniform value of 270.0
+ Initialize ncoutput
+Running with 20 OMP threads.
+ Start time loop
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.96131      min depth =    1.017208    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00089   %ok =   53.63
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13851      min depth =    1.194405    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00084   %ok =   48.27
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31443      min depth =    1.370327    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00117   %ok =   31.19
+   iteration      3 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.43713      min depth =    1.493029    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00074   %ok =   43.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.48855      min depth =    1.544446    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   46.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.43170      min depth =    1.487594    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   49.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.26776      min depth =    1.323656    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   50.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04147      min depth =    1.097369    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00075   %ok =   53.99
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78928      min depth =   0.8451778    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   60.74
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.55636      min depth =   0.6122574    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   66.37
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.40737      min depth =   0.4632615    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   70.05
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.36826      min depth =   0.4241568    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00189   %ok =   53.57
+   iteration      3 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.43633      min depth =   0.4922189    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00076   %ok =   67.37
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.59852      min depth =   0.6544161    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00074   %ok =   65.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80268      min depth =   0.8585719    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   60.42
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.99970      min depth =    1.055598    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   60.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13219      min depth =    1.188083    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00080   %ok =   53.31
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.20107      min depth =    1.256967    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   53.27
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.17487      min depth =    1.230761    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00075   %ok =   52.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.06983      min depth =    1.125722    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00082   %ok =   55.32
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94284      min depth =   0.9987352    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   63.99
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.81421      min depth =   0.8701026    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   64.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74568      min depth =   0.8015733    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   64.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74197      min depth =   0.7978687    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00082   %ok =   61.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80660      min depth =   0.8624920    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00081   %ok =   58.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94630      min depth =    1.002193    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   61.96
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.11118      min depth =    1.167070    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   53.68
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.26948      min depth =    1.325373    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   57.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.37126      min depth =    1.427151    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   52.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.37625      min depth =    1.432147    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00078   %ok =   26.93
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27310      min depth =    1.328992    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00083   %ok =   44.04
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.09117      min depth =    1.147065    
+   iteration      1 error =    1.00000   %ok =    6.02
+   iteration      2 error =    0.00254   %ok =   27.74
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88990      min depth =   0.9457940    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   58.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.66097      min depth =   0.7168641    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   65.34
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.47534      min depth =   0.5312371    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   67.62
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.37674      min depth =   0.4326326    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   68.13
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.39873      min depth =   0.4546241    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   69.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.50854      min depth =   0.5644312    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   67.61
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.68235      min depth =   0.7382408    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00079   %ok =   62.97
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87932      min depth =   0.9352137    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   56.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.05084      min depth =    1.106738    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00081   %ok =   55.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16261      min depth =    1.218506    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00080   %ok =   49.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18155      min depth =    1.237442    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   53.66
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.10394      min depth =    1.159839    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   52.03
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.99575      min depth =    1.051640    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   56.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86275      min depth =   0.9186468    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00073   %ok =   56.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.75772      min depth =   0.8136122    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   60.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.70480      min depth =   0.7606953    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   60.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.71162      min depth =   0.7675167    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   63.48
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80399      min depth =   0.8598895    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00085   %ok =   48.32
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93334      min depth =   0.9892340    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00075   %ok =   51.33
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.08128      min depth =    1.137169    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   54.25
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.21010      min depth =    1.265997    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   52.42
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27946      min depth =    1.335361    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   49.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25033      min depth =    1.306227    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   52.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13465      min depth =    1.190545    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   53.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.97031      min depth =    1.026206    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00066   %ok =   49.97
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78113      min depth =   0.8370218    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   60.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.60698      min depth =   0.6628695    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   65.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.49411      min depth =   0.5500106    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   68.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.46911      min depth =   0.5250035    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00077   %ok =   68.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.52631      min depth =   0.5822103    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   68.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67693      min depth =   0.7328221    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   62.09
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85269      min depth =   0.9085838    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   60.42
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.03277      min depth =    1.088668    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   60.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16092      min depth =    1.216815    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   60.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.21710      min depth =    1.272994    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00039   %ok =   61.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19641      min depth =    1.252310    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   63.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13333      min depth =    1.189221    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   63.52
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.00735      min depth =    1.063242    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   68.73
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89169      min depth =   0.9475794    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00071   %ok =   64.98
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80057      min depth =   0.8564664    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00081   %ok =   66.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.76462      min depth =   0.8205147    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00036   %ok =   74.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78685      min depth =   0.8427474    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00091   %ok =   70.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86483      min depth =   0.9207225    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00037   %ok =   73.83
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.99020      min depth =    1.046092    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00037   %ok =   76.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13311      min depth =    1.189006    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   70.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.22977      min depth =    1.285668    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00039   %ok =   70.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.23828      min depth =    1.294172    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   69.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18760      min depth =    1.243495    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   70.37
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.07602      min depth =    1.131911    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00038   %ok =   72.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91885      min depth =   0.9747459    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   71.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.75041      min depth =   0.8063050    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00036   %ok =   74.75
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.63121      min depth =   0.6871002    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   75.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.57415      min depth =   0.6300435    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00039   %ok =   75.29
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.59504      min depth =   0.6509364    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00036   %ok =   76.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.70520      min depth =   0.7610941    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   75.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86094      min depth =   0.9168287    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   74.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01683      min depth =    1.072723    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   73.47
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16936      min depth =    1.225262    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00041   %ok =   71.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25452      min depth =    1.310416    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   72.41
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.28147      min depth =    1.337367    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   70.48
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.24203      min depth =    1.297924    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00037   %ok =   72.84
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.14123      min depth =    1.197125    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   70.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.03043      min depth =    1.086322    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   71.98
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91503      min depth =   0.9709273    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00038   %ok =   74.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.83547      min depth =   0.8913631    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00064   %ok =   65.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79888      min depth =   0.8547742    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   74.45
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80467      min depth =   0.8605618    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00040   %ok =   74.84
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88806      min depth =   0.9439530    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   73.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.00535      min depth =    1.061247    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   72.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.11409      min depth =    1.169981    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   68.37
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16892      min depth =    1.224817    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   69.51
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.15892      min depth =    1.214814    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00041   %ok =   71.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.09389      min depth =    1.149786    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00041   %ok =   70.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.99268      min depth =    1.048572    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   71.91
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86066      min depth =   0.9165596    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   73.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74503      min depth =   0.8009188    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   74.63
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.66818      min depth =   0.7240770    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   74.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.64359      min depth =   0.6994864    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   75.75
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.71842      min depth =   0.7743155    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00041   %ok =   72.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.82331      min depth =   0.8792005    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   70.98
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.97195      min depth =    1.027847    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   68.76
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13777      min depth =    1.193663    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   69.73
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.26905      min depth =    1.324947    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   66.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.33182      min depth =    1.387718    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   63.40
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.34037      min depth =    1.396262    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   66.20
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.29485      min depth =    1.350747    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   64.13
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18221      min depth =    1.238104    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   63.07
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.05355      min depth =    1.109442    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   66.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93798      min depth =   0.9938741    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   68.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85517      min depth =   0.9110669    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   66.99
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80180      min depth =   0.8576954    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   67.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78483      min depth =   0.8407257    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   69.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.83613      min depth =   0.8920289    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   67.23
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91478      min depth =   0.9706725    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   69.33
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.98910      min depth =    1.044996    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00080   %ok =   63.20
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04249      min depth =    1.098389    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   65.25
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04941      min depth =    1.105306    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   66.42
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01159      min depth =    1.067484    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   66.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93513      min depth =   0.9910247    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   68.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.1875000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84523      min depth =   0.9011278    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   66.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.77021      min depth =   0.8261033    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   69.67
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.72230      min depth =   0.7781914    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   66.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.73114      min depth =   0.7870350    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   70.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79914      min depth =   0.8550311    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00076   %ok =   65.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.90583      min depth =   0.9617247    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   63.69
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04273      min depth =    1.098627    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   61.25
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19021      min depth =    1.246107    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   59.23
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.1875000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.30382      min depth =    1.359716    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   59.75
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.35607      min depth =    1.411961    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   57.85
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.33998      min depth =    1.395873    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   63.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27609      min depth =    1.331984    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   61.45
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16770      min depth =    1.223595    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   62.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.02249      min depth =    1.078386    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   63.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88607      min depth =   0.9419698    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   64.73
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.76739      min depth =   0.8232830    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   65.64
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.70091      min depth =   0.7568084    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   66.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.68065      min depth =   0.7365472    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   69.43
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.70976      min depth =   0.7656529    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   67.93
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78801      min depth =   0.8438993    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   66.27
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84998      min depth =   0.9058699    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00089   %ok =   58.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89444      min depth =   0.9503370    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   65.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94524      min depth =    1.001140    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   60.56
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92248      min depth =   0.9783746    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   61.86
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87789      min depth =   0.9337835    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00089   %ok =   61.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.83527      min depth =   0.8911622    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   62.70
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80285      min depth =   0.8587455    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   66.67
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79145      min depth =   0.8473495    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   64.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.81086      min depth =   0.8667579    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   62.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88073      min depth =   0.9366302    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00081   %ok =   51.41
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.98628      min depth =    1.042176    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   60.34
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.12498      min depth =    1.180877    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   55.25
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25902      min depth =    1.314911    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00073   %ok =   54.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.37175      min depth =    1.427639    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00085   %ok =   51.33
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.41401      min depth =    1.469899    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   55.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.39858      min depth =    1.454477    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   55.13
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31499      min depth =    1.370884    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   56.28
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19545      min depth =    1.251339    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   62.84
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04464      min depth =    1.100535    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   60.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87871      min depth =   0.9346070    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00074   %ok =   60.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.72275      min depth =   0.7786466    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   66.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.63211      min depth =   0.6880003    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   70.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.59719      min depth =   0.6530877    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   69.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.61084      min depth =   0.6667386    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   71.49
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67977      min depth =   0.7356675    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   69.96
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.78722      min depth =   0.8431141    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   68.68
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87645      min depth =   0.9323455    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   68.91
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93001      min depth =   0.9859024    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00063   %ok =   63.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94821      min depth =    1.004107    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   64.03
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94696      min depth =    1.002856    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   66.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.90515      min depth =   0.9610420    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   65.10
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87144      min depth =   0.9273412    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00078   %ok =   66.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85854      min depth =   0.9144400    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   67.29
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86760      min depth =   0.9235001    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   67.47
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92350      min depth =   0.9793924    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00051   %ok =   66.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.02816      min depth =    1.084057    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00089   %ok =   59.13
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.15790      min depth =    1.213793    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   60.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.30003      min depth =    1.355923    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   56.48
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.40955      min depth =    1.465444    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   58.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.47151      min depth =    1.527404    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   53.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.45964      min depth =    1.515538    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   54.74
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.35937      min depth =    1.415264    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   58.55
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.20512      min depth =    1.261012    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   61.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01479      min depth =    1.070684    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   62.09
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80510      min depth =   0.8609949    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00250   %ok =   41.29
+   iteration      3 error =    0.00001   %ok =  100.00
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.61779      min depth =   0.6736799    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   70.47
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.50173      min depth =   0.5576224    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   71.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.44279      min depth =   0.4986907    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   71.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.46831      min depth =   0.5242078    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00068   %ok =   72.18
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.55043      min depth =   0.6063304    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   70.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67594      min depth =   0.7318369    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   69.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80622      min depth =   0.8621114    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   69.28
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.1875000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.90496      min depth =   0.9608604    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   68.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.95327      min depth =    1.009170    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00073   %ok =   67.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94317      min depth =   0.9990636    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   67.91
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92047      min depth =   0.9763635    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   67.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88121      min depth =   0.9371052    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   67.87
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84795      min depth =   0.9038451    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   68.04
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85273      min depth =   0.9086245    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00236   %ok =   42.76
+   iteration      3 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.90765      min depth =   0.9635489    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   64.86
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01000      min depth =    1.065893    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   64.60
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16534      min depth =    1.221231    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   58.67
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.32544      min depth =    1.381330    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   60.08
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.46124      min depth =    1.517138    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00085   %ok =   52.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.53184      min depth =    1.587734    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   52.80
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.51203      min depth =    1.567924    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00075   %ok =   54.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.40430      min depth =    1.460191    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00284   %ok =   32.89
+   iteration      3 error =    0.00001   %ok =   99.80
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.21083      min depth =    1.266726    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00092   %ok =   60.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.97387      min depth =    1.029765    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   63.47
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.72390      min depth =   0.7797891    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   68.13
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.51935      min depth =   0.5752469    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00245   %ok =   54.33
+   iteration      3 error =    0.00001   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.36348      min depth =   0.4193690    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   72.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.28903      min depth =   0.3449236    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   73.33
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.34207      min depth =   0.3979664    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00063   %ok =   70.61
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.45123      min depth =   0.5071244    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   71.54
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.62704      min depth =   0.6829364    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   66.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.80643      min depth =   0.8623289    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   63.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93980      min depth =   0.9956978    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   62.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.00363      min depth =    1.059523    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00079   %ok =   58.19
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01877      min depth =    1.074663    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00080   %ok =   59.27
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.97970      min depth =    1.035597    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   64.66
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92124      min depth =   0.9771361    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   62.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86311      min depth =   0.9190000    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   63.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85813      min depth =   0.9140245    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   62.53
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92064      min depth =   0.9765294    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   61.45
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.03516      min depth =    1.091056    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   59.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19340      min depth =    1.249296    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   60.16
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.38501      min depth =    1.440909    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00076   %ok =   53.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.53671      min depth =    1.592608    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   51.49
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.61402      min depth =    1.669911    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   51.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.60297      min depth =    1.658870    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   48.43
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.46461      min depth =    1.520509    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00077   %ok =   52.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.24510      min depth =    1.300991    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   56.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.96289      min depth =    1.018790    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   66.54
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67965      min depth =   0.7355418    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   65.91
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.43644      min depth =   0.4923365    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   69.67
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.29206      min depth =   0.3479573    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   72.76
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.22220      min depth =   0.2780970    
+   iteration      1 error =    1.00000   %ok =    3.34
+   iteration      2 error =    0.00051   %ok =   73.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.29918      min depth =   0.3550713    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   72.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.45513      min depth =   0.5110277    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   71.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67076      min depth =   0.7266519    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   67.46
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89553      min depth =   0.9514270    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   60.95
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.05268      min depth =    1.108581    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   58.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.11892      min depth =    1.174813    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   57.08
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.10104      min depth =    1.156940    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   59.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01946      min depth =    1.075353    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   61.19
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93537      min depth =   0.9912660    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   60.32
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.86103      min depth =   0.9169305    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   61.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85872      min depth =   0.9146104    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   58.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93992      min depth =   0.9958153    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   57.05
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.07759      min depth =    1.133481    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   54.83
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.26848      min depth =    1.324372    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   51.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.47938      min depth =    1.535276    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   49.07
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.65084      min depth =    1.706733    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   41.25
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.73501      min depth =    1.790906    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00073   %ok =   40.34
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.70709      min depth =    1.762985    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   41.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.54784      min depth =    1.603734    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   44.96
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27810      min depth =    1.333993    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   49.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.96553      min depth =    1.021420    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00099   %ok =   44.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.65789      min depth =   0.7137828    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   58.84
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.41159      min depth =   0.4674808    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   67.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.26933      min depth =   0.3252286    
+   iteration      1 error =    1.00000   %ok =    3.06
+   iteration      2 error =    0.00082   %ok =   66.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.25248      min depth =   0.3083743    
+   iteration      1 error =    1.00000   %ok =    3.06
+   iteration      2 error =    0.00083   %ok =   66.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.34755      min depth =   0.4034473    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00079   %ok =   63.87
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.54822      min depth =   0.6041109    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   60.62
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79581      min depth =   0.8517071    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   54.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01691      min depth =    1.072808    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00085   %ok =   48.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16912      min depth =    1.225021    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00083   %ok =   46.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.20806      min depth =    1.263951    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00069   %ok =   46.34
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.15750      min depth =    1.213393    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00083   %ok =   41.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.05297      min depth =    1.108869    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   48.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.93327      min depth =   0.9891654    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   55.03
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84637      min depth =   0.9022605    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   51.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84301      min depth =   0.8989041    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00255   %ok =   24.09
+   iteration      3 error =    0.00001   %ok =   99.99
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91288      min depth =   0.9687718    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00216   %ok =   26.64
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.07169      min depth =    1.127582    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00486   %ok =    8.94
+   iteration      3 error =    0.00008   %ok =   95.61
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27783      min depth =    1.333724    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   49.61
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.50535      min depth =    1.561249    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00104   %ok =   41.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.67999      min depth =    1.735882    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00137   %ok =   25.43
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.74511      min depth =    1.801008    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00162   %ok =   15.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2812500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.69935      min depth =    1.755247    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00147   %ok =   22.76
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.52900      min depth =    1.584895    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00148   %ok =   35.23
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.24286      min depth =    1.298753    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00116   %ok =   51.07
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89815      min depth =   0.9540423    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   66.07
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.56777      min depth =   0.6236646    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00109   %ok =   67.09
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.33680      min depth =   0.3926969    
+   iteration      1 error =    1.00000   %ok =    3.14
+   iteration      2 error =    0.00071   %ok =   73.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.21854      min depth =   0.2744390    
+   iteration      1 error =    1.00000   %ok =    6.88
+   iteration      2 error =    0.00065   %ok =   74.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.21323      min depth =   0.2691197    
+   iteration      1 error =    1.00000   %ok =    6.97
+   iteration      2 error =    0.00037   %ok =   77.69
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.33302      min depth =   0.3889170    
+   iteration      1 error =    1.00000   %ok =    3.24
+   iteration      2 error =    0.00043   %ok =   77.18
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.56781      min depth =   0.6237020    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00056   %ok =   75.32
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.82926      min depth =   0.8851580    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   71.87
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04952      min depth =    1.105414    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   70.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18386      min depth =    1.239758    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   69.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19830      min depth =    1.254195    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   70.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.12598      min depth =    1.181877    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   73.33
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.97281      min depth =    1.028709    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   72.52
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.82637      min depth =   0.8822634    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   72.90
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74428      min depth =   0.8001733    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00081   %ok =   71.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74253      min depth =   0.7984254    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00070   %ok =   72.27
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.83663      min depth =   0.8925245    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   71.97
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01157      min depth =    1.067468    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   70.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.24459      min depth =    1.300481    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00083   %ok =   65.52
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.46898      min depth =    1.524874    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   67.31
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.62726      min depth =    1.683153    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   64.31
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.66648      min depth =    1.722375    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   61.86
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.62490      min depth =    1.680794    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00072   %ok =   59.40
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.43498      min depth =    1.490878    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   62.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13026      min depth =    1.186150    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   69.29
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79152      min depth =   0.8474151    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   72.60
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.48386      min depth =   0.5397601    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   74.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.28043      min depth =   0.3363280    
+   iteration      1 error =    1.00000   %ok =    2.18
+   iteration      2 error =    0.00252   %ok =   68.99
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.20035      min depth =   0.2562481    
+   iteration      1 error =    1.00000   %ok =    7.41
+   iteration      2 error =    0.00049   %ok =   75.63
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.25122      min depth =   0.3071146    
+   iteration      1 error =    1.00000   %ok =    4.62
+   iteration      2 error =    0.00063   %ok =   74.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.1875000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.42227      min depth =   0.4781685    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00055   %ok =   74.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.66960      min depth =   0.7254910    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   72.04
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92761      min depth =   0.9835064    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   69.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13037      min depth =    1.186263    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   66.28
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.21902      min depth =    1.274919    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   68.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.20943      min depth =    1.265322    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   65.58
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.08978      min depth =    1.145672    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   66.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91420      min depth =   0.9700914    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   69.85
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.75367      min depth =   0.8095616    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   72.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.66531      min depth =   0.7212061    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00215   %ok =   57.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.67896      min depth =   0.7348592    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   70.12
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.76895      min depth =   0.8248448    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   70.20
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94331      min depth =   0.9992086    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   68.19
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16839      min depth =    1.224288    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00071   %ok =   62.75
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.38771      min depth =    1.443610    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00211   %ok =   30.05
+   iteration      3 error =    0.00001   %ok =   99.96
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.53242      min depth =    1.588319    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   55.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.58498      min depth =    1.640873    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   57.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.51588      min depth =    1.571777    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   60.21
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.32230      min depth =    1.378191    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   57.65
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.03825      min depth =    1.094143    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   62.56
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.73082      min depth =   0.7867098    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00093   %ok =   64.22
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.46408      min depth =   0.5199786    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   70.62
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.29970      min depth =   0.3555975    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00061   %ok =   71.99
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.27056      min depth =   0.3264523    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00047   %ok =   74.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.37625      min depth =   0.4321431    
+   iteration      1 error =    1.00000   %ok =    3.05
+   iteration      2 error =    0.00059   %ok =   72.10
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.58017      min depth =   0.6360670    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   71.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.84172      min depth =   0.8976189    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00069   %ok =   64.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.08541      min depth =    1.141304    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00065   %ok =   61.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25608      min depth =    1.311972    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00078   %ok =   56.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31328      min depth =    1.369179    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00226   %ok =   27.82
+   iteration      3 error =    0.00002   %ok =   99.70
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25082      min depth =    1.306720    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   57.70
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.11563      min depth =    1.171531    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   58.26
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.94140      min depth =   0.9972989    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00207   %ok =   33.48
+   iteration      3 error =    0.00001   %ok =   99.85
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.77803      min depth =   0.8339293    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00044   %ok =   69.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.68707      min depth =   0.7429688    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   66.16
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.68584      min depth =   0.7417339    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   70.52
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.77877      min depth =   0.8346649    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00253   %ok =   45.23
+   iteration      3 error =    0.00001   %ok =   99.94
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.95010      min depth =    1.006001    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00072   %ok =   55.96
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.15615      min depth =    1.212045    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   57.81
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.34646      min depth =    1.402352    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00069   %ok =   44.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.46975      min depth =    1.525646    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00091   %ok =   44.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.48901      min depth =    1.544908    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   55.85
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.39124      min depth =    1.447133    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00095   %ok =   47.34
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19082      min depth =    1.246718    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   62.89
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92963      min depth =   0.9855276    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   66.94
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.65296      min depth =   0.7088555    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00050   %ok =   69.98
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.44838      min depth =   0.5042789    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   73.49
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.34432      min depth =   0.4002188    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00079   %ok =   69.79
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.36543      min depth =   0.4213272    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00065   %ok =   72.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.49503      min depth =   0.5509270    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   73.93
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.71519      min depth =   0.7710913    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00068   %ok =   66.18
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.95861      min depth =    1.014509    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00039   %ok =   71.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18354      min depth =    1.239440    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   64.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31326      min depth =    1.369156    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   65.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.33555      min depth =    1.391449    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00050   %ok =   62.30
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25372      min depth =    1.309618    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   63.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.08918      min depth =    1.145075    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   62.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89492      min depth =   0.9508108    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   66.08
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2656250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.73896      min depth =   0.7948595    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   71.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.65879      min depth =   0.7146815    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   72.24
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.66795      min depth =   0.7238424    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00040   %ok =   74.01
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74038      min depth =   0.7962767    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   72.73
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87722      min depth =   0.9331204    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00047   %ok =   71.42
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.09517      min depth =    1.151062    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   67.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25349      min depth =    1.309382    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00083   %ok =   58.97
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.35548      min depth =    1.411380    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   61.02
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.34480      min depth =    1.400693    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00073   %ok =   54.62
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.24788      min depth =    1.303769    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00135   %ok =   44.77
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.06503      min depth =    1.120929    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   67.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.85121      min depth =   0.9071021    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   71.60
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.64272      min depth =   0.6986138    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00074   %ok =   69.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.49941      min depth =   0.5553057    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00080   %ok =   72.91
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.47284      min depth =   0.5287317    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00038   %ok =   75.83
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.54073      min depth =   0.5966258    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   72.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.69532      min depth =   0.7512139    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   70.12
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.91143      min depth =   0.9673223    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   66.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.12848      min depth =    1.184379    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   65.38
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.30593      min depth =    1.361825    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   60.84
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.38083      min depth =    1.436729    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   56.00
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.37475      min depth =    1.430643    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   62.68
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.26918      min depth =    1.325081    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   62.66
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.10906      min depth =    1.164953    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   65.71
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92960      min depth =   0.9854918    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   66.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.76670      min depth =   0.8226009    
+   iteration      1 error =    1.00000   %ok =    2.72
+   iteration      2 error =    0.00071   %ok =   64.44
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.70575      min depth =   0.7616431    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   69.60
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.69670      min depth =   0.7525906    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00052   %ok =   71.36
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.74746      min depth =   0.8033491    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00067   %ok =   68.82
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87554      min depth =   0.9314378    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   65.68
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.02535      min depth =    1.081246    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00070   %ok =   62.95
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.13684      min depth =    1.192739    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   63.52
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19007      min depth =    1.245968    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00055   %ok =   64.16
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.16728      min depth =    1.223179    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   65.95
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.08208      min depth =    1.137979    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00239   %ok =   37.10
+   iteration      3 error =    0.00001   %ok =   99.99
+   iteration      4 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.92586      min depth =   0.9817513    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00074   %ok =   66.15
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.76047      min depth =   0.8163646    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00045   %ok =   72.05
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.61583      min depth =   0.6717196    
+   iteration      1 error =    1.00000   %ok =    2.15
+   iteration      2 error =    0.00156   %ok =   56.35
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.53954      min depth =   0.5954378    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   72.72
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.56556      min depth =   0.6214520    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00060   %ok =   71.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.65841      min depth =   0.7143092    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   72.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.81987      min depth =   0.8757665    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00046   %ok =   71.73
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.01649      min depth =    1.072385    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00064   %ok =   66.12
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.19253      min depth =    1.248424    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00051   %ok =   66.31
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31757      min depth =    1.373470    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00068   %ok =   59.37
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.35544      min depth =    1.411336    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00041   %ok =   66.70
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.32795      min depth =    1.383842    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   66.14
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.21690      min depth =    1.272796    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00048   %ok =   66.69
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.06456      min depth =    1.120457    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00073   %ok =   61.26
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.88336      min depth =   0.9392532    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   68.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.73246      min depth =   0.7883524    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   68.63
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.65519      min depth =   0.7110865    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00058   %ok =   70.11
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.63178      min depth =   0.6876776    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   71.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.68259      min depth =   0.7384862    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00066   %ok =   69.20
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.77015      min depth =   0.8260394    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00061   %ok =   67.43
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.87727      min depth =   0.9331685    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   69.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.95110      min depth =    1.006993    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   66.97
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.98624      min depth =    1.042132    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   67.39
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.95957      min depth =    1.015465    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   66.74
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.89066      min depth =   0.9465548    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   69.58
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.79292      min depth =   0.8488092    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00062   %ok =   68.50
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.69693      min depth =   0.7528229    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00042   %ok =   73.69
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.62936      min depth =   0.6852540    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00043   %ok =   75.06
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2031250      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.60063      min depth =   0.6565254    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   73.88
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.64932      min depth =   0.7052183    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   73.12
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.75319      min depth =   0.8090811    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00063   %ok =   70.17
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.90698      min depth =   0.9628748    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00057   %ok =   68.85
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.04826      min depth =    1.104160    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   63.57
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.18218      min depth =    1.238077    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   65.19
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2500000      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.27849      min depth =    1.334383    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00049   %ok =   62.69
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.31285      min depth =    1.368748    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00059   %ok =   60.55
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.25338      min depth =    1.309279    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00053   %ok =   65.47
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   42.14326      min depth =    1.199161    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00056   %ok =   62.43
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2343750      seconds
+ Update boundary conditions ...
+ Compute wave field started
+    max depth=   41.99882      min depth =    1.054716    
+   iteration      1 error =    1.00000   %ok =    3.04
+   iteration      2 error =    0.00054   %ok =   66.66
+   iteration      3 error =    0.00000   %ok =  100.00
+ Stop
+    Computation:                 0.2187500      seconds

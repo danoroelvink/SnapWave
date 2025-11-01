@@ -45,7 +45,7 @@
    real*4,  dimension(:,:),     allocatable    :: ctheta360               ! refraction speed, per grid point and direction
    real*4,  dimension(:),       allocatable    :: dzdx,dzdy               ! bed slopes at nodes of unstructured grid
    integer, dimension(:,:),     allocatable    :: face_nodes             ! node numbers connected to each cell
-   integer, dimension(:,:),     allocatable    :: edge_nodes             ! node numbers connected to each edge
+ !  integer, dimension(:,:),     allocatable    :: edge_nodes             ! node numbers connected to each edge
    real*4,  dimension(:),       allocatable    :: bndindx
    real*4                                      :: Hmax
    real*4,  dimension(:),       allocatable    :: sinhkh
@@ -164,15 +164,17 @@
    real*4                                    :: Tpini               ! initial condition for the wave period
    real*4                                    :: zsini               ! initial condition for the water level
    integer                                   :: wind                ! switch whether include wind or not
+   integer                                   :: upwindref           ! switch whether to use central(0) or upwind refraction (1)
    integer                                   :: ig                  ! switch whether include IG or not
    real*4                                    :: fwcutoff            ! depth below which to apply space-varying fw
    real*4                                    :: alpha,gamma         ! coefficients in Baldock breaking dissipation model
+   real*4                                    :: gammax              ! max wave height/water depth ratio
    real*4                                    :: hmin                ! minimum water depth
    character*232                             :: gridfile            ! name of gridfile (Delft3D .grd format)
    integer                                   :: sferic              ! sferical (1) or cartesian (0) grid
-   integer                                   :: refraction_method   ! central (0) or upwind (1)
    integer                                   :: niter               ! maximum number of iterations
    real*4                                    :: crit                ! relative accuracy for stopping criterion
+   real*4                                    :: posdwn              ! multiplier for bed level values
    character*232                             :: depfile             ! name of bathymetry file (Delft3D .dep format)
    character*232                             :: fwfile              ! name of bed friction factor file (Delft3D .dep format)
    character*232                             :: upwfile             ! name of upwind neighbors file
@@ -189,6 +191,7 @@
    real*8  ,  dimension(:,:),  allocatable   :: wobs
    character*32, dimension(:), allocatable   :: nameobs         ! names of observation points
    real*4,    dimension(:),    allocatable   :: hm0obs
+   real*4,    dimension(:),    allocatable   :: zsobs
    real*4,    dimension(:),    allocatable   :: hm0igobs
    real*4,    dimension(:),    allocatable   :: dwobs
    real*4,    dimension(:),    allocatable   :: stobs
@@ -201,6 +204,7 @@
    real*4                                    :: dt              ! time step (no limitation)
    real*4                                    :: tol             ! tolerance(m) for boundary points
    integer                                   :: no_nodes        ! number of unstructured grid nodes
+   integer                                   :: max_nodes       ! max number of unstructured grid nodes per face
    integer                                   :: no_faces        ! number of unstructured grid cells
    integer                                   :: no_edges        ! number of unstructured grid edges
    integer                                   :: ntab = 10
@@ -214,9 +218,11 @@
    !
    ! Local constants
    !
-   real*4                                    :: rho             ! water density
-   real*4                                    :: pi              ! cake circumference divided by twice its radius
-   real*4                                    :: g               ! acceleration of gravity
+   ! JRE: changed these to compile time constants
+   ! Can be added to snapwave_input as needed
+   real*4, parameter                         :: rho = 1025.      ! water density
+   real*4, parameter                         :: pi = 4.*atan(1.) ! cake circumference divided by twice its radius
+   real*4, parameter                         :: g = 9.813        ! acceleration of gravity
    real*4                                    :: t0,t1,t2,t3,t4,t5,t6  ! timers
    integer                                   :: nb
    integer                                   :: np
@@ -236,6 +242,7 @@
    !
    ! Output variables
    !
+   integer                                   :: map_dep
    integer                                   :: map_Hm0
    integer                                   :: map_Hig
    integer                                   :: map_Tp

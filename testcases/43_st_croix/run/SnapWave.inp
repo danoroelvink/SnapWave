@@ -1,0 +1,26 @@
+tref           = 20100601 000000
+tstart         = 20100601 000000
+tstop          = 20101101 000000
+timestep       = 3600
+gamma          = 0.75
+gridfile       = UGera2cdip_stcroix_net.nc
+sferic         = 0
+obsfile        = obspoints_stcroix_utm.txt
+bndfile        = ERA5_CDIP_points_utm.txt
+bhsfile        = ERA5_CDIP_hs.txt
+btpfile        = ERA5_CDIP_tp.txt
+bwdfile        = ERA5_CDIP_wd.txt
+bdsfile        = ERA5_CDIP_ds.txt
+bzsfile        = ERA5_CDIP_zs.txt
+encfile        = bndenc_buck.txt
+dtheta         = 10.0
+sector         = 360.0
+niter          = 80
+hmin           = 0.1
+fw             = 0.015
+fwig           = 0.01
+uuupwindfile   = 
+restart        = 0
+his_file       = ..\output\snapwave_his.nc
+map_file         ..\output\snapwave_map.nc
+map_ee         = 0

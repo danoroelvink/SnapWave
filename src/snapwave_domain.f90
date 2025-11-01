@@ -26,9 +26,6 @@ subroutine initialize_snapwave_domain()
    !
    ! First set some constants
    !
-   pi   = 4.*atan(1.0)
-   g    = 9.81
-   rho  = 1025.0
    np   = 22 ! why?
    cosrot = cos(rotation*pi/180)
    sinrot = sin(rotation*pi/180)
@@ -129,7 +126,7 @@ subroutine initialize_snapwave_domain()
             no_faces = no_faces + 1
          endif            
          !
-      enddo      
+      enddo
       !
       write(*,*)no_faces,' active SnapWave cells'
       !
@@ -167,7 +164,7 @@ subroutine initialize_snapwave_domain()
       write(*,*)'   Reading mesh ...'
       !
       open(11,file=gridfile)
-      read(11,*)no_nodes, no_faces, no_edges
+      read(11,*)no_nodes, no_faces !, no_edges
    !   allocate(xloc(no_nodes))
    !   allocate(yloc(no_nodes))
       allocate(x(no_nodes))
@@ -179,7 +176,7 @@ subroutine initialize_snapwave_domain()
       allocate(zb(no_nodes))
       allocate(msk(no_nodes))
       allocate(face_nodes(4,no_faces))
-      allocate(edge_nodes(2,no_edges))
+     ! allocate(edge_nodes(2,no_edges))
       !
       ! Reading of grid-based variables
       !
@@ -202,13 +199,14 @@ subroutine initialize_snapwave_domain()
          read(11,*)(face_nodes(j, k), j = 1, 4)
       enddo
       !
-      do k = 1, no_edges
-         read(11,*)(edge_nodes(j, k), j = 1, 2)
-      enddo
+      !do k = 1, no_edges
+      !   read(11,*)(edge_nodes(j, k), j = 1, 2)
+      !enddo
       close(11)
       !
    endif
    !
+   zb = posdwn * zb
    !
    do k=1,no_faces
        if (face_nodes(4,k)==0) face_nodes(4,k) = -999
@@ -218,10 +216,10 @@ subroutine initialize_snapwave_domain()
    if (ja_vegetation==1) then
       call veggie_init()   
    else
-       allocate(veg_Cd(no_nodes, no_secveg))
-	   allocate(veg_ah(no_nodes, no_secveg))
-	   allocate(veg_bstems(no_nodes,  no_secveg))
-	   allocate(veg_Nstems(no_nodes,  no_secveg))
+      allocate(veg_Cd(no_nodes, no_secveg))
+      allocate(veg_ah(no_nodes, no_secveg))
+      allocate(veg_bstems(no_nodes,  no_secveg))
+      allocate(veg_Nstems(no_nodes,  no_secveg))
    endif
    !
    ntheta360 = nint(360./dtheta)
@@ -229,7 +227,7 @@ subroutine initialize_snapwave_domain()
    !
    ! Allocation of spatial arrays
    !
-   allocate(inner(no_nodes))
+   !allocate(inner(no_nodes))
    allocate(depth(no_nodes))
    allocate(dhdx(no_nodes))
    allocate(dhdy(no_nodes))
@@ -389,7 +387,7 @@ subroutine initialize_snapwave_domain()
            if (neumannconnected(k)>0) then
               if (msk(k)==1) then
                 ! k is inner and can be neumannconnected
-                inner(neumannconnected(k))= .false.
+                ! inner(neumannconnected(k))= .false.
                 msk(neumannconnected(k)) = 3
               else
                 ! we don't allow neumannconnected links if the node is an open boundary
@@ -413,11 +411,11 @@ subroutine initialize_snapwave_domain()
       nb = 0
       nnmb = 0
       do k = 1, no_nodes
-         if (msk(k)==1) then
-            inner(k) = .true.
-         else
-            inner(k) = .false.
-         endif
+         !if (msk(k)==1) then
+         !   inner(k) = .true.
+         !else
+         !   inner(k) = .false.
+         !endif
          if (msk(k)==2) nb = nb + 1
          if (msk(k)==3) nnmb = nnmb + 1
       enddo
@@ -627,11 +625,12 @@ subroutine find_upwind_neighbours(x,y,no_nodes,sferic,theta,ntheta,kp,np,w,prev,
    integer                                            :: ip,nploc
    integer                                            :: k, itheta
    real*8                                             :: circumf_eq=40075017.,circumf_pole=40007863.
+   real*8, parameter                                  :: epsdist=0.001
    !
    ! Find upwind neighbours for each cell in an unstructured grid x,y (1d
    ! vectors) given vector of directions theta
    !
-   pi = 4*atan(1.0)
+   pi = 4.0*atan(1.0)
    !
    do k = 1, no_nodes
       call findloc(kp(:,k), np, 0, nploc)
@@ -650,7 +649,7 @@ subroutine find_upwind_neighbours(x,y,no_nodes,sferic,theta,ntheta,kp,np,w,prev,
                   ysect=[y(ind1)-y(k), y(ind2)-y(k)]*circumf_pole/360.0
                   call intersect_angle(0.d0, 0.d0, theta(itheta) + pi, xsect, ysect, ww, dss, xi, yi)
                endif               
-               if (dss/=0) then
+               if (dss>epsdist) then
                   w(1, itheta,k) = ww(1)
                   w(2, itheta,k) = ww(2)
                   ds(itheta, k) = dss
@@ -659,7 +658,7 @@ subroutine find_upwind_neighbours(x,y,no_nodes,sferic,theta,ntheta,kp,np,w,prev,
                   exit
                endif
             enddo
-            if (dss==0) then
+            if (dss<=epsdist) then
 !               write(*,*)k,x(k),y(k)
                prev(1, itheta, k) = 1
                prev(2, itheta, k) = 1
@@ -854,6 +853,41 @@ subroutine fm_surrounding_points(xn,yn,zn,no_nodes,sferic,face_nodes,no_faces,kp
    enddo
    !
 end subroutine
+
+subroutine slope_plane_fit (xn,yn,fn,no_nodes,sferic,kp,np,dfdx,dfdy)
+   !
+   implicit none
+   !
+   real*8,  dimension(no_nodes),                 intent(in)  :: xn,yn              ! coordinates of network nodes
+   real*4,  dimension(no_nodes),                 intent(in)  :: fn                 ! variable f for which to determine gradients
+   integer,                                      intent(in)  :: no_nodes           ! number of network nodes
+   integer,                                      intent(in)  :: sferic
+   integer, dimension(np,no_nodes),              intent(in)  :: kp                 ! sorted surrounding node numbers for each node
+   integer,                                      intent(in)  :: np                 ! max. number of surrounding nodes
+   real*4,  dimension(no_nodes),                 intent(out) :: dfdx,dfdy          ! gradients of f in each node
+
+   real*8                                       :: circumf_eq=40075017.,circumf_pole=40007863.
+   integer, dimension(np)                       :: surr_pts
+   real*4,  dimension(np)                       :: xp,yp,fp
+   integer                                      :: kn,indx,j
+
+   do kn=1,no_nodes
+      surr_pts=kp(:,kn)
+      if (sum(surr_pts)>0) then
+         call findloc(surr_pts,np,0,indx)
+         do j=1,indx-1
+            xp(j)=xn(surr_pts(j))-xn(kn)
+            yp(j)=yn(surr_pts(j))-yn(kn)
+            fp(j)=fn(surr_pts(j))      
+            if (sferic==1) then
+               xp(j)=xp(j)*circumf_eq/360.0*cosd(yn(kn))
+               yp(j)=yp(j)*circumf_pole/360.0
+            endif
+         enddo
+         call plane_fit(xp,yp,fp,indx-1, dfdx(kn),dfdy(kn))
+      endif
+   enddo
+end subroutine slope_plane_fit
 
 subroutine findloc(a,n,b,indx)
    !
@@ -1327,7 +1361,7 @@ subroutine veggie_init()
     ! Solve XT_X * coeffs = XT_z for coeffs (a, b, c)
     call solve_linear_system(XT_X, XT_z, coeffs)
 
-    ! Coëfficients of the plane
+    ! Coefficients of the plane
     dzdx = coeffs(1)
     dzdy = coeffs(2)
 
@@ -1353,8 +1387,10 @@ subroutine veggie_init()
         ! Gaussiaanse eliminatie
         do i = 1, 3
             factor = A_inv(i, i)
-            A_inv(i, :) = A_inv(i, :) / factor
-            x(i) = x(i) / factor
+            if (abs(factor) >= 1.d-10) then
+               A_inv(i, :) = A_inv(i, :) / factor
+               x(i) = x(i) / factor
+            endif
 
             do j = 1, 3
                 if (i /= j) then

@@ -1,0 +1,13 @@
+* 1.2.184.Unknown
+* Source: Unknown
+* File creation date: 14:24:09, 01-11-2025
+** INFO   : Command: "D:\DFlow-FM\dflowfm\bin\dflowfm-cli.exe"
+** INFO   :  MAXIMUM NUMBER OF LINKS         :            2
+** INFO   :  MAXIMUM NUMBER OF NODES         :            0
+** INFO   :  RESOLUTION GRAPHICS SCREEN      :         1284         781
+** INFO   :  RESOLUTION TEXT     SCREEN      :          160          52
+** INFO   :  NUMBER OF COLOURS AVAILABLE     :          256
+** INFO   : Load network      (*.unt/*.net/*_net.nc)
+** INFO   : Opened file : ugbakker_devroeg_fine_net.nc
+** INFO   : Closed file : ugbakker_devroeg_fine_net.nc
+** INFO   : YOU LOADED ugbakker_devroeg_fine_net.nc

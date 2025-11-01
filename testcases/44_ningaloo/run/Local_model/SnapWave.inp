@@ -1,0 +1,27 @@
+tref           = 20090612 000000
+tstart         = 20090612 000000
+tstop          = 20090630 230000
+timestep       = 3600.0
+gamma          = 0.75
+fw             = fw60.xyz
+gridfile       = UGningaloo_local_net.nc
+sferic         = 1
+bndfile        = bndpoints.txt
+bhsfile        = ningaloo_hs.txt
+btpfile        = ningaloo_tp.txt
+bwdfile        = ningaloo_wd.txt
+bdsfile        = ningaloo_ds.txt
+bzsfile        = ningaloo_zs.txt
+encfile        = enclosure.txt
+obsfile        = ningaloo_obs_WGS.txt
+jonswapfile    = 
+dtheta         = 5.0
+hmin           = 0.1
+sector         = 180
+niter          = 80
+uuupwindfile   = 
+restart        = 0
+his_file       = ningaloo_localfw60_his.nc
+map_file       = ningaloo_localfw60_map.nc
+writetestfiles = 0
+

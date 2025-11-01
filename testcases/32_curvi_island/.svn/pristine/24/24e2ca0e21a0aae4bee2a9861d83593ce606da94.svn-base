@@ -1,0 +1,75 @@
+clear all;close all
+tide=load('tide.txt');
+trec=tide(:,1)/3600;
+zs=tide(:,2);
+% loc=importdata('locations.txt');
+% for i=1:length(loc)
+%     str=loc{i};
+%     xloc(i)=str2num(str(1:6));
+%     yloc(i)=str2num(str(8:14));
+%     nameloc{i}=str(19:20);
+% end
+nrec=length(trec);
+runname = {'curvi_island'};
+dirname={'.'};
+vars = {'hh','H','cg','T'};
+
+%check whether all iterations were saved to file:
+fid = fopen('Snapwave.inp');
+while ~feof(fid)
+    line = fgetl(fid); 
+    if strfind(line,'jasave_each_iter')>0
+        tmp = strsplit(line,'=');
+        jasave_each_iter = str2double(tmp{2});
+        fclose(fid)
+        break
+    end
+end
+
+for ii=1:length(dirname)
+
+    fid=fopen([dirname{ii},'\x.dat'],'r');
+    x=fread(fid,'double')/1000;
+    fclose(fid)
+    fid=fopen([dirname{ii},'\y.dat'],'r');
+    y=fread(fid,'double')/1000;
+    fclose(fid)
+    [mn,~] = size(x);   
+    for ivar = 1:length(vars)
+        if ~strcmp(vars{ivar},'H') && ~strcmp(vars{ivar},'T') 
+            fid=fopen([dirname{ii},'\' vars{ivar} '.dat'],'r');
+            data=fread(fid,[mn,nrec],'double');
+            fclose(fid)
+            niter=1;
+        else
+            fid=fopen([dirname{ii},'\' vars{ivar} '.dat'],'r');
+            data=fread(fid,'double');
+            fclose(fid)    
+            [sizedata,~] = size(data);
+            data = reshape(data,mn,sizedata/mn);
+            [mn,niter] = size(data);
+            
+        end
+   
+        ni=length(dirname);
+        for iter=1:niter
+            if ii==1
+                Hmax(iter)=max(data(:,iter));
+            end
+            figure(ivar)
+            subplot(1,ni,ii)
+            scatter(x,y,5,data(:,iter),'filled')
+            axis equal
+            xlabel('Easting (km)')
+            ylabel('Northing (km)')
+            caxis([0 Hmax(iter)])
+            colormap jet
+            cb = colorbar;
+            ylabel(cb,vars{ivar})
+            title([runname{ii},' iter=',num2str(iter)],'interpreter','none')
+        end
+    end
+        
+       
+end
+

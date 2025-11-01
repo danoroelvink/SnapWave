@@ -1,0 +1,25 @@
+tref           = 19981018 120000
+tstart         = 19981101 000000
+tstop          = 19981113 000000
+timestep       = 3600.0
+gamma          = 0.7
+gridfile       = UGdcsm-fm_100m2coast3d_v3_era5bnd_net.nc
+sferic         = 1
+bndfile        = ERA5_Coast3D_points.txt
+bhsfile        = ERA5_Coast3D_hs.txt
+btpfile        = ERA5_Coast3D_tp.txt
+bwdfile        = ERA5_Coast3D_wd.txt
+bdsfile        = ERA5_Coast3D_ds.txt
+bzsfile        = ERA5_Coast3D_zs.txt
+encfile        = bndenc_nl.txt
+obsfile        = Coast3D_obs_WGS.txt
+jonswapfile    = 
+dtheta         = 10.0
+hmin           = 0.1
+sector         = 180
+niter          = 40
+uuupwindfile   = 
+restart        = 0
+his_file       = ..\..\output\snapwave_coast3d_v3_g7_his.nc
+map_file       = 
+
