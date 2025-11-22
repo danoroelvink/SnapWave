@@ -206,7 +206,7 @@ subroutine initialize_snapwave_domain()
       !
    endif
    !
-   zb = posdwn * zb
+   zb = -posdwn * zb
    !
    do k=1,no_faces
        if (face_nodes(4,k)==0) face_nodes(4,k) = -999
@@ -214,7 +214,7 @@ subroutine initialize_snapwave_domain()
    !
    ! keep on also if ja_vegetation==0, so array Dveg is initialized with zeroes
    if (ja_vegetation==1) then
-      call veggie_init()   
+      call vegetation_init()   
    else
       allocate(veg_Cd(no_nodes, no_secveg))
       allocate(veg_ah(no_nodes, no_secveg))
@@ -1230,7 +1230,7 @@ subroutine timer(t)
 end subroutine timer
 
 
-subroutine veggie_init()
+subroutine vegetation_init()
 	use snapwave_data
     use snapwave_input, only: read_int_input, read_real_input, read_char_input
     use snapwave_ncoutput, only: nc_check_err
@@ -1298,7 +1298,7 @@ subroutine veggie_init()
         write(*,*)'COULD NOT READ VEG INPUT FILE, PLEASE SUPPLY NETCDF FILE'
     endif
         
-    end subroutine veggie_init
+    end subroutine vegetation_init
 
   integer function count_lines(u,f)
       !
