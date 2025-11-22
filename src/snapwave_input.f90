@@ -16,7 +16,7 @@ contains
       integer :: iwritetestfiles
       !
       character(len=256) :: filename
-      integer :: ios
+      integer :: ios, ii
       logical :: exists
 
 ! List of possible reasonable filenames
@@ -26,16 +26,16 @@ contains
 
       write (*, *) 'Reading input file ...'
 
-      do i = 1, size(possible_names)
-         filename = trim(possible_names(i))
+      do ii = 1, size(possible_names)
+         filename = trim(possible_names(ii))
          inquire (file=filename, exist=exists, iostat=ios)
          if (exists .and. ios == 0) exit
       end do
 
       if (.not. exists) then
          write (*, *) 'ERROR: none of the expected input files were found:'
-         do i = 1, size(possible_names)
-            write (*, *) '   - ', trim(possible_names(i))
+         do ii = 1, size(possible_names)
+            write (*, *) '   - ', trim(possible_names(ii))
          end do
          stop 1
       end if
