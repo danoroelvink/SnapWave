@@ -6,8 +6,8 @@ CC = gcc # Or icx, if you prefer
 NF_CONFIG = nf-config
 
 # Output directories
-BUILD_DIR := build
-BIN_DIR := bin
+BUILD_DIR := ./SnapWave/lnx64/build
+BIN_DIR := ./SnapWave/lnx64/bin
 TARGET := $(BIN_DIR)/snapwave
 
 # NetCDF Configuration

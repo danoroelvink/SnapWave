@@ -35,7 +35,7 @@
 			<Tool Name="VFCustomBuildTool"/>
 			<Tool Name="VFPreLinkEventTool"/>
 			<Tool Name="VFPreBuildEventTool"/>
-			<Tool Name="VFPostBuildEventTool" CommandLine="copy &quot;$(ProjectDir)\..\third_party_open\netcdf\netCDF 4.6.1\bin\*.dll&quot; &quot;$(TargetDir)&quot;&#xA;del &quot;$(TargetDir)/*.mod&quot;&#xA;del &quot;$(TargetDir)/*.obj&quot;"/>
+			<Tool Name="VFPostBuildEventTool" CommandLine="copy &quot;$(ProjectDir)\..\third_party_open\netcdf\netCDF 4.6.1\bin\*.dll&quot; &quot;$(TargetDir)&quot;&#xA;del &quot;$(TargetDir)/*.mod&quot;&#xA;del &quot;$(TargetDir)/*.obj&quot;&#xA;powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)/scripts/postbuild.ps1&quot; -TargetDir &quot;$(TargetDir)&quot;"/>
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
 		<Configuration Name="Release|x64" UseCompiler="ifortCompiler">
@@ -46,7 +46,7 @@
 			<Tool Name="VFCustomBuildTool"/>
 			<Tool Name="VFPreLinkEventTool"/>
 			<Tool Name="VFPreBuildEventTool"/>
-			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool" CommandLine="copy &quot;$(ProjectDir)\..\third_party_open\netcdf\netCDF 4.6.1\bin\*.dll&quot; &quot;$(TargetDir)&quot;&#xA;del &quot;$(TargetDir)/*.mod&quot;&#xA;del &quot;$(TargetDir)/*.obj&quot;&#xA;powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)../scripts/postbuild.ps1&quot; -TargetDir &quot;$(TargetDir)&quot;"/>
 			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
 		</Configuration>
 	</Configurations>
@@ -56,18 +56,15 @@
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 			<File RelativePath="..\src\interp.F90"/>
 			<File RelativePath="..\src\snapwave.f90"/>
-			<File RelativePath="..\src\snapwave_boundaries.f90">
-			</File>
+			<File RelativePath="..\src\snapwave_boundaries.f90"/>
 			<File RelativePath="..\src\snapwave_data.f90"/>
 			<File RelativePath="..\src\snapwave_date.f90"/>
 			<File RelativePath="..\src\snapwave_domain.f90"/>
 			<File RelativePath="..\src\snapwave_input.f90"/>
-			<File RelativePath="..\src\snapwave_ncoutput.F90">
-			</File>
+			<File RelativePath="..\src\snapwave_ncoutput.F90"/>
 			<File RelativePath="..\src\snapwave_obspoints.f90"/>
 			<File RelativePath="..\src\snapwave_results.f90"/>
-			<File RelativePath="..\src\snapwave_solver.f90">
-			</File>
+			<File RelativePath="..\src\snapwave_solver.f90"/>
 			<File RelativePath="..\src\snapwave_windsource.f90"/>
 		</Filter>
 	</Files>
