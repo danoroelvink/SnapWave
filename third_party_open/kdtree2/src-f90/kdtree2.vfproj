@@ -35,7 +35,7 @@
 			<Tool Name="VFPreBuildEventTool"/>
 			<Tool Name="VFPostBuildEventTool"/>
 		</Configuration>
-		<Configuration Name="Release|x64" UseCompiler="ifortCompiler" OutputDirectory="$(PlatformName)\$(ConfigurationName)\" IntermediateDirectory="$(PlatformName)\$(ConfigurationName)\" ConfigurationType="typeStaticLibrary">
+		<Configuration Name="Release|x64" UseCompiler="ifxCompiler" OutputDirectory="$(PlatformName)\$(ConfigurationName)\" IntermediateDirectory="$(PlatformName)\$(ConfigurationName)\" ConfigurationType="typeStaticLibrary">
 			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RealKIND="realKIND8" RuntimeLibrary="rtMultiThreadedDLL"/>
 			<Tool Name="VFLibrarianTool"/>
 			<Tool Name="VFResourceCompilerTool"/>

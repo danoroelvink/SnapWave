@@ -35,7 +35,7 @@
 			<Tool Name="VFPreBuildEventTool"/>
 			<Tool Name="VFPostBuildEventTool"/>
 		</Configuration>
-		<Configuration Name="Release|x64" UseCompiler="ifortCompiler" ConfigurationType="typeStaticLibrary">
+		<Configuration Name="Release|x64" UseCompiler="ifxCompiler" ConfigurationType="typeStaticLibrary">
 			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" HeapArrays="100" Preprocess="preprocessYes" AdditionalIncludeDirectories="netcdf-fortran-4.4.4\libsrc" RuntimeLibrary="rtMultiThreadedDLL"/>
 			<Tool Name="VFLibrarianTool"/>
 			<Tool Name="VFResourceCompilerTool"/>
