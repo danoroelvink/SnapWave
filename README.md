@@ -20,3 +20,8 @@ make clean
 make
 ```
  
+To automatically remove module and object files, run with 
+``` bash
+make clean
+make STRIP_BUILD=1
+```
