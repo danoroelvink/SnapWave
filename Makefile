@@ -2,9 +2,9 @@
 # SnapWave Makefile (clean build layout)
 #
 # Outputs:
-#   ./snapwave/build/bin/snapwave   (final executable)
-#   ./snapwave/build/obj/...        (objects; removed if STRIP_BUILD=1)
-#   ./snapwave/build/mod/...        (modules; removed if STRIP_BUILD=1)
+#   ./SnapWave/lnx64/bin/snapwave   (final executable)
+#   ./SnapWave/lnx64/obj/...        (objects; removed if STRIP_BUILD=1)
+#   ./SnapWave/lnx64/mod/...        (modules; removed if STRIP_BUILD=1)
 #
 # Usage:
 #   make
@@ -23,7 +23,7 @@ NF_CONFIG := nf-config
 # -----------------------------
 # Output directories (everything under snapwave/build)
 # -----------------------------
-BUILD_ROOT := ./snapwave/lnx64
+BUILD_ROOT := ./SnapWave/lnx64
 OBJ_DIR    := $(BUILD_ROOT)/obj
 MOD_DIR    := $(BUILD_ROOT)/mod
 BIN_DIR    := $(BUILD_ROOT)/bin
