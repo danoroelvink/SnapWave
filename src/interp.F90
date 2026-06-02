@@ -778,7 +778,7 @@ contains
    !
    !     J.A. Roelvink
    !     Deltares
-   !     24-2-1992 (MKMAP
+   !     24-2-1992 (MKMAP)
    !
    !     Given: unstructured grid
    !     with coordinates X1 (1:no_nodes1)
@@ -1462,6 +1462,7 @@ contains
    do j = 1, n
       indx(j) = j
    enddo
+   if (n<=1) return
    l = n/2 + 1
    ir = n
 10 continue
