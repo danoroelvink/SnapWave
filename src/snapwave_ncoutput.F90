@@ -633,7 +633,8 @@ contains
       !
       real*4   :: spread_deg
       real*8   :: t
-      integer  :: k
+      real*8, allocatable :: cos_theta(:), sin_theta(:)
+      integer  :: itheta, k
       !
       integer :: ntmapout
       !
@@ -668,10 +669,16 @@ contains
       end if
       !
       if (map_dirspr == 1) then
+         allocate(cos_theta(ntheta), sin_theta(ntheta))
+         do itheta = 1, ntheta
+            cos_theta(itheta) = cos(real(theta(itheta), kind(1.0d0)))
+            sin_theta(itheta) = sin(real(theta(itheta), kind(1.0d0)))
+         end do
          do k = 1, no_nodes
-            call directional_spreading(ee(:,k), spread_deg)
+            call directional_spreading(ee(:,k), cos_theta, sin_theta, spread_deg)
             buf(k) = spread_deg
          end do
+         deallocate(cos_theta, sin_theta)
          !
          where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%wdspr_varid, buf, (/1, ntmapout/))) ! write wave direction
@@ -988,9 +995,9 @@ contains
       end if
    end subroutine nc_check_err
 
-   subroutine directional_spreading(ee, spread_deg)
+   subroutine directional_spreading(ee, cos_theta, sin_theta, spread_deg)
 
-      use snapwave_data, only: pi, sector, ntheta, dtheta, deg2rad, rad2deg, thetamean, FILL_VALUE
+      use snapwave_data, only: ntheta, dtheta, rad2deg, FILL_VALUE
 
       implicit none
 
@@ -998,32 +1005,23 @@ contains
       integer, parameter :: dp = kind(1.0d0)
 
       real(sp), intent(in) :: ee(:) ! Energy per directional bin in a point
+      real(dp), intent(in) :: cos_theta(:), sin_theta(:)
       real(sp), intent(out) :: spread_deg ! Directional spreading, degrees
 
       integer :: j
-      real(dp) :: theta_deg, theta_rad
       real(dp) :: energy, weight
       real(dp) :: m0, a1, b1, r1
-      real(dp) :: dtheta_deg
-      real(dp) :: offset
 
       if (ntheta <= 0 .or. dtheta <= 0.0_dp) then
          spread_deg = FILL_VALUE
          return
       end if
 
-      dtheta_deg = dtheta * rad2deg
-
-      offset = 0.5_dp
-
       m0 = 0.0_dp
       a1 = 0.0_dp
       b1 = 0.0_dp
 
       do j = 1, ntheta
-
-         theta_deg = thetamean * rad2deg - sector/2.0 + (real(j - 1, dp) + offset) * dtheta_deg
-         theta_rad = theta_deg * deg2rad
 
          energy = ee(j)
 
@@ -1035,8 +1033,8 @@ contains
          weight = energy * dtheta
 
          m0 = m0 + weight
-         a1 = a1 + weight * cos(theta_rad)
-         b1 = b1 + weight * sin(theta_rad)
+         a1 = a1 + weight * cos_theta(j)
+         b1 = b1 + weight * sin_theta(j)
 
       end do
 

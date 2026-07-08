@@ -121,12 +121,18 @@ contains
    real(dp) :: m0_obs, a1_obs, b1_obs
    real(dp) :: energy_weight, r1_obs
    real(dp) :: dtheta_dp, rad2deg_dp
-   real(dp) :: energy_bin, theta_bin
+   real(dp) :: energy_bin
+   real(dp), allocatable :: cos_theta(:), sin_theta(:)
 
     if (nobs>0) then
       sqrt2 = sqrt(2.0_sp)
       dtheta_dp = real(dtheta, dp)
       rad2deg_dp = real(rad2deg, dp)
+      allocate(cos_theta(ntheta), sin_theta(ntheta))
+      do itheta = 1, ntheta
+         cos_theta(itheta) = cos(real(theta(itheta), dp))
+         sin_theta(itheta) = sin(real(theta(itheta), dp))
+      end do
       do iobs = 1, nobs
          hm0obs(iobs) = FILL_VALUE
          zsobs(iobs) = FILL_VALUE
@@ -169,11 +175,10 @@ contains
                hm0y_sum = hm0y_sum + weight*real(H(k), dp)*sin(real(thetam(k), dp))
                do itheta = 1, ntheta
                   energy_bin = max(real(ee(itheta, k), dp), 0.0_dp)
-                  theta_bin = real(theta(itheta), dp)
                   energy_weight = weight*energy_bin*dtheta_dp
                   m0_obs = m0_obs + energy_weight
-                  a1_obs = a1_obs + energy_weight*cos(theta_bin)
-                  b1_obs = b1_obs + energy_weight*sin(theta_bin)
+                  a1_obs = a1_obs + energy_weight*cos_theta(itheta)
+                  b1_obs = b1_obs + energy_weight*sin_theta(itheta)
                end do
                if (ig == 1) hm0igobs(iobs) = hm0igobs(iobs) + weight_sp*H_ig(k)
                if (wind == 1) then
@@ -198,6 +203,7 @@ contains
             end if
          end if
       end do
+      deallocate(cos_theta, sin_theta)
     endif
     !
     end subroutine
