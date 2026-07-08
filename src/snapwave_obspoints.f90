@@ -11,9 +11,9 @@ contains
    !
    implicit none
    !
-   real*4 dummy
+   real*4                    ::dummy
    !
-   integer m, n, stat, j1, j2, jdq
+   integer                   ::m, n, stat, j1, j2, jdq
    !
    character(len=256)        :: line
    character(len=256)        :: line2
@@ -41,7 +41,7 @@ contains
       !
       !
       value(1) = 0.0
-      value(2) = 0.0     
+      value(2) = 0.0
       !
       do n = 1, nobs
          read(500,'(a)')line
@@ -89,6 +89,7 @@ contains
       allocate(hm0xobs(nobs))
       allocate(hm0yobs(nobs))
       allocate(wdobs(nobs))
+      allocate(dirsprobs(nobs))
       
       !
       hm0obs = 0.d0
@@ -111,7 +112,13 @@ contains
    !
    use snapwave_data
    use interp
+   use snapwave_ncoutput, only: directional_spreading
    !
+   implicit none
+   
+   integer :: k
+   real*4  :: spread_deg
+   
    if (nobs>0) then
       buf=H*sqrt(2.)
       call grmap(buf, no_nodes, hm0obs, nobs, irefobs, wobs, 4,  0)
@@ -138,6 +145,12 @@ contains
       buf=H*sin(thetam)
       call grmap(buf, no_nodes, hm0yobs, nobs, irefobs, wobs, 4,  0)
       wdobs=mod(270.-atan2(hm0yobs,hm0xobs)*180./pi+360.,360.)
+      !
+      do k = 1, no_nodes
+         call directional_spreading(ee(:,k), spread_deg)
+         buf(k) = spread_deg
+      end do
+      call grmap(buf, no_nodes, dirsprobs, nobs, irefobs, wobs, 4,  0)
    endif
    !
    end subroutine

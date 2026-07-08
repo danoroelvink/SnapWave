@@ -23,6 +23,7 @@ module snapwave_ncoutput
       integer :: hm0_ig_varid
       integer :: tp_varid
       integer :: wd_varid
+      integer :: wdspr_varid
       integer :: cg_varid
       integer :: dw_varid
       integer :: df_varid
@@ -113,10 +114,10 @@ contains
       NF90(nf90_def_dim(map_file%ncid, 'nmesh2d_node', no_nodes, map_file%mesh2d_nNodes_dimid))
       NF90(nf90_def_dim(map_file%ncid, 'nmesh2d_face', no_faces, map_file%mesh2d_nFaces_dimid))
       NF90(nf90_def_dim(map_file%ncid, 'max_nmesh2d_face_nodes', 4, map_file%mesh2d_nMax_face_nodes_dimid))
-    !  if (no_edges > 0) then
-    !     NF90(nf90_def_dim(map_file%ncid, 'nmesh2d_edge', no_edges, map_file%mesh2d_nEdges_dimid))
-    !     NF90(nf90_def_dim(map_file%ncid, 'max_nmesh2d_edge_nodes', 2, map_file%mesh2d_nMax_edge_nodes_dimid))
-    !  end if
+      !  if (no_edges > 0) then
+      !     NF90(nf90_def_dim(map_file%ncid, 'nmesh2d_edge', no_edges, map_file%mesh2d_nEdges_dimid))
+      !     NF90(nf90_def_dim(map_file%ncid, 'max_nmesh2d_edge_nodes', 2, map_file%mesh2d_nMax_edge_nodes_dimid))
+      !  end if
       NF90(nf90_def_dim(map_file%ncid, 'ntheta', ntheta, map_file%ntheta_dimid)) ! theta
       NF90(nf90_def_dim(map_file%ncid, 'time', NF90_UNLIMITED, map_file%time_dimid)) ! time
 !   NF90(nf90_def_dim(map_file%ncid, 'runtime', 1, map_file%runtime_dimid)) ! total_runtime, average_dt
@@ -143,10 +144,10 @@ contains
       NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'face_node_connectivity', 'mesh2d_face_nodes'))
       NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'face_dimension', 'nmesh2d_face'))
       NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'max_face_nodes_dimension', 'max_nmesh2d_face_nodes'))
-     ! if (no_edges > 0) then
-     !    NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'edge_node_connectivity', 'mesh2d_edge_nodes'))
-     !    NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'edge_dimension', 'nmesh2d_edge'))
-     ! end if
+      ! if (no_edges > 0) then
+      !    NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'edge_node_connectivity', 'mesh2d_edge_nodes'))
+      !    NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'edge_dimension', 'nmesh2d_edge'))
+      ! end if
       !NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'edge_face_connectivity', 'mesh2d_edge_faces'))
       !NF90(nf90_put_att(map_file%ncid, map_file%grid_varid, 'face_coordinates', 'mesh2d_face_x mesh2d_face_y'))
       !
@@ -262,6 +263,14 @@ contains
          NF90(nf90_put_att(map_file%ncid, map_file%wd_varid, 'units', 'degree'))
          NF90(nf90_put_att(map_file%ncid, map_file%wd_varid, 'standard_name', 'sea_surface_wave_from_direction'))
          NF90(nf90_put_att(map_file%ncid, map_file%wd_varid, 'long_name', 'Mean wave from direction'))
+      end if
+      !
+      if (map_dirspr == 1) then
+         NF90(nf90_def_var(map_file%ncid, 'wdspr', NF90_FLOAT, (/map_file%mesh2d_nNodes_dimid, map_file%time_dimid/), map_file%wdspr_varid)) ! time-varying wave direction map
+         NF90(nf90_put_att(map_file%ncid, map_file%wdspr_varid, '_FillValue', FILL_VALUE))
+         NF90(nf90_put_att(map_file%ncid, map_file%wdspr_varid, 'units', 'degree'))
+         NF90(nf90_put_att(map_file%ncid, map_file%wdspr_varid, 'standard_name', 'sea_surface_wave_directional_spread'))
+         NF90(nf90_put_att(map_file%ncid, map_file%wdspr_varid, 'long_name', 'Wave mean directional spread'))
       end if
       !
       if (map_cg == 1) then
@@ -410,7 +419,7 @@ contains
       !
       ! Write grid to file
       !
-      NF90(nf90_put_var(map_file%ncid, map_file%mesh2d_face_nodes_varid, face_nodes(1:max_nodes,:), (/1, 1/)))
+      NF90(nf90_put_var(map_file%ncid, map_file%mesh2d_face_nodes_varid, face_nodes(1:max_nodes, :), (/1, 1/)))
       !
       NF90(nf90_put_var(map_file%ncid, map_file%mesh2d_node_x_varid, x, (/1/)))
       NF90(nf90_put_var(map_file%ncid, map_file%mesh2d_node_y_varid, y, (/1/)))
@@ -547,11 +556,11 @@ contains
       NF90(nf90_put_att(his_file%ncid, his_file%wavdir_varid, 'standard_name', 'sea_surface_wave_from_direction_at_variance_spectral_density_maximum'))
       NF90(nf90_put_att(his_file%ncid, his_file%wavdir_varid, 'long_name', 'Peak wave direction')) ! indeed peak wave dir?
       !
-      !NF90(nf90_def_var(his_file%ncid, 'point_dirspr', NF90_FLOAT, (/his_file%points_dimid, his_file%time_dimid/), his_file%dirspr_varid)) ! time-varying wavdir
-      !NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, '_FillValue', FILL_VALUE))
-      !NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'units', 'degree'))
-      !NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'standard_name', 'sea_surface_wave_directional_spread'))
-      !NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'long_name', 'Wave directional spread'))
+      NF90(nf90_def_var(his_file%ncid, 'point_dirspr', NF90_FLOAT, (/his_file%points_dimid, his_file%time_dimid/), his_file%dirspr_varid)) ! time-varying wavdir
+      NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, '_FillValue', FILL_VALUE))
+      NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'units', 'degree'))
+      NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'standard_name', 'sea_surface_wave_directional_spread'))
+      NF90(nf90_put_att(his_file%ncid, his_file%dirspr_varid, 'long_name', 'Wave directional spread'))
       !
       if (ig == 1) then
          NF90(nf90_def_var(his_file%ncid, 'point_hm0ig', NF90_FLOAT, (/his_file%points_dimid, his_file%time_dimid/), his_file%hm0ig_varid)) ! time-varying wavdir
@@ -624,13 +633,11 @@ contains
       !
       implicit none
       !
-      real*8 :: t
-      real*4 :: rad2deg
+      real*4   :: spread_deg
+      real*8   :: t
+      integer  :: k
       !
       integer :: ntmapout
-      !
-      !
-      rad2deg = 180./pi
       !
       NF90(nf90_put_var(map_file%ncid, map_file%time_varid, t, (/ntmapout/))) ! write time
       !
@@ -662,6 +669,16 @@ contains
          buf = modulo(270 - thetam * 180./pi + 360., 360.)
          where (depth < 0.1) buf = -999.
          NF90(nf90_put_var(map_file%ncid, map_file%wd_varid, buf, (/1, ntmapout/))) ! write wave direction
+      end if
+      !
+      if (map_dirspr == 1) then
+         do k = 1, no_nodes
+            call directional_spreading(ee(:,k), spread_deg)
+            buf(k) = spread_deg
+         end do
+         !
+         where (depth < 0.1) buf = -999.
+         NF90(nf90_put_var(map_file%ncid, map_file%wdspr_varid, buf, (/1, ntmapout/))) ! write wave direction
       end if
       !
       if (map_Cg == 1) then
@@ -756,7 +773,7 @@ contains
       !
       NF90(nf90_put_var(his_file%ncid, his_file%wavdir_varid, wdobs, (/1, nthisout/))) ! write point_wavdir
       !
-      !NF90(nf90_put_var(his_file%ncid, his_file%dirspr_varid, dirsprobs, (/1, nthisout/))) ! write point_tp
+      NF90(nf90_put_var(his_file%ncid, his_file%dirspr_varid, dirsprobs, (/1, nthisout/))) ! write point_disrspr
       !
       if (ig == 1) then
          NF90(nf90_put_var(his_file%ncid, his_file%hm0ig_varid, hm0igobs, (/1, nthisout/))) ! write point_hm0
@@ -832,9 +849,9 @@ contains
       !
       integer :: ierror, j, k
       integer :: idfile
-      integer :: iddim_no_nodes, iddim_no_faces,iddim_max_nodes !, iddim_no_edges
+      integer :: iddim_no_nodes, iddim_no_faces, iddim_max_nodes !, iddim_no_edges
       integer :: idvar_node_x, idvar_node_y, idvar_node_z, idvar_face_nodes
-      integer, allocatable, dimension(:,:) :: face_nodes_temp
+      integer, allocatable, dimension(:, :) :: face_nodes_temp
       character(NF90_MAX_NAME) :: string
 
       !
@@ -845,25 +862,25 @@ contains
       !
       ! Detect which nc version is used
       ierror = nf90_inq_dimid(idfile, 'mesh2d_nNodes', iddim_no_nodes); !call nc_check_err(ierror, "inq_dimid mesh2d_nNodes", gridfile)
-      if (ierror /= 0) then   ! ugrid fm
+      if (ierror /= 0) then ! ugrid fm
          ierror = nf90_inq_dimid(idfile, 'nmesh2d_node', iddim_no_nodes); call nc_check_err(ierror, "inq_dimid nmesh2d_node", gridfile)
          ierror = nf90_inq_dimid(idfile, 'max_nmesh2d_face_nodes', iddim_max_nodes); call nc_check_err(ierror, "inq_dimid max_nmesh2d_face_nodes", gridfile)
          ierror = nf90_inq_dimid(idfile, 'nmesh2d_face', iddim_no_faces); call nc_check_err(ierror, "inq_dimid nmesh2d_face", gridfile)
-       !  ierror = nf90_inq_dimid(idfile, 'nmesh2d_edge', iddim_no_edges); !call nc_check_err(ierror, "inq_dimid nmesh2d_edge", gridfile)
+         !  ierror = nf90_inq_dimid(idfile, 'nmesh2d_edge', iddim_no_edges); !call nc_check_err(ierror, "inq_dimid nmesh2d_edge", gridfile)
          !
          ierror = nf90_inquire_dimension(idfile, iddim_no_nodes, string, no_nodes); call nc_check_err(ierror, "inq_dim nmesh2d_node", gridfile)
          ierror = nf90_inquire_dimension(idfile, iddim_max_nodes, string, max_nodes); call nc_check_err(ierror, "inq_dim nmesh2d_node", gridfile)
          ierror = nf90_inquire_dimension(idfile, iddim_no_faces, string, no_faces); call nc_check_err(ierror, "inq_dim nmesh2d_face", gridfile)
-      !   ierror = nf90_inquire_dimension(idfile, iddim_no_edges, string, no_edges); !call nc_check_err(ierror, "inq_dim nmesh2d_edge", gridfile)
+         !   ierror = nf90_inquire_dimension(idfile, iddim_no_edges, string, no_edges); !call nc_check_err(ierror, "inq_dim nmesh2d_edge", gridfile)
       else ! old version
          ierror = nf90_inq_dimid(idfile, 'mesh2d_nFaces', iddim_no_faces); call nc_check_err(ierror, "inq_dimid mesh2d_nFaces", gridfile)
-        ! ierror = nf90_inq_dimid(idfile, 'mesh2d_nEdges', iddim_no_edges); call nc_check_err(ierror, "inq_dimid mesh2d_nEdges", gridfile)
+         ! ierror = nf90_inq_dimid(idfile, 'mesh2d_nEdges', iddim_no_edges); call nc_check_err(ierror, "inq_dimid mesh2d_nEdges", gridfile)
          ierror = nf90_inq_dimid(idfile, 'mesh2d_nMax_face_nodes', iddim_max_nodes); call nc_check_err(ierror, "inq_dimid mesh2d_nMax_face_nodes", gridfile)
          !
          ierror = nf90_inquire_dimension(idfile, iddim_no_nodes, string, no_nodes); call nc_check_err(ierror, "inq_dim nNodes", gridfile)
          ierror = nf90_inquire_dimension(idfile, iddim_max_nodes, string, max_nodes); call nc_check_err(ierror, "inq_dim mesh2d_nMax_face_nodes", gridfile)
          ierror = nf90_inquire_dimension(idfile, iddim_no_faces, string, no_faces); call nc_check_err(ierror, "inq_dim nFaces", gridfile)
-      !   ierror = nf90_inquire_dimension(idfile, iddim_no_edges, string, no_edges); call nc_check_err(ierror, "inq_dim nEdges", gridfile)
+         !   ierror = nf90_inquire_dimension(idfile, iddim_no_edges, string, no_edges); call nc_check_err(ierror, "inq_dim nEdges", gridfile)
       end if
 
       ierror = nf90_inq_varid(idfile, 'mesh2d_node_x', idvar_node_x); call nc_check_err(ierror, "inq_varid mesh2d_node_x", gridfile)
@@ -895,7 +912,7 @@ contains
       ierror = nf90_get_var(idfile, idvar_node_y, y, start=(/1/), count=(/no_nodes/)); call nc_check_err(ierror, "get_var y", gridfile)
       ierror = nf90_get_var(idfile, idvar_node_z, zb, start=(/1/), count=(/no_nodes/)); call nc_check_err(ierror, "get_var z", gridfile)
       ierror = nf90_get_var(idfile, idvar_face_nodes, face_nodes_temp, start=(/1/), count=(/max_nodes, no_faces/)); call nc_check_err(ierror, "get_var face_nodes", gridfile)
-      face_nodes(1:max_nodes,:) = face_nodes_temp
+      face_nodes(1:max_nodes, :) = face_nodes_temp
       !
       where (face_nodes == -1)
          face_nodes = 0
@@ -974,5 +991,80 @@ contains
          write (*, '(6a)') 'ERROR ', trim(description), '. NetCDF file : "', trim(filename), '". Error message:', nf90_strerror(ierror)
       end if
    end subroutine nc_check_err
+
+   subroutine directional_spreading(ee, spread_deg)
+
+      use snapwave_data, only: pi, sector, ntheta, dtheta, deg2rad, rad2deg, thetamean
+
+      implicit none
+
+      integer, parameter :: sp = kind(1.0)
+      integer, parameter :: dp = kind(1.0d0)
+
+      real(sp), intent(in) :: ee(:) ! Energy per directional bin in a point
+      real(sp), intent(out) :: spread_deg ! Directional spreading, degrees
+
+      integer :: j
+      real(dp) :: theta_deg, theta_rad
+      real(dp) :: energy, weight
+      real(dp) :: m0, a1, b1, r1
+      real(dp) :: dtheta_deg, edge_span
+      real(dp) :: offset
+
+      if (ntheta <= 0 .or. dtheta <= 0.0_dp) then
+         spread_deg = -999.0_dp
+         return
+      end if
+
+      dtheta_deg = dtheta * rad2deg
+
+      edge_span = real(ntheta, dp) * dtheta_deg
+
+      offset = 0.5_dp
+
+      m0 = 0.0_dp
+      a1 = 0.0_dp
+      b1 = 0.0_dp
+
+      do j = 1, ntheta
+
+         theta_deg = thetamean * rad2deg - sector/2.0 + (real(j - 1, dp) + offset) * dtheta_deg
+         theta_rad = theta_deg * deg2rad
+
+         energy = ee(j)
+
+         ! Optional safety: ignore negative energy values
+         if (energy < 0.0_dp) energy = 0.0_dp
+
+         ! For constant dtheta this factor cancels out, but keeping it
+         ! makes the discrete formula closer to the continuous integral.
+         weight = energy * dtheta
+
+         m0 = m0 + weight
+         a1 = a1 + weight * cos(theta_rad)
+         b1 = b1 + weight * sin(theta_rad)
+
+      end do
+
+      if (m0 > 0.0_dp) then
+
+         a1 = a1 / m0
+         b1 = b1 / m0
+
+         r1 = sqrt(a1 * a1 + b1 * b1)
+
+         ! Avoid tiny numerical roundoff errors
+         if (r1 > 1.0_dp) r1 = 1.0_dp
+         if (r1 < 0.0_dp) r1 = 0.0_dp
+
+         spread_deg = sqrt(2.0_dp * (1.0_dp - r1)) * rad2deg
+
+      else
+
+         spread_deg = -999.0_dp
+
+      end if
+
+   end subroutine directional_spreading
 
 end module

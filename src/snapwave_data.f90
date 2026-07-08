@@ -194,6 +194,7 @@
    real*4,    dimension(:),    allocatable   :: zsobs
    real*4,    dimension(:),    allocatable   :: hm0igobs
    real*4,    dimension(:),    allocatable   :: dwobs
+   real*4,    dimension(:),    allocatable   :: dirsprobs
    real*4,    dimension(:),    allocatable   :: stobs
    real*4,    dimension(:),    allocatable   :: swobs
    real*4,    dimension(:),    allocatable   :: dfobs
@@ -223,6 +224,8 @@
    real*4, parameter                         :: rho = 1025.      ! water density
    real*4, parameter                         :: pi = 4.*atan(1.) ! cake circumference divided by twice its radius
    real*4, parameter                         :: g = 9.813        ! acceleration of gravity
+   real*8, parameter                         :: deg2rad = pi / 180d0
+   real*8, parameter                         :: rad2deg = 180d0 / pi
    real*4                                    :: t0,t1,t2,t3,t4,t5,t6  ! timers
    integer                                   :: nb
    integer                                   :: np
@@ -247,6 +250,7 @@
    integer                                   :: map_Hig
    integer                                   :: map_Tp
    integer                                   :: map_dir
+   integer                                   :: map_dirspr
    integer                                   :: map_cg
    integer                                   :: map_Dw
    integer                                   :: map_Df

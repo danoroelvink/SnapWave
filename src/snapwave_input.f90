@@ -100,6 +100,7 @@ contains
       call read_int_input(500, 'map_Hig', map_Hig, 0)
       call read_int_input(500, 'map_Tp', map_Tp, 1)
       call read_int_input(500, 'map_dir', map_dir, 1)
+      call read_int_input(500, 'map_dirspr', map_dirspr, 1)
       call read_int_input(500, 'map_Cg', map_Cg, 0)
       call read_int_input(500, 'map_Dw', map_Dw, 0)
       call read_int_input(500, 'map_Df', map_Df, 0)
