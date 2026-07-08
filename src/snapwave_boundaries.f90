@@ -79,8 +79,8 @@ contains
          read (11, *) t_bwv(irec), hs_bwv(1, irec), tp_bwv(1, irec), wd_bwv(1, irec), ds_bwv(1, irec), zs_bwv(1, irec)
       end do
       !
-      wd_bwv = (270.0 - wd_bwv) * pi / 180
-      ds_bwv = ds_bwv * pi / 180.
+      wd_bwv = (270.0 - wd_bwv) * deg2rad
+      ds_bwv = ds_bwv * deg2rad
 
       !
       close (11)
@@ -186,7 +186,7 @@ contains
          close (500)
          !
          ! Convert to cartesian, going-to, radians
-         wd_bwv = (270.0 - wd_bwv) * pi / 180.
+         wd_bwv = (270.0 - wd_bwv) * deg2rad
          !
          ! Ds (directional spreading)
          !
@@ -196,7 +196,7 @@ contains
             read (500, *) t_bwv(itb), (ds_bwv(ib, itb), ib=1, nwbnd)
          end do
          close (500)
-         ds_bwv = ds_bwv * pi / 180.
+         ds_bwv = ds_bwv * deg2rad
          !
          ! zs (water level)
          !
@@ -800,7 +800,7 @@ contains
       !
       close (11)
       !
-      u10dir_bwv = mod(270.0 - u10dir_bwv, 360.0) * pi / 180.0 ! from nautical coming from in degrees to cartesian going to in radians
+      u10dir_bwv = mod(270.0 - u10dir_bwv, 360.0) * deg2rad ! from nautical coming from in degrees to cartesian going to in radians
       !
    end subroutine read_wind_data_from_list
 !

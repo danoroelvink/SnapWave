@@ -11,14 +11,15 @@ contains
    !
    implicit none
    !
-   real*4 dummy
+   integer, parameter        :: dp = kind(1.0d0)
+   real(dp)                  :: dummy
    !
-   integer m, n, stat, j1, j2, jdq
+   integer                   ::m, n, stat, j1, j2, jdq
    !
    character(len=256)        :: line
    character(len=256)        :: line2
    !
-   real*4, dimension(2)      :: value
+   real(dp), dimension(2)    :: value
    !
    ! Read observation points
    !
@@ -40,8 +41,8 @@ contains
       allocate(nameobs(nobs))     
       !
       !
-      value(1) = 0.0
-      value(2) = 0.0     
+      value(1) = 0.0_dp
+      value(2) = 0.0_dp
       !
       do n = 1, nobs
          read(500,'(a)')line
@@ -86,60 +87,124 @@ contains
       allocate(dfobs(nobs))
       allocate(stobs(nobs))
       allocate(swobs(nobs))
-      allocate(hm0xobs(nobs))
-      allocate(hm0yobs(nobs))
       allocate(wdobs(nobs))
+      allocate(dirsprobs(nobs))
       
       !
-      hm0obs = 0.d0
-      zsobs = 0.d0
-      tpobs = 0.d0
-      hm0igobs = 0.d0
-      dwobs = 0.d0
-      dfobs = 0.d0
-      stobs = 0.d0
-      swobs = 0.d0
-      hm0xobs = 0.d0
-      hm0yobs = 0.d0
-      wdobs = 0.d0
-   !
-   endif
+      hm0obs = FILL_VALUE
+      zsobs = FILL_VALUE
+      tpobs = FILL_VALUE
+      hm0igobs = FILL_VALUE
+      dwobs = FILL_VALUE
+      dfobs = FILL_VALUE
+      stobs = FILL_VALUE
+      swobs = FILL_VALUE
+      wdobs = FILL_VALUE
+      dirsprobs = FILL_VALUE
+    !
+    endif
    !
    end subroutine
    !
    subroutine update_obs_points ()
-   !
-   use snapwave_data
-   use interp
-   !
-   if (nobs>0) then
-      buf=H*sqrt(2.)
-      call grmap(buf, no_nodes, hm0obs, nobs, irefobs, wobs, 4,  0)
-      buf = depth + zb
-      call grmap(buf, no_nodes, zsobs, nobs, irefobs, wobs, 4,  0)
-      if (ig==1) then
-         buf=H_ig*sqrt(2.)
-         call grmap(buf, no_nodes, hm0igobs, nobs, irefobs, wobs, 4,  0)
-      endif
-      buf=Tp
-      call grmap(buf, no_nodes, tpobs, nobs, irefobs, wobs, 4,  0)
-      buf=Dw
-      call grmap(buf, no_nodes, dwobs, nobs, irefobs, wobs, 4,  0)
-      buf=Df
-      call grmap(buf, no_nodes, dfobs, nobs, irefobs, wobs, 4,  0)
-      if (wind==1) then
-         buf=SwE
-         call grmap(buf, no_nodes, swobs, nobs, irefobs, wobs, 4,  0)  
-         buf=SwA
-         call grmap(buf, no_nodes, stobs, nobs, irefobs, wobs, 4,  0)
-      endif
-      buf=H*cos(thetam)
-      call grmap(buf, no_nodes, hm0xobs, nobs, irefobs, wobs, 4,  0)
-      buf=H*sin(thetam)
-      call grmap(buf, no_nodes, hm0yobs, nobs, irefobs, wobs, 4,  0)
-      wdobs=mod(270.-atan2(hm0yobs,hm0xobs)*180./pi+360.,360.)
-   endif
-   !
-   end subroutine
-   !
+    !
+    use snapwave_data
+    !
+   implicit none
+
+   integer, parameter :: sp = kind(1.0), dp = kind(1.0d0)
+   integer :: iobs, ip, k, itheta
+   real(sp) :: weight_sp
+   real(sp) :: sqrt2
+   real(dp) :: weight
+   real(dp) :: hm0x_sum, hm0y_sum
+   real(dp) :: m0_obs, a1_obs, b1_obs
+   real(dp) :: energy_weight, r1_obs
+   real(dp) :: dtheta_dp, rad2deg_dp
+   real(dp) :: energy_bin
+   real(dp), allocatable :: cos_theta(:), sin_theta(:)
+
+    if (nobs>0) then
+      sqrt2 = sqrt(2.0_sp)
+      dtheta_dp = real(dtheta, dp)
+      rad2deg_dp = real(rad2deg, dp)
+      allocate(cos_theta(ntheta), sin_theta(ntheta))
+      do itheta = 1, ntheta
+         cos_theta(itheta) = cos(real(theta(itheta), dp))
+         sin_theta(itheta) = sin(real(theta(itheta), dp))
+      end do
+      do iobs = 1, nobs
+         hm0obs(iobs) = FILL_VALUE
+         zsobs(iobs) = FILL_VALUE
+         tpobs(iobs) = FILL_VALUE
+         hm0igobs(iobs) = FILL_VALUE
+         dwobs(iobs) = FILL_VALUE
+         dfobs(iobs) = FILL_VALUE
+         stobs(iobs) = FILL_VALUE
+         swobs(iobs) = FILL_VALUE
+         wdobs(iobs) = FILL_VALUE
+         dirsprobs(iobs) = FILL_VALUE
+         if (irefobs(1, iobs) > 0) then
+            hm0obs(iobs) = 0.0
+            zsobs(iobs) = 0.0
+            tpobs(iobs) = 0.0
+            dwobs(iobs) = 0.0
+            dfobs(iobs) = 0.0
+            dirsprobs(iobs) = 0.0
+            hm0x_sum = 0.0_dp
+            hm0y_sum = 0.0_dp
+            m0_obs = 0.0_dp
+            a1_obs = 0.0_dp
+            b1_obs = 0.0_dp
+            if (ig == 1) hm0igobs(iobs) = 0.0
+            if (wind == 1) then
+               swobs(iobs) = 0.0
+               stobs(iobs) = 0.0
+            end if
+            !
+            do ip = 1, 4
+               k = max(irefobs(ip, iobs), 1)
+               weight = wobs(ip, iobs)
+               weight_sp = real(weight, sp)
+               hm0obs(iobs) = hm0obs(iobs) + weight_sp*H(k)
+               zsobs(iobs) = zsobs(iobs) + weight_sp*(depth(k) + zb(k))
+               tpobs(iobs) = tpobs(iobs) + weight_sp*Tp(k)
+               dwobs(iobs) = dwobs(iobs) + weight_sp*Dw(k)
+               dfobs(iobs) = dfobs(iobs) + weight_sp*Df(k)
+               hm0x_sum = hm0x_sum + weight*real(H(k), dp)*cos(real(thetam(k), dp))
+               hm0y_sum = hm0y_sum + weight*real(H(k), dp)*sin(real(thetam(k), dp))
+               do itheta = 1, ntheta
+                  energy_bin = max(real(ee(itheta, k), dp), 0.0_dp)
+                  energy_weight = weight*energy_bin*dtheta_dp
+                  m0_obs = m0_obs + energy_weight
+                  a1_obs = a1_obs + energy_weight*cos_theta(itheta)
+                  b1_obs = b1_obs + energy_weight*sin_theta(itheta)
+               end do
+               if (ig == 1) hm0igobs(iobs) = hm0igobs(iobs) + weight_sp*H_ig(k)
+               if (wind == 1) then
+                  swobs(iobs) = swobs(iobs) + weight_sp*SwE(k)
+                  stobs(iobs) = stobs(iobs) + weight_sp*SwA(k)
+               end if
+            end do
+            !
+            hm0obs(iobs) = hm0obs(iobs)*sqrt2
+            if (ig == 1) hm0igobs(iobs) = hm0igobs(iobs)*sqrt2
+            wdobs(iobs)=real(mod(270.0_dp - atan2(hm0y_sum,hm0x_sum)*rad2deg_dp + &
+                                 360.0_dp, 360.0_dp), sp)
+            if (m0_obs > 0.0_dp) then
+               a1_obs = a1_obs/m0_obs
+               b1_obs = b1_obs/m0_obs
+               r1_obs = sqrt(a1_obs*a1_obs + b1_obs*b1_obs)
+               if (r1_obs > 1.0_dp) r1_obs = 1.0_dp
+               if (r1_obs < 0.0_dp) r1_obs = 0.0_dp
+               dirsprobs(iobs) = real(sqrt(2.0_dp*(1.0_dp - r1_obs))*rad2deg_dp, sp)
+            else
+               dirsprobs(iobs) = FILL_VALUE
+            end if
+         end if
+      end do
+      deallocate(cos_theta, sin_theta)
+    endif
+    !
+    end subroutine
 end module

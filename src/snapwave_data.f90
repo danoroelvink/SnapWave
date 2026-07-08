@@ -1,5 +1,8 @@
    module snapwave_data
    !
+   ! Missing value
+   real*4, parameter                           :: FILL_VALUE = -999999.
+   !
    real*8,  dimension(:),       allocatable    :: x, y                    ! x,y coordinates of grid (double precision)
    real*4,  dimension(:),       allocatable    :: xs, ys                  ! x,y coordinates of grid (single precision)
    real*8                                      :: xmn, ymn
@@ -18,9 +21,9 @@
    real*4,  dimension(:),       allocatable    :: F                       ! wave force Dw/C/rho/depth
    real*4,  dimension(:),       allocatable    :: Fx, Fy                  ! wave force Dw/C/rho/depth
    real*4,  dimension(:),       allocatable    :: u10, u10dir             ! wind speed and wind direction
-   real*4                                      :: u10dmean=-999.          ! average wind direction
+   real*4                                      :: u10dmean=FILL_VALUE     ! average wind direction
    real*4,  dimension(:),       allocatable    :: thetam                  ! mean wave direction
-   real*4                                      :: thetamean=-999.         ! mean wave direction
+   real*4                                      :: thetamean=FILL_VALUE    ! mean wave direction
    real*4,  dimension(:),       allocatable    :: buf                     ! buffer for writing output to netcdf
    real*4,  dimension(:),       allocatable    :: buf1                    ! buffer for writing output to netcdf
    real*4,  dimension(:,:),     allocatable    :: buf2                    ! buffer for writing output to netcdf
@@ -86,8 +89,8 @@
 
    integer                                     :: nwbnd                   ! number of support points wave boundary
    integer                                     :: ntwbnd                  ! number of time points wave boundary
-   real*4                                      :: tpmean_bwv=-999.        ! mean tp over boundary points for given time
-   real*4                                      :: wdmean_bwv=-999.        ! mean wave direction for given time, used to make theta grid
+   real*4                                      :: tpmean_bwv=FILL_VALUE   ! mean tp over boundary points for given time
+   real*4                                      :: wdmean_bwv=FILL_VALUE   ! mean wave direction for given time, used to make theta grid
    real*4                                      :: zsmean_bwv              ! mean water level for given time, used to make theta grid
    real*8,  dimension(:),     allocatable      :: x_bwv                   ! x coordinates of boundary points
    real*8,  dimension(:),     allocatable      :: y_bwv                   ! y coordinates of boundary points
@@ -194,11 +197,10 @@
    real*4,    dimension(:),    allocatable   :: zsobs
    real*4,    dimension(:),    allocatable   :: hm0igobs
    real*4,    dimension(:),    allocatable   :: dwobs
+   real*4,    dimension(:),    allocatable   :: dirsprobs
    real*4,    dimension(:),    allocatable   :: stobs
    real*4,    dimension(:),    allocatable   :: swobs
    real*4,    dimension(:),    allocatable   :: dfobs
-   real*4,    dimension(:),    allocatable   :: hm0xobs
-   real*4,    dimension(:),    allocatable   :: hm0yobs
    real*4,    dimension(:),    allocatable   :: tpobs
    real*4,    dimension(:),    allocatable   :: wdobs
    real*4                                    :: dt              ! time step (no limitation)
@@ -213,7 +215,6 @@
    character*232                             :: neumannfile
    real*4, dimension(:), allocatable         :: xb,yb,xneu,yneu
    !
-   character*3                               :: outputformat
    integer                                   :: ja_save_each_iter       ! logical to save output after each iteration or not
    !
    ! Local constants
@@ -223,6 +224,8 @@
    real*4, parameter                         :: rho = 1025.      ! water density
    real*4, parameter                         :: pi = 4.*atan(1.) ! cake circumference divided by twice its radius
    real*4, parameter                         :: g = 9.813        ! acceleration of gravity
+   real*4, parameter                         :: deg2rad = pi / 180d0
+   real*4, parameter                         :: rad2deg = 180d0 / pi
    real*4                                    :: t0,t1,t2,t3,t4,t5,t6  ! timers
    integer                                   :: nb
    integer                                   :: np
@@ -242,11 +245,18 @@
    !
    ! Output variables
    !
+   real*4                                    :: map_interval
+   real*4                                    :: his_interval
+   real*8                                    :: next_map_output
+   real*8                                    :: next_his_output
+   integer                                   :: map_output_count
+   integer                                   :: his_output_count
    integer                                   :: map_dep
    integer                                   :: map_Hm0
    integer                                   :: map_Hig
    integer                                   :: map_Tp
    integer                                   :: map_dir
+   integer                                   :: map_dirspr
    integer                                   :: map_cg
    integer                                   :: map_Dw
    integer                                   :: map_Df
