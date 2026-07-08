@@ -201,8 +201,6 @@
    real*4,    dimension(:),    allocatable   :: stobs
    real*4,    dimension(:),    allocatable   :: swobs
    real*4,    dimension(:),    allocatable   :: dfobs
-   real*4,    dimension(:),    allocatable   :: hm0xobs
-   real*4,    dimension(:),    allocatable   :: hm0yobs
    real*4,    dimension(:),    allocatable   :: tpobs
    real*4,    dimension(:),    allocatable   :: wdobs
    real*4                                    :: dt              ! time step (no limitation)
@@ -217,7 +215,6 @@
    character*232                             :: neumannfile
    real*4, dimension(:), allocatable         :: xb,yb,xneu,yneu
    !
-   character*3                               :: outputformat
    integer                                   :: ja_save_each_iter       ! logical to save output after each iteration or not
    !
    ! Local constants
