@@ -666,7 +666,7 @@ contains
       end if
       !
       if (map_dir == 1) then
-         buf = modulo(270 - thetam * 180./pi + 360., 360.)
+         buf = modulo(270 - thetam * rad2deg + 360., 360.)
          where (depth < 0.1) buf = -999.
          NF90(nf90_put_var(map_file%ncid, map_file%wd_varid, buf, (/1, ntmapout/))) ! write wave direction
       end if
@@ -722,7 +722,7 @@ contains
          where (depth < 0.1) buf = -999.
          NF90(nf90_put_var(map_file%ncid, map_file%u10_varid, buf, (/1, ntmapout/))) ! write wind speed
          !
-         buf = modulo(270 - u10dir * 180./pi + 360., 360.)
+         buf = modulo(270 - u10dir * rad2deg + 360., 360.)
          where (depth < 0.1) buf = -999.
          NF90(nf90_put_var(map_file%ncid, map_file%u10dir_varid, buf, (/1, ntmapout/))) ! write wind direction
       end if

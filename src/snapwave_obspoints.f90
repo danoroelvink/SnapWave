@@ -144,7 +144,7 @@ contains
       call grmap(buf, no_nodes, hm0xobs, nobs, irefobs, wobs, 4,  0)
       buf=H*sin(thetam)
       call grmap(buf, no_nodes, hm0yobs, nobs, irefobs, wobs, 4,  0)
-      wdobs=mod(270.-atan2(hm0yobs,hm0xobs)*180./pi+360.,360.)
+      wdobs=mod(270.-atan2(hm0yobs,hm0xobs)*rad2deg+360.,360.)
       !
       do k = 1, no_nodes
          call directional_spreading(ee(:,k), spread_deg)

@@ -27,8 +27,8 @@ subroutine initialize_snapwave_domain()
    ! First set some constants
    !
    np   = 22 ! why?
-   cosrot = cos(rotation*pi/180)
-   sinrot = sin(rotation*pi/180)
+   cosrot = cos(rotation*deg2rad)
+   sinrot = sin(rotation*deg2rad)
    !
    write(*,*)'Initializing SnapWave domain ...'
    !
@@ -324,7 +324,7 @@ subroutine initialize_snapwave_domain()
       theta360(itheta)   = 1.0*theta360d0(itheta)
    enddo
    !
-   theta360d0 = theta360d0*pi/180.0
+   theta360d0 = theta360d0*deg2rad
    !
    kp   = 0
    w    = 0.0
@@ -465,8 +465,8 @@ subroutine initialize_snapwave_domain()
       !
    endif   
    !
-   theta360 = theta360*pi/180.0
-   dtheta   = dtheta*pi/180.0
+   theta360 = theta360*deg2rad
+   dtheta   = dtheta*deg2rad
    !
    write(*,*)'Finished initializing SnapWave.'
    !
