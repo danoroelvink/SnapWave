@@ -22,7 +22,6 @@ subroutine initialize_snapwave_domain()
    real*8,    dimension(:,:,:), allocatable    :: w360d0
    character*2                                 :: ext
    logical                                     :: file_exists
-   real*8, parameter                           :: dmiss=-99999.0
    !
    ! First set some constants
    !
@@ -476,6 +475,7 @@ subroutine read_interpolate_map_input(tmpstr,no_nodes, x, y, sferic, proj)
    !
    ! reads samples from file and interpolates them onto the mesh x,y
    !
+   use snapwave_data, only: FILL_VALUE
    use interp, only: triintfast
    use m_alloc
    !
@@ -524,7 +524,7 @@ subroutine read_interpolate_map_input(tmpstr,no_nodes, x, y, sferic, proj)
    call timer(t1)
    jsferic=sferic    ! not superfluous, jsferic gets changed inside triintfast routines
    work=0d0
-   call triintfast(xsam, ysam, zsam, nsam, 1 ,x ,y, work, no_nodes, jsferic, 0d0, 1.1d0)
+   call triintfast(xsam, ysam, zsam, nsam, 1 ,x ,y, work, no_nodes, jsferic, real(FILL_VALUE, kind=kind(1d0)), 1.1d0)
    proj=real(work,kind(1.0))
    call timer(t2)
    write(*,*) '   ',nsam, ' samples interpolated on ', no_nodes, ' mesh nodes in ', t2-t1, ' s.'

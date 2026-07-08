@@ -1,5 +1,8 @@
    module snapwave_data
    !
+   ! Missing value
+   real*4, parameter                           :: FILL_VALUE = -999999.
+   !
    real*8,  dimension(:),       allocatable    :: x, y                    ! x,y coordinates of grid (double precision)
    real*4,  dimension(:),       allocatable    :: xs, ys                  ! x,y coordinates of grid (single precision)
    real*8                                      :: xmn, ymn
@@ -18,9 +21,9 @@
    real*4,  dimension(:),       allocatable    :: F                       ! wave force Dw/C/rho/depth
    real*4,  dimension(:),       allocatable    :: Fx, Fy                  ! wave force Dw/C/rho/depth
    real*4,  dimension(:),       allocatable    :: u10, u10dir             ! wind speed and wind direction
-   real*4                                      :: u10dmean=-999.          ! average wind direction
+   real*4                                      :: u10dmean=FILL_VALUE     ! average wind direction
    real*4,  dimension(:),       allocatable    :: thetam                  ! mean wave direction
-   real*4                                      :: thetamean=-999.         ! mean wave direction
+   real*4                                      :: thetamean=FILL_VALUE    ! mean wave direction
    real*4,  dimension(:),       allocatable    :: buf                     ! buffer for writing output to netcdf
    real*4,  dimension(:),       allocatable    :: buf1                    ! buffer for writing output to netcdf
    real*4,  dimension(:,:),     allocatable    :: buf2                    ! buffer for writing output to netcdf
@@ -86,8 +89,8 @@
 
    integer                                     :: nwbnd                   ! number of support points wave boundary
    integer                                     :: ntwbnd                  ! number of time points wave boundary
-   real*4                                      :: tpmean_bwv=-999.        ! mean tp over boundary points for given time
-   real*4                                      :: wdmean_bwv=-999.        ! mean wave direction for given time, used to make theta grid
+   real*4                                      :: tpmean_bwv=FILL_VALUE   ! mean tp over boundary points for given time
+   real*4                                      :: wdmean_bwv=FILL_VALUE   ! mean wave direction for given time, used to make theta grid
    real*4                                      :: zsmean_bwv              ! mean water level for given time, used to make theta grid
    real*8,  dimension(:),     allocatable      :: x_bwv                   ! x coordinates of boundary points
    real*8,  dimension(:),     allocatable      :: y_bwv                   ! y coordinates of boundary points

@@ -59,8 +59,6 @@ module snapwave_ncoutput
    type(map_type) :: map_file
    type(his_type) :: his_file
    !
-   real*4, parameter :: FILL_VALUE = -999999
-   !
 contains
    !
    subroutine ncoutput_init()
@@ -643,31 +641,29 @@ contains
       !
       if (map_dep == 1) then
          buf = depth
-         !where (depth<0.1) buf=-999.
          NF90(nf90_put_var(map_file%ncid, map_file%dep_varid, buf, (/1, ntmapout/))) ! write depth
       end if
       !
       if (map_Hm0 == 1) then
          buf = H * sqrt(2.0)
-         !where (depth<0.1) buf=-999.
          NF90(nf90_put_var(map_file%ncid, map_file%hm0_varid, buf, (/1, ntmapout/))) ! write Hm0
       end if
       !
       if (ig == 1 .and. map_Hig == 1) then
          buf = H_ig * sqrt(2.0)
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%hm0_ig_varid, buf, (/1, ntmapout/))) ! write Hm0_ig
       end if
       !
       if (map_Tp == 1) then
          buf = Tp
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%tp_varid, buf, (/1, ntmapout/))) ! write Tp
       end if
       !
       if (map_dir == 1) then
          buf = modulo(270 - thetam * rad2deg + 360., 360.)
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%wd_varid, buf, (/1, ntmapout/))) ! write wave direction
       end if
       !
@@ -677,59 +673,59 @@ contains
             buf(k) = spread_deg
          end do
          !
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%wdspr_varid, buf, (/1, ntmapout/))) ! write wave direction
       end if
       !
       if (map_Cg == 1) then
          buf = Cg
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%cg_varid, buf, (/1, ntmapout/))) ! write wave group velocity
       end if
       !
       if (map_Dw == 1) then
          buf = Dw
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%dw_varid, buf, (/1, ntmapout/))) ! write wave breaking
       end if
       !
       if (map_Df == 1) then
          buf = Df
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%df_varid, buf, (/1, ntmapout/))) ! write bottom friction
       end if
       !
       if (wind == 1 .and. map_SwE == 1) then
          buf = SwE
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%sw_varid, buf, (/1, ntmapout/))) ! write wind input
       end if
       !
       if (wind == 1 .and. map_SwA == 1) then
          buf = SwA
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%st_varid, buf, (/1, ntmapout/))) ! write wind input wave period
       end if
       !
       if (wind == 1 .and. map_sig == 1) then
          buf = sig
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%sig_varid, buf, (/1, ntmapout/))) ! write wind frequency
       end if
       !
       if (wind == 1 .and. map_u10 == 1) then
          buf = u10
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%u10_varid, buf, (/1, ntmapout/))) ! write wind speed
          !
          buf = modulo(270 - u10dir * rad2deg + 360., 360.)
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%u10dir_varid, buf, (/1, ntmapout/))) ! write wind direction
       end if
       !
       if (ja_vegetation == 1 .and. map_Dveg == 1) then
          buf = Dveg
-         where (depth < 0.1) buf = -999.
+         where (depth < hmin) buf = FILL_VALUE
          NF90(nf90_put_var(map_file%ncid, map_file%mesh2d_veg_Dveg_varid, buf, (/1, ntmapout/))) ! write vegetation dissipation
       end if
       !
@@ -994,7 +990,7 @@ contains
 
    subroutine directional_spreading(ee, spread_deg)
 
-      use snapwave_data, only: pi, sector, ntheta, dtheta, deg2rad, rad2deg, thetamean
+      use snapwave_data, only: pi, sector, ntheta, dtheta, deg2rad, rad2deg, thetamean, FILL_VALUE
 
       implicit none
 
@@ -1012,7 +1008,7 @@ contains
       real(dp) :: offset
 
       if (ntheta <= 0 .or. dtheta <= 0.0_dp) then
-         spread_deg = -999.0_dp
+         spread_deg = FILL_VALUE
          return
       end if
 
@@ -1061,7 +1057,7 @@ contains
 
       else
 
-         spread_deg = -999.0_dp
+         spread_deg = FILL_VALUE
 
       end if
 
