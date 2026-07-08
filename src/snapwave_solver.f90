@@ -187,6 +187,7 @@ contains
       !
       use snapwave_windsource
       use snapwave_ncoutput
+      use snapwave_data, only: map_filename
       !
       implicit none
       !
@@ -946,7 +947,7 @@ contains
                   SwA(k) = sum(WsorA(:, k)) * dtheta
                end if
             end do
-            call ncoutput_update(time + iter, iter)
+            if (map_filename /= '') call ncoutput_update_map(time + iter, iter)
          end if
          !
       end do

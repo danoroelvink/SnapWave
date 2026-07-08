@@ -20,7 +20,8 @@ program snapwave
    !
    implicit none
    !
-   real*8  :: t 
+   real*8  :: t
+   real*8  :: output_tol
    !
    integer :: it
    !
@@ -51,6 +52,11 @@ program snapwave
    !$omp end parallel
    it = 0
    t  = tstart
+   map_output_count = 0
+   his_output_count = 0
+   next_map_output = tstart
+   next_his_output = tstart
+   output_tol = max(1.0d-6, abs(dble(timestep))*1.0d-6)
    !
    write(*,*)'Start time loop'
    do while (t<=tstop)
@@ -63,9 +69,22 @@ program snapwave
       !
       call compute_wave_field(t)   
       !
-      call update_obs_points()
+      if (his_filename /= '' .and. nobs > 0 .and. t >= next_his_output - output_tol) then
+         his_output_count = his_output_count + 1
+         call update_obs_points()
+         call ncoutput_update_his(t, his_output_count)
+         do while (next_his_output <= t + output_tol)
+            next_his_output = next_his_output + dble(his_interval)
+         end do
+      end if
       !
-      if (ja_save_each_iter==0) call ncoutput_update(t, it)
+      if (ja_save_each_iter == 0 .and. map_filename /= '' .and. t >= next_map_output - output_tol) then
+         map_output_count = map_output_count + 1
+         call ncoutput_update_map(t, map_output_count)
+         do while (next_map_output <= t + output_tol)
+            next_map_output = next_map_output + dble(map_interval)
+         end do
+      end if
       !
       t = t + timestep      
       !

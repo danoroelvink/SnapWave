@@ -1004,7 +1004,7 @@ contains
       real(dp) :: theta_deg, theta_rad
       real(dp) :: energy, weight
       real(dp) :: m0, a1, b1, r1
-      real(dp) :: dtheta_deg, edge_span
+      real(dp) :: dtheta_deg
       real(dp) :: offset
 
       if (ntheta <= 0 .or. dtheta <= 0.0_dp) then
@@ -1013,8 +1013,6 @@ contains
       end if
 
       dtheta_deg = dtheta * rad2deg
-
-      edge_span = real(ntheta, dp) * dtheta_deg
 
       offset = 0.5_dp
 

@@ -227,8 +227,8 @@
    real*4, parameter                         :: rho = 1025.      ! water density
    real*4, parameter                         :: pi = 4.*atan(1.) ! cake circumference divided by twice its radius
    real*4, parameter                         :: g = 9.813        ! acceleration of gravity
-   real*8, parameter                         :: deg2rad = pi / 180d0
-   real*8, parameter                         :: rad2deg = 180d0 / pi
+   real*4, parameter                         :: deg2rad = pi / 180d0
+   real*4, parameter                         :: rad2deg = 180d0 / pi
    real*4                                    :: t0,t1,t2,t3,t4,t5,t6  ! timers
    integer                                   :: nb
    integer                                   :: np
@@ -248,6 +248,12 @@
    !
    ! Output variables
    !
+   real*4                                    :: map_interval
+   real*4                                    :: his_interval
+   real*8                                    :: next_map_output
+   real*8                                    :: next_his_output
+   integer                                   :: map_output_count
+   integer                                   :: his_output_count
    integer                                   :: map_dep
    integer                                   :: map_Hm0
    integer                                   :: map_Hig

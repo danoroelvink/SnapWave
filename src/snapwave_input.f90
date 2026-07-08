@@ -95,6 +95,16 @@ contains
       call read_char_input(500, 'outputformat', outputformat, 'bin')
       call read_char_input(500, 'map_file', map_filename, '')
       call read_char_input(500, 'his_file', his_filename, '')
+      call read_real_input(500, 'map_interval', map_interval, timestep)
+      call read_real_input(500, 'his_interval', his_interval, timestep)
+      if (map_interval <= 0.0) then
+         write (*, *) 'ERROR: map_interval must be positive.'
+         stop 1
+      end if
+      if (his_interval <= 0.0) then
+         write (*, *) 'ERROR: his_interval must be positive.'
+         stop 1
+      end if
       call read_int_input(500, 'map_depth', map_dep, 1)
       call read_int_input(500, 'map_Hm0', map_Hm0, 1)
       call read_int_input(500, 'map_Hig', map_Hig, 0)
