@@ -607,8 +607,8 @@ contains
       do ib = 1, nwbnd ! Loop along boundary points
          E0 = 0.0625 * rho * g * hst_bwv(ib)**2
          ms = 1.0 / dst_bwv(ib)**2 - 1.0
-         dist = sign(1.0, cos(theta - thetamean)) * abs(cos(theta - thetamean))**ms
-         where (abs(mod(pi + theta - thetamean, 2.0 * pi) - pi) > 0.999 * pi / 2.0) dist = 0.0
+         dist = sign(1.0, cos(theta - wdmean_bwv)) * abs(cos(theta - wdmean_bwv))**ms
+         where (abs(mod(pi + theta - wdmean_bwv, 2.0 * pi) - pi) > 0.999 * pi / 2.0) dist = 0.0
          eet_bwv(:, ib) = dist / sum(dist) * E0 / dtheta
       end do
       !
