@@ -153,6 +153,14 @@ contains
          !
          write (*, *) '   Wind growth turned on.'
          wind = 1
+         !
+         ! The directional solver has no outflow condition at the edges of a limited sector, so wind input
+         ! piles up in the edge bins and blows up wherever an edge bin runs (nearly) parallel to an open boundary
+         !
+         if (sector < 360.0) then
+            write (*, *) '   WARNING: sector = ', sector, ' not supported with wind, using sector = 360'
+            sector = 360.0
+         end if
       end if
       !
       close (500)

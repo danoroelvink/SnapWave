@@ -421,11 +421,25 @@ contains
       !
       ! Interpolate boundary conditions in timeseries to boundary points
       !
+      if (ntwbnd == 1) then
+         !
+         ! Just one record (stationary)
+         !
+         hst_bwv = hs_bwv(:, 1)
+         tpt_bwv = tp_bwv(:, 1)
+         wdt_bwv = wd_bwv(:, 1)
+         dst_bwv = ds_bwv(:, 1)
+         zst_bwv = zs_bwv(:, 1)
+         !
+      end if
+      !
       do itb = itwbndlast, ntwbnd ! Loop in time
          !
          if (t_bwv(itb) > t .or. itb == ntwbnd) then
             !
+            ! hold first / last values outside the time series instead of extrapolating
             tbfac = (t - t_bwv(itb - 1)) / (t_bwv(itb) - t_bwv(itb - 1))
+            tbfac = min(max(tbfac, 0.0), 1.0)
             !
             do ib = 1, nwbnd ! Loop along boundary points
                !
@@ -503,6 +517,7 @@ contains
             if (t_u10_bwv(itb) >= t .or. itb == ntu10bnd) then
                !
                tbfac = (t - t_u10_bwv(itb - 1)) / (t_u10_bwv(itb) - t_u10_bwv(itb - 1))
+               tbfac = min(max(tbfac, 0.0), 1.0)
                !
                do k = 1, no_nodes ! Loop along boundary points
                   !
@@ -628,6 +643,10 @@ contains
       !
       ! Loop through grid boundary points
       ! Now for all grid boundary points do spatial interpolation of the wave spectra from boundary points at polygon
+      !
+      ! No wave boundary conditions given (e.g. wind only): boundary points keep zero energy
+      !
+      if (nwbnd == 0) return
       !
       if (writetestfiles) open (113, file='testbnd.txt')
       do ib = 1, nb
