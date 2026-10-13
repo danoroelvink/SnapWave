@@ -442,7 +442,7 @@ contains
       !
       ! Boundary condition at sea side
       !
-      !$omp parallel do private(k, Ak, itheta, k1,k2,beta, betan,fbr, fsh, Ek,Hk,uorbi,Dfk,Dwt,Dwak)
+      !$omp parallel do private(k, Ak, itheta, k1,k2,beta, betan,fbr, fsh, Ek,Hk,uorbi,Dfk,Dwk,Dwt,Dwak)
       do k = 1, no_nodes
          !if (.not. inner(k)) then
          if (msk(k)==2) then
@@ -522,8 +522,9 @@ contains
                DoverE(k) = (Dwk + Dfk) / max(Ek, 1.0e-6)
                !
                ! initial conditions are not equal to bc conditions
+               Ak = Ek / sig(k)
                DwT = -c_dispT / (1.0 - ndissip) * (2.*pi) / sig(k)**2 * cg(k) * kwav(k) * DoverE(k)
-               DwAk = 0.5 / pi * (E(k) * DwT + 2.0 * pi * Ak * DoverE(k))
+               DwAk = 0.5 / pi * (Ek * DwT + 2.0 * pi * Ak * DoverE(k))
                DoverA(k) = DwAk / max(Ak, 1e-6)
             end if
             !
@@ -636,7 +637,7 @@ contains
                         end if
                         !
                         DwT = -c_dispT / (1.0 - ndissip) * (2.0 * pi) / sig(k)**2 * cg(k) * kwav(k) * DoverE(k)
-                        DwAk = 1 / 2.0 / pi * (E(k) * DwT + 2.0 * pi * Ak * DoverE(k))
+                        DwAk = 1 / 2.0 / pi * (Ek * DwT + 2.0 * pi * Ak * DoverE(k))
                         !
                         if (iter == 1) then
                            DoverA(k) = DwAk / max(Ak, 1e-6)
@@ -963,7 +964,7 @@ contains
             H(k) = sqrt(8 * E(k) / rho / g)
             thetam(k) = atan2(sum(ee(:, k) * sin(theta)), sum(ee(:, k) * cos(theta)))
             if (wind == 1) then
-               uorbi = 0.5 * sig(k) * Hk / sinhkh(k)
+               uorbi = 0.5 * sig(k) * H(k) / sinhkh(k)
             else
                uorbi = pi * H(k) / Tp(k) / sinhkh(k) !! to check if we want array
             end if
