@@ -16,6 +16,8 @@ program snapwave
    use snapwave_ncoutput
    use snapwave_obspoints
    use snapwave_results
+   use snapwave_log
+   use snapwave_date, only: date_after_seconds
    use omp_lib
    !
    implicit none
@@ -23,7 +25,9 @@ program snapwave
    real*8  :: t
    real*8  :: output_tol
    !
-   integer :: it
+   integer :: it, nt
+   !
+   call open_logfiles()                  ! snapwave_log.txt (+ warning/error files when needed)
    !
    call read_snapwave_input()            ! Reads snapwave.inp      
    !
@@ -47,7 +51,7 @@ program snapwave
    !
    !$omp parallel
    !$omp single
-   write(*,'(A,I2,A)') 'Running with ', omp_get_num_threads(), ' OMP threads.' 
+   call writelog('ls', 'Running with '//num2str(omp_get_num_threads())//' OpenMP threads')
    !$omp end single
    !$omp end parallel
    it = 0
@@ -58,12 +62,15 @@ program snapwave
    next_his_output = tstart
    output_tol = max(1.0d-6, abs(dble(timestep))*1.0d-6)
    !
-   write(*,*)'Start time loop'
+   nt = nint((tstop - tstart) / timestep) + 1
+   call writelog('ls', '')
+   call writelog('ls', 'Start time loop')
    do while (t<=tstop)
       !
       ! New time step
       !
       it = it + 1
+      call writelog('ls', 'Time step '//num2str(it)//' of '//num2str(nt)//': '//date_after_seconds(trefstr, t))
       !
       call update_boundary_conditions(t) ! includes theta_grid creation
       !
@@ -91,5 +98,7 @@ program snapwave
    enddo
    !
    call ncoutput_finalize()
+   !
+   call close_logfiles()
    !
 end program

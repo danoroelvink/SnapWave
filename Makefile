@@ -99,6 +99,7 @@ UTILS_OBJS := $(patsubst utils_lgpl/%.f90,$(OBJ_DIR)/utils_lgpl/%.o,$(UTILS_FILE
 
 # 3) src (explicit order; module ordering matters)
 SRC_FILES_ORDER := \
+    src/snapwave_log.f90 \
     src/snapwave_data.f90 \
     src/snapwave_date.f90 \
     src/snapwave_results.f90 \
@@ -194,16 +195,19 @@ $(UTILS_OBJS): $(KDTREE_OBJS) $(TRIANGLE_OBJ)
 $(SRC_OBJS): $(UTILS_OBJS)
 
 # Internal SRC deps
+# every SnapWave module uses the logging module
+$(filter-out $(OBJ_DIR)/snapwave_log.o,$(SRC_OBJS)): $(OBJ_DIR)/snapwave_log.o
 $(OBJ_DIR)/snapwave_input.o:      $(OBJ_DIR)/snapwave_data.o $(OBJ_DIR)/snapwave_date.o
 $(OBJ_DIR)/snapwave_windsource.o: $(OBJ_DIR)/snapwave_data.o
-$(OBJ_DIR)/snapwave_ncoutput.o:   $(OBJ_DIR)/snapwave_results.o $(OBJ_DIR)/snapwave_date.o $(OBJ_DIR)/snapwave_data.o
+$(OBJ_DIR)/snapwave_ncoutput.o:   $(OBJ_DIR)/snapwave_results.o $(OBJ_DIR)/snapwave_date.o $(OBJ_DIR)/snapwave_data.o $(OBJ_DIR)/snapwave_input.o
 $(OBJ_DIR)/snapwave_domain.o:     $(OBJ_DIR)/snapwave_ncoutput.o $(OBJ_DIR)/snapwave_input.o $(OBJ_DIR)/interp.o \
                                   $(OBJ_DIR)/snapwave_results.o $(OBJ_DIR)/snapwave_data.o
 $(OBJ_DIR)/snapwave_boundaries.o: $(OBJ_DIR)/snapwave_domain.o $(OBJ_DIR)/snapwave_data.o
 $(OBJ_DIR)/snapwave_obspoints.o:  $(OBJ_DIR)/snapwave_data.o $(OBJ_DIR)/interp.o
 $(OBJ_DIR)/snapwave_solver.o:     $(OBJ_DIR)/snapwave_domain.o $(OBJ_DIR)/snapwave_windsource.o $(OBJ_DIR)/snapwave_ncoutput.o \
                                   $(OBJ_DIR)/snapwave_data.o
-$(OBJ_DIR)/snapwave.o:            $(OBJ_DIR)/snapwave_solver.o $(OBJ_DIR)/snapwave_obspoints.o $(OBJ_DIR)/snapwave_boundaries.o
+$(OBJ_DIR)/snapwave.o:            $(OBJ_DIR)/snapwave_solver.o $(OBJ_DIR)/snapwave_obspoints.o $(OBJ_DIR)/snapwave_boundaries.o \
+                                  $(OBJ_DIR)/snapwave_date.o
 
 # -----------------------------
 # Clean
