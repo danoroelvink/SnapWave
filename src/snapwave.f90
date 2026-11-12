@@ -144,11 +144,8 @@ contains
          wavestr = 'no wave boundary conditions'
       end if
       !
-      if (solver_converged) then
-         write (solvstr, '(a,i4,a,es8.1)') 'iter', solver_iterations, '  err', solver_error
-      else
-         write (solvstr, '(a,i4,a,es8.1,a)') 'iter', solver_iterations, '  err', solver_error, ' NOT CONVERGED'
-      end if
+      write (solvstr, '(a,i4,a,es8.1,a,f6.1,a)') 'iter', solver_iterations, '  max err', solver_error, &
+                                                '  ok', solver_percok, '%'
       !
       ! Wall clock: average time per step so far, estimated time to finish and clock time at finish
       !

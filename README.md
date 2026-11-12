@@ -35,10 +35,10 @@ SnapWave writes its log to the run directory (modelled on XBeach):
 | `snapwave_warning.txt` | Only created when there are warnings, e.g. unknown or misspelled keywords in `snapwave.inp`, lines without `=`, boundary series not covering the simulation period, solver not converged |
 | `snapwave_error.txt` | Only created when SnapWave stops on an input error, with the reason, e.g. a missing input file, an empty `bndfile`, or boundary files whose number of columns does not match the number of boundary points |
 
-During the run, the screen and log show one line per time step with the model date and time, progress, mean boundary wave conditions (Hm0, Tp, direction, water level), solver iterations and error, wall-clock time per step and the estimated time and clock time at which the run will finish, e.g.
+During the run, the screen and log show one line per time step with the model date and time, progress, mean boundary wave conditions (Hm0, Tp, direction, water level), solver iterations, maximum relative error and percentage of converged nodes, wall-clock time per step and the estimated time and clock time at which the run will finish, e.g.
 
 ```
-   1985-03-14 06:00:00  step   366/ 14245   2.6%  Hm0  1.82 m  Tp  8.4 s  dir 112  zs  0.12 m  iter  12  err 8.2E-06   0.92 s/step  ETA 3h 32m (16:20)
+   1985-03-14 06:00:00  step   366/ 14245   2.6%  Hm0  1.82 m  Tp  8.4 s  dir 112  zs  0.12 m  iter  12  max err 8.2E-06  ok  99.7%   0.92 s/step  ETA 3h 32m (16:20)
 ```
 
 Set `verbose = 1` in `snapwave.inp` to also get the detailed per-iteration screen output.
