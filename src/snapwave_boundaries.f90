@@ -455,7 +455,7 @@ contains
       !
       real*8, intent(in) :: t
       !
-      call writelog('s', 'Update boundary conditions ...')
+      if (verbose == 1) call writelog('s', 'Update boundary conditions ...')
       !
       ! Update boundary conditions at boundary points
       !
@@ -616,7 +616,7 @@ contains
       !
       allocate (windspread360k(ntheta360))
       windspread360k = 0.0
-      call writelog('s', 'Update wind field ...')
+      if (verbose == 1) call writelog('s', 'Update wind field ...')
       !
       ! Interpolate boundary conditions in timeseries to boundary points
       !

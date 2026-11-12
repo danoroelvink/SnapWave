@@ -2,6 +2,13 @@ module snapwave_solver
    use snapwave_log
    implicit none
    logical, private, save :: warned_depth = .false.
+   !
+   ! Convergence of the last call to the wave solver (for the time step report)
+   !
+   integer, public :: solver_iterations = 0
+   real*4,  public :: solver_error = 0.0
+   real*4,  public :: solver_percok = 0.0
+   logical, public :: solver_converged = .true.
 contains
 
    subroutine compute_wave_field(time)
@@ -25,7 +32,7 @@ contains
       allocate (sigm_ig(no_nodes))
       allocate (Tp_ig(no_nodes))
       !
-      call writelog('s', 'Compute wave field started')
+      if (verbose == 1) call writelog('s', 'Compute wave field started')
       !
       call timer(t0)
       !
@@ -63,7 +70,7 @@ contains
       !
       ! Compute celerities and refraction speed
       !
-      call writelog('s', '   max depth = '//num2str(maxval(depth))//', min depth = '//num2str(minval(depth)))
+      if (verbose == 1) call writelog('s', '   max depth = '//num2str(maxval(depth))//', min depth = '//num2str(minval(depth)))
       if (.not. warned_depth .and. maxval(depth) <= 1.0001 * hmin) then
          call writewarning('water depth equals hmin ('//num2str(hmin)//' m) at all nodes at t = '//num2str(time)// &
                            ' s: check bed levels (gridfile, posdwn) and water levels (bzsfile, zsini)')
@@ -172,7 +179,7 @@ contains
             !
 
       !
-      call writelog('s', '   Computation: '//num2str(t3 - t2)//' seconds')
+      if (verbose == 1) call writelog('s', '   Computation: '//num2str(t3 - t2)//' seconds')
       !
    end subroutine
 
@@ -194,7 +201,7 @@ contains
       !
       use snapwave_windsource
       use snapwave_ncoutput
-      use snapwave_data, only: map_filename
+      use snapwave_data, only: map_filename, verbose
       !
       implicit none
       !
@@ -920,7 +927,7 @@ contains
             ! Relative maximum error
             !
             error = maxval(diff) / eemax
-            write (*, '(a,i6,a,f10.5,a,f7.2)') '   iteration ', iter / 4, ' error = ', error, '   %ok = ', percok   ! screen only
+            if (verbose == 1) write (*, '(a,i6,a,f10.5,a,f7.2)') '   iteration ', iter / 4, ' error = ', error, '   %ok = ', percok
             !
             if (error < crit) then
                exit
@@ -960,12 +967,14 @@ contains
          !
       end do
       !
-      if (iter > niter) then
+      solver_converged = (iter <= niter)
+      solver_iterations = min(iter, niter) / 4
+      solver_error = error
+      solver_percok = percok
+      if (.not. solver_converged) then
          call writewarning('t = '//num2str(time)//' s: wave solver not converged after niter = '//num2str(niter)// &
-                           ' sweeps (relative error '//num2str(error)//', '//num2str(percok)//' % of nodes converged)')
-      else
-         call writelog('l', '   converged after '//num2str(iter / 4)//' iterations, relative error '//num2str(error)// &
-                            ', '//num2str(percok)//' % of nodes converged')
+                           ' sweeps (relative error '//num2str(error)//', '//num2str(percok)//' % of nodes converged)', &
+                           to_screen=.false.)
       end if
       !
       !$omp parallel do private(k, uorbi)
@@ -1255,6 +1264,7 @@ contains
 
    subroutine vegatt(sigm, no_nodes, kwav, no_secveg, veg_ah, veg_bstems, veg_Nstems, veg_Cd, depth, rho, g, H, Dveg)
       use snapwave_domain
+      use snapwave_data, only: verbose
 
       implicit none
 
@@ -1286,7 +1296,7 @@ contains
       if (no_secveg > 0) then ! only in case vegetation is present
          do m = 1, no_secveg ! for each vertical vegetation section
             if (veg_Cd(m) < 0.d0) then ! If Cd is not user specified: call subroutine of M. Bendoni (see below)
-               call writelog('s', 'Cd is not user specified: using subroutine bulkdragcoeff to compute Cd')
+               if (verbose == 1) call writelog('s', 'Cd is not user specified: using subroutine bulkdragcoeff to compute Cd')
                call bulkdragcoeff(veg_ah(m), m, Cdterm, no_nodes, no_secveg, depth, H, kwav, veg_bstems(m), sigm) ! bulkdragcoeff(ahveg(k,m)+zb0(k)-zb(k),m,k,Cdterm) <- no bed level change implemented in Snapwave
                !write(*,*)'Cd is not user specified: putting default value of 0.7'
                !veg_Cd(k,m) = 0.7

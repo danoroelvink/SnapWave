@@ -137,11 +137,20 @@ contains
       !
    end subroutine writelog
    !
-   subroutine writewarning(message)
+   subroutine writewarning(message, to_screen)
+      !
+      ! to_screen = .false.: only log and warning file (for warnings that can occur every time step)
       !
       character(len=*), intent(in) :: message
+      logical, intent(in), optional :: to_screen
       !
       nwarnings = nwarnings + 1
+      if (present(to_screen)) then
+         if (.not. to_screen) then
+            call writelog('lw', 'WARNING: '//trim(message))
+            return
+         end if
+      end if
       if (nwarnings <= max_screen_warnings) then
          call writelog('lsw', 'WARNING: '//trim(message))
       else

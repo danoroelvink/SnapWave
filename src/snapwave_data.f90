@@ -216,6 +216,7 @@
    real*4, dimension(:), allocatable         :: xb,yb,xneu,yneu
    !
    integer                                   :: ja_save_each_iter       ! logical to save output after each iteration or not
+   integer                                   :: verbose = 0             ! 1: detailed screen output per time step and iteration
    !
    ! Local constants
    !

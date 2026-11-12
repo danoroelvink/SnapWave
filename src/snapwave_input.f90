@@ -133,6 +133,7 @@ contains
       call read_int_input(500, 'map_Dveg', map_Dveg, 0)
       call read_int_input(500, 'writetestfiles', iwritetestfiles, 0)
       call read_int_input(500, 'ja_save_each_iter', ja_save_each_iter, 0)
+      call read_int_input(500, 'verbose', verbose, 0)
 
       call read_int_input(500, 'map_ee', map_ee, 0)
       call read_int_input(500, 'map_ctheta', map_ctheta, 0)
