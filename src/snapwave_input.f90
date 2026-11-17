@@ -224,13 +224,14 @@ contains
       !
    end subroutine find_keyword
 
-   subroutine log_parameter(keyword, valstr, found)
+   subroutine log_parameter(keyword, valstr, found, metadata_value)
       !
       ! Echo a parameter to the log: user-specified values also to screen, defaults to log file only
       !
       character(*), intent(in) :: keyword
       character(*), intent(in) :: valstr
       logical, intent(in) :: found
+      character(*), intent(in), optional :: metadata_value
       character(len=20) :: kw
       !
       kw = keyword
@@ -238,6 +239,7 @@ contains
          npar = npar + 1
          par_name(npar) = keyword
          par_value(npar) = valstr
+         if (present(metadata_value)) par_value(npar) = metadata_value
          par_default(npar) = .not. found
       end if
       if (found) then
@@ -264,8 +266,11 @@ contains
          read (valstr, *, iostat=ios) value
          if (ios /= 0) call halt_program('could not read a real number for keyword '//trim(keyword)// &
                                          ' from "'//trim(valstr)//'"')
+         call log_parameter(keyword, num2str(value), found, trim(valstr))
+      else
+         write(valstr, '(ES16.8E3)') value
+         call log_parameter(keyword, num2str(value), found, trim(valstr))
       end if
-      call log_parameter(keyword, num2str(value), found)
       !
    end subroutine
 
@@ -290,7 +295,8 @@ contains
                                          trim(keyword)//' from "'//trim(valstr)//'"')
          call log_parameter(keyword, valstr, found)
       else
-         call log_parameter(keyword, num2str(default), found)
+         write(valstr, '(ES16.8E3)') default
+         call log_parameter(keyword, num2str(default), found, trim(valstr))
       end if
       !
    end subroutine
@@ -433,6 +439,9 @@ contains
       !
       implicit none
       !
+      integer :: j
+      character(len=2) :: ext
+      !
       if (timestep <= 0.0) call halt_program('timestep must be positive')
       if (tstop < tstart) call halt_program('tstop ('//trim(tstopstr)//') is before tstart ('//trim(tstartstr)//')')
       if (dtheta <= 0.0) call halt_program('dtheta must be positive')
@@ -444,7 +453,11 @@ contains
       !
       ! Grid
       !
-      if (mskfile == '') then
+      j = index(gridfile, '.', back=.true.)
+      ext = gridfile(j+1:j+2)
+      if (ext == 'nc') then
+         call file_exists_or_halt('gridfile', gridfile)
+      elseif (mskfile == '') then
          call file_exists_or_halt('gridfile', gridfile)
       else
          call file_exists_or_halt('mskfile', mskfile)
@@ -484,7 +497,7 @@ contains
       !
       call writelog('ls', '')
       call writelog('ls', 'Simulation period: '//trim(tstartstr)//' to '//trim(tstopstr)// &
-                          ' (tref '//trim(trefstr)//'), '//num2str(nint((tstop - tstart) / timestep) + 1)// &
+                          ' (tref '//trim(trefstr)//'), '//num2str(floor((tstop - tstart) / dble(timestep)) + 1)// &
                           ' time steps of '//num2str(timestep)//' s')
       call writelog('ls', '')
       !

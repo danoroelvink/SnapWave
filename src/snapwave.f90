@@ -63,7 +63,7 @@ program snapwave
    next_his_output = tstart
    output_tol = max(1.0d-6, abs(dble(timestep))*1.0d-6)
    !
-   nt = nint((tstop - tstart) / timestep) + 1
+   nt = floor((tstop - tstart) / dble(timestep)) + 1
    n_notconv = 0
    call writelog('ls', '')
    call writelog('ls', 'Start time loop: '//num2str(nt)//' time steps')
