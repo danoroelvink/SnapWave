@@ -1,4 +1,5 @@
 module snapwave_domain
+   use snapwave_log
    implicit none
 
 contains
@@ -29,9 +30,10 @@ subroutine initialize_snapwave_domain()
    cosrot = cos(rotation*deg2rad)
    sinrot = sin(rotation*deg2rad)
    !
-   write(*,*)'Initializing SnapWave domain ...'
+   call writelog('ls', '')
+   call writelog('ls', 'Initializing SnapWave domain ...')
    !
-   j=index(gridfile,'.')      
+   j=index(gridfile,'.',back=.true.)   ! last '.', so relative paths like ..\grid.nc work
    ext = gridfile(j+1:j+2)
    if (ext=='nc') then
       call nc_read_net()
@@ -48,7 +50,7 @@ subroutine initialize_snapwave_domain()
       close(500)
       !
       ! Allocate arrays
-      write(*,*)'   ', no_nodes,' active SnapWave points'
+      call writelog('ls', '   '//num2str(no_nodes)//' active SnapWave points')
       !
       allocate(x(no_nodes))
       allocate(y(no_nodes))
@@ -68,7 +70,7 @@ subroutine initialize_snapwave_domain()
       !
       ! Read index file
       !
-      write(*,*)'   Reading ',trim(indfile)
+      call writelog('ls', '   Reading '//trim(indfile))
       open(unit = 500, file = trim(indfile), form = 'unformatted', access = 'stream')
       read(500)no_nodes
       read(500)indices
@@ -76,14 +78,14 @@ subroutine initialize_snapwave_domain()
       !
       ! Read binary depth file
       !
-      write(*,*)'   Reading ',trim(depfile)
+      call writelog('ls', '   Reading '//trim(depfile))
       open(unit = 500, file = trim(depfile), form = 'unformatted', access = 'stream')
       read(500)zb
       close(500)
       !
       ! Read binary mask file
       !
-      write(*,*)'   Reading ',trim(mskfile)
+      call writelog('ls', '   Reading '//trim(mskfile))
       open(unit = 500, file = trim(mskfile), form = 'unformatted', access = 'stream')
       read(500)msk
       close(500)
@@ -127,7 +129,7 @@ subroutine initialize_snapwave_domain()
          !
       enddo
       !
-      write(*,*)no_faces,' active SnapWave cells'
+      call writelog('ls', '   '//num2str(no_faces)//' active SnapWave cells')
       !
       ! Allocate cells
       !
@@ -160,7 +162,7 @@ subroutine initialize_snapwave_domain()
       !
       ! Read grid input
       !
-      write(*,*)'   Reading mesh ...'
+      call writelog('ls', '   Reading mesh '//trim(gridfile)//' ...')
       !
       open(11,file=gridfile)
       read(11,*)no_nodes, no_faces !, no_edges
@@ -206,6 +208,12 @@ subroutine initialize_snapwave_domain()
    endif
    !
    zb = -posdwn * zb
+   !
+   call writelog('ls', '   '//num2str(no_nodes)//' nodes, '//num2str(no_faces)//' faces')
+   call writelog('ls', '   bed level zb from '//num2str(minval(zb))//' to '//num2str(maxval(zb))//' m (positive up)')
+   if (minval(zb) >= zsini) then
+      call writewarning('all bed levels are at or above the initial water level zsini: check the bathymetry and posdwn')
+   endif
    !
    do k=1,no_faces
        if (face_nodes(4,k)==0) face_nodes(4,k) = -999
@@ -293,7 +301,7 @@ subroutine initialize_snapwave_domain()
       call read_interpolate_map_input(fwstr,no_nodes, x, y, sferic, fw)
    else   
       ! convert read value to double, and assign uniformly to grid
-      write(*,*)'   fw has uniform value of ', trim(fwstr)
+      call writelog('ls', '   fw has uniform value of '//trim(fwstr))
       read( fwstr, * )  fw0
       fw=fw0
    endif
@@ -307,7 +315,7 @@ subroutine initialize_snapwave_domain()
       call read_interpolate_map_input(fw_igstr,no_nodes, x, y, sferic, fw_ig)
    else   
       ! convert read value to double, and assign uniformly to grid
-      write(*,*)'   fw_ig has uniform value of ', trim(fw_igstr)
+      call writelog('ls', '   fw_ig has uniform value of '//trim(fw_igstr))
       read( fw_igstr, * )  fw0_ig
       fw_ig=fw0_ig
    endif
@@ -345,11 +353,11 @@ subroutine initialize_snapwave_domain()
    !
    if (upwfile=='') then
       !
-      write(*,*)'   Getting surrounding points ...'
+      call writelog('ls', '   Getting surrounding points ...')
       !
       call fm_surrounding_points(x, y, zb, no_nodes, sferic, face_nodes, no_faces, kp, np, dhdx, dhdy)
       !   
-      write(*,*)'   Finding upwind neighbors ...'
+      call writelog('ls', '   Finding upwind neighbors ...')
       call find_upwind_neighbours(x, y, no_nodes, sferic, theta360d0, ntheta360, kp, np, w360d0, prev360, ds360d0)    
       !
       ! Distances and weights over 360 degrees (single precision)   
@@ -419,6 +427,12 @@ subroutine initialize_snapwave_domain()
          if (msk(k)==3) nnmb = nnmb + 1
       enddo
       !
+      call writelog('ls', '   Node types: '//num2str(count(msk==1))//' inner, '//num2str(nb)//' wave boundary, '// &
+                          num2str(nnmb)//' neumann, '//num2str(count(msk==0))//' inactive')
+      if (n_bndenc > 0 .and. nb == 0) then
+         call writewarning('no grid nodes lie inside the wave boundary enclosure (encfile '//trim(encfile)//')')
+      endif
+      !
       allocate(nmindbnd(nb))
       !
       if (nnmb>0) then
@@ -452,7 +466,7 @@ subroutine initialize_snapwave_domain()
       
    else
       !
-      write(*,*)'   Reading upwind neighbors file ...'
+      call writelog('ls', '   Reading upwind neighbors file '//trim(upwfile)//' ...')
       !
       open(unit=145, file=trim(upwfile), form='unformatted', access='stream')
       read(145)prev360
@@ -467,7 +481,8 @@ subroutine initialize_snapwave_domain()
    theta360 = theta360*deg2rad
    dtheta   = dtheta*deg2rad
    !
-   write(*,*)'Finished initializing SnapWave.'
+   call writelog('ls', 'Finished initializing SnapWave domain')
+   call writelog('ls', '')
    !
 end subroutine initialize_snapwave_domain
 
@@ -495,7 +510,7 @@ subroutine read_interpolate_map_input(tmpstr,no_nodes, x, y, sferic, proj)
    !
    ! determine no of sample points
    !
-   write(*,*)'   Reading samples from ',trim(tmpstr)
+   call writelog('ls', '   Reading samples from '//trim(tmpstr))
    open(unit = 500, file = trim(tmpstr))
    nsam = 0
    !
@@ -506,7 +521,7 @@ subroutine read_interpolate_map_input(tmpstr,no_nodes, x, y, sferic, proj)
    enddo
    !
    rewind(500)
-   write(*,*) nsam, 'samples read from ',trim(tmpstr)
+   call writelog('ls', '   '//num2str(nsam)//' samples read from '//trim(tmpstr))
    !
    ! allocate and read samples
    !
@@ -520,14 +535,14 @@ subroutine read_interpolate_map_input(tmpstr,no_nodes, x, y, sferic, proj)
    !
    ! Interpolate samples onto mesh
    !
-   write(*,*) '   Interpolation of samples on mesh started...'
+   call writelog('ls', '   Interpolation of samples on mesh started ...')
    call timer(t1)
    jsferic=sferic    ! not superfluous, jsferic gets changed inside triintfast routines
    work=0d0
    call triintfast(xsam, ysam, zsam, nsam, 1 ,x ,y, work, no_nodes, jsferic, 0d0, 1.1d0)
    proj=real(work,kind(1.0))
    call timer(t2)
-   write(*,*) '   ',nsam, ' samples interpolated on ', no_nodes, ' mesh nodes in ', t2-t1, ' s.'
+   call writelog('ls', '   '//num2str(nsam)//' samples interpolated on '//num2str(no_nodes)//' mesh nodes in '//num2str(t2-t1)//' s')
    !
 end subroutine read_interpolate_map_input
 !   
@@ -1151,7 +1166,7 @@ subroutine read_neumann_boundary()
    if (neumannfile(1:4) /= 'none') then    ! Normal ascii input files
       !write(*,*)neumannfile(1:4)
 
-      write(*,*)'   Reading neumann boundary locations ...'
+      call writelog('ls', '   Reading neumann boundary locations from '//trim(neumannfile)//' ...')
       !
       open(500, file=trim(neumannfile)) !as in bwvfile of SFINCS
       do while(.true.)
@@ -1161,7 +1176,7 @@ subroutine read_neumann_boundary()
       enddo
       rewind(500)
       if (n_neu==0) then
-            write(*,*)'  neumann boundary enclosure file ',trim(neumannfile),' is empty or does not exist'
+            call writewarning('neumann boundary file '//trim(neumannfile)//' is empty')
       else           
          allocate(x_neu(n_neu))
          allocate(y_neu(n_neu))
@@ -1191,7 +1206,7 @@ subroutine read_boundary_enclosure()
    ! Read wave boundaries
    !
    if (encfile(1:4) /= 'none') then    
-      write(*,*)'   Reading wave boundary enclosure ...'
+      call writelog('ls', '   Reading wave boundary enclosure from '//trim(encfile)//' ...')
       open(500, file=trim(encfile)) !as in bwvfile of SFINCS
       do while(.true.)
          read(500,*,iostat = stat)dummy
@@ -1200,7 +1215,7 @@ subroutine read_boundary_enclosure()
       enddo
       rewind(500)
       if (n_bndenc==0) then
-          write(*,*)'  boundary enclosure file ',trim(encfile),' is empty or does not exist'
+          call writewarning('boundary enclosure file '//trim(encfile)//' is empty')
       endif
       allocate(x_bndenc(n_bndenc))
       allocate(y_bndenc(n_bndenc))
@@ -1246,7 +1261,7 @@ subroutine vegetation_init()
     character*2                                 :: ext 
     character(NF90_MAX_NAME)                    :: string
     
-    write(*,*)'Initializing vegetation input settings '
+    call writelog('ls', 'Initializing vegetation input settings')
 	!
     no_secvegmax = 3
     ! Get maximum number of vegetation sections within model domain - needed to set size of Cd, ah, bv and Nv matrix
@@ -1294,7 +1309,7 @@ subroutine vegetation_init()
        call nc_check_err(ierror, "get_var veg_Cd", vegmapfile)
         
     else 
-        write(*,*)'COULD NOT READ VEG INPUT FILE, PLEASE SUPPLY NETCDF FILE'
+        call halt_program('could not read vegetation input file '//trim(vegmapfile)//'; please supply a NetCDF file')
     endif
         
     end subroutine vegetation_init

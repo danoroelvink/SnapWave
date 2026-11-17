@@ -1,5 +1,7 @@
 module snapwave_boundaries
    !
+   use snapwave_log
+   !
 contains
    !
    subroutine read_boundary_data()
@@ -54,11 +56,12 @@ contains
       integer :: ier
       real*4 :: dum
       !
-      write (*, *) 'Reading boundary file ', trim(jonswapfile), ' ...'
+      call writelog('ls', 'Reading boundary file '//trim(jonswapfile)//' ...')
       !
       ! Read jonswap wave time series
       !
-      open (11, file=jonswapfile)
+      open (11, file=jonswapfile, status='old', iostat=ier)
+      if (ier /= 0) call halt_program('could not open jonswapfile '//trim(jonswapfile))
       irec = 0
       ier = 0
       do while (ier == 0)
@@ -67,6 +70,7 @@ contains
       end do
       rewind (11)
       nrec = irec - 1
+      if (nrec == 0) call halt_program('jonswapfile '//trim(jonswapfile)//' contains no data')
       !
       allocate (t_bwv(nrec))
       allocate (hs_bwv(1, nrec))
@@ -76,8 +80,12 @@ contains
       allocate (zs_bwv(1, nrec))
       !
       do irec = 1, nrec
-         read (11, *) t_bwv(irec), hs_bwv(1, irec), tp_bwv(1, irec), wd_bwv(1, irec), ds_bwv(1, irec), zs_bwv(1, irec)
+         read (11, *, iostat=ier) t_bwv(irec), hs_bwv(1, irec), tp_bwv(1, irec), wd_bwv(1, irec), ds_bwv(1, irec), zs_bwv(1, irec)
+         if (ier /= 0) call halt_program('error reading line '//num2str(irec)//' of jonswapfile '//trim(jonswapfile)// &
+                                         ' (expected 6 columns: t Hm0 Tp dir dirspr zs)')
       end do
+      !
+      call log_boundary_series('jonswapfile', nrec)
       !
       wd_bwv = (270.0 - wd_bwv) * deg2rad
       ds_bwv = ds_bwv * deg2rad
@@ -107,48 +115,52 @@ contains
       !
       implicit none
       !
-      integer n, itb, ib, stat
+      integer n, stat, ncol
       !
       real * 4 dummy
+      real * 4, dimension(:), allocatable :: tcheck
       !
       ! Read wave boundaries
       !
       if (bndfile(1:4) /= 'none') then ! Normal ascii input files
          ! temporarily use this input of hs/tp/wavdir/dirspr in separate files, later change to DFM type tim-files
          !
-         write (*, *) 'Reading wave boundary locations ...'
+         call writelog('ls', 'Reading wave boundary locations from '//trim(bndfile)//' ...')
          !
-         open (500, file=trim(bndfile)) !as in bwvfile of SFINCS
+         open (500, file=trim(bndfile), status='old', iostat=stat) !as in bwvfile of SFINCS
+         if (stat /= 0) call halt_program('could not open bndfile '//trim(bndfile))
          do while (.true.)
             read (500, *, iostat=stat) dummy
             if (stat < 0) exit
             nwbnd = nwbnd + 1
          end do
          rewind (500)
+         if (nwbnd == 0) then
+            call halt_program('bndfile '//trim(bndfile)//' contains no boundary points. '// &
+                              'Without boundary points no wave conditions or water levels are imposed '// &
+                              '(water depth would be hmin everywhere).')
+         end if
          allocate (x_bwv(nwbnd))
          allocate (y_bwv(nwbnd))
          do n = 1, nwbnd
-            read (500, *) x_bwv(n), y_bwv(n)
+            read (500, *, iostat=stat) x_bwv(n), y_bwv(n)
+            if (stat /= 0) call halt_program('error reading point '//num2str(n)//' (x y) from bndfile '//trim(bndfile))
          end do
          close (500)
+         call writelog('ls', '   '//num2str(nwbnd)//' boundary points, x from '//num2str(minval(x_bwv))//' to '// &
+                             num2str(maxval(x_bwv))//', y from '//num2str(minval(y_bwv))//' to '//num2str(maxval(y_bwv)))
          !
          ! Read wave boundaries
          !
-         write (*, *) 'Reading wave boundaries ...'
+         call writelog('ls', 'Reading wave boundary time series ...')
          !
-         ! Wave time series
+         ! Number of times from the bhs file; all other files must have the same times
          !
-         ! First find times in bhs file
-         !
-         open (500, file=trim(bhsfile))
-         do while (.true.)
-            read (500, *, iostat=stat) dummy
-            if (stat < 0) exit
-            ntwbnd = ntwbnd + 1
-         end do
-         close (500)
+         call count_rows_columns(bhsfile, 'bhsfile', ntwbnd, ncol)
+         if (ntwbnd == 0) call halt_program('bhsfile '//trim(bhsfile)//' contains no data')
          !
          allocate (t_bwv(ntwbnd))
+         allocate (tcheck(ntwbnd))
          !
          allocate (hst_bwv(nwbnd))
          allocate (tpt_bwv(nwbnd))
@@ -157,62 +169,157 @@ contains
          allocate (zst_bwv(nwbnd))
          allocate (eet_bwv(ntheta, nwbnd))
          !
-         ! Hs (significant wave height)
-         ! Times in btp and bwd files must be the same as in bhs file!
-         !
-         open (500, file=trim(bhsfile))
          allocate (hs_bwv(nwbnd, ntwbnd))
-         do itb = 1, ntwbnd
-            read (500, *) t_bwv(itb), (hs_bwv(ib, itb), ib=1, nwbnd)
-         end do
-         close (500)
-         !
-         ! Tp (peak period)
-         !
-         open (500, file=trim(btpfile))
          allocate (tp_bwv(nwbnd, ntwbnd))
-         do itb = 1, ntwbnd
-            read (500, *) t_bwv(itb), (tp_bwv(ib, itb), ib=1, nwbnd)
-         end do
-         close (500)
-         !
-         ! Wd (wave direction)
-         !
-         open (500, file=trim(bwdfile))
          allocate (wd_bwv(nwbnd, ntwbnd))
-         do itb = 1, ntwbnd
-            read (500, *) t_bwv(itb), (wd_bwv(ib, itb), ib=1, nwbnd)
-         end do
-         close (500)
+         allocate (ds_bwv(nwbnd, ntwbnd))
+         allocate (zs_bwv(nwbnd, ntwbnd))
+         !
+         ! Hs (significant wave height); times in btp, bwd, bds and bzs files must be the same as in bhs file
+         !
+         call read_series_file(bhsfile, 'bhsfile', t_bwv, hs_bwv)
+         call read_series_file(btpfile, 'btpfile', tcheck, tp_bwv)
+         call compare_times(tcheck, 'btpfile', btpfile)
+         call read_series_file(bwdfile, 'bwdfile', tcheck, wd_bwv)
+         call compare_times(tcheck, 'bwdfile', bwdfile)
+         call read_series_file(bdsfile, 'bdsfile', tcheck, ds_bwv)
+         call compare_times(tcheck, 'bdsfile', bdsfile)
+         call read_series_file(bzsfile, 'bzsfile', tcheck, zs_bwv)
+         call compare_times(tcheck, 'bzsfile', bzsfile)
+         deallocate (tcheck)
+         !
+         call log_boundary_series('bhsfile', ntwbnd)
          !
          ! Convert to cartesian, going-to, radians
+         !
          wd_bwv = (270.0 - wd_bwv) * deg2rad
-         !
-         ! Ds (directional spreading)
-         !
-         open (500, file=trim(bdsfile))
-         allocate (ds_bwv(nwbnd, ntwbnd))
-         do itb = 1, ntwbnd
-            read (500, *) t_bwv(itb), (ds_bwv(ib, itb), ib=1, nwbnd)
-         end do
-         close (500)
          ds_bwv = ds_bwv * deg2rad
-         !
-         ! zs (water level)
-         !
-         open (500, file=trim(bzsfile))
-         allocate (zs_bwv(nwbnd, ntwbnd))
-         do itb = 1, ntwbnd
-            read (500, *) t_bwv(itb), (zs_bwv(ib, itb), ib=1, nwbnd)
-         end do
-         close (500)
-         !
-         write (*, *) '   Input boundary points found: ', nwbnd
          !
       end if
       !
    end subroutine read_boundary_data_timeseries
 !
+   subroutine count_rows_columns(filename, keyword, nrows, ncols)
+      !
+      ! Count data rows and the number of columns in the first row of an ascii file
+      !
+      character(len=*), intent(in) :: filename, keyword
+      integer, intent(out) :: nrows, ncols
+      character(len=100000) :: line
+      integer :: lun, stat, i
+      logical :: inword
+      !
+      nrows = 0
+      ncols = 0
+      open (newunit=lun, file=trim(filename), status='old', action='read', iostat=stat)
+      if (stat /= 0) call halt_program('could not open '//trim(keyword)//' '//trim(filename))
+      do while (.true.)
+         read (lun, '(a)', iostat=stat) line
+         if (stat /= 0) exit
+         if (len_trim(line) == 0) cycle
+         nrows = nrows + 1
+         if (nrows == 1) then
+            inword = .false.
+            do i = 1, len_trim(line)
+               if (index(' ,'//achar(9), line(i:i)) > 0) then
+                  inword = .false.
+               elseif (.not. inword) then
+                  inword = .true.
+                  ncols = ncols + 1
+               end if
+            end do
+         end if
+      end do
+      close (lun)
+      !
+   end subroutine count_rows_columns
+   !
+   subroutine read_series_file(filename, keyword, tser, values)
+      !
+      ! Read a boundary time series file: time followed by one value per boundary point
+      !
+      use snapwave_data, only: nwbnd, ntwbnd
+      !
+      character(len=*), intent(in) :: filename, keyword
+      real*4, dimension(:), intent(out) :: tser
+      real*4, dimension(:, :), intent(out) :: values
+      integer :: lun, stat, itb, ib, nrows, ncols
+      !
+      call count_rows_columns(filename, keyword, nrows, ncols)
+      if (ncols /= nwbnd + 1) then
+         call halt_program(trim(keyword)//' '//trim(filename)//' has '//num2str(ncols)//' columns, but '// &
+                           num2str(nwbnd + 1)//' are expected (time + one column for each of the '// &
+                           num2str(nwbnd)//' points in bndfile)')
+      end if
+      if (nrows /= ntwbnd) then
+         call halt_program(trim(keyword)//' '//trim(filename)//' has '//num2str(nrows)//' rows, but bhsfile has '// &
+                           num2str(ntwbnd)//'; all boundary files must have the same times')
+      end if
+      open (newunit=lun, file=trim(filename), status='old', action='read')
+      do itb = 1, ntwbnd
+         read (lun, *, iostat=stat) tser(itb), (values(ib, itb), ib=1, nwbnd)
+         if (stat /= 0) call halt_program('error reading row '//num2str(itb)//' of '//trim(keyword)//' '//trim(filename))
+      end do
+      close (lun)
+      call writelog('l', '   '//keyword//' '//trim(filename)//': '//num2str(ntwbnd)//' times, values from '// &
+                         num2str(minval(values))//' to '//num2str(maxval(values)))
+      !
+   end subroutine read_series_file
+   !
+   subroutine compare_times(tcheck, keyword, filename)
+      !
+      use snapwave_data, only: t_bwv, ntwbnd
+      !
+      real*4, dimension(:), intent(in) :: tcheck
+      character(len=*), intent(in) :: keyword, filename
+      integer :: itb
+      !
+      do itb = 1, ntwbnd
+         if (abs(tcheck(itb) - t_bwv(itb)) > max(1.0, 1.0e-6 * abs(t_bwv(itb)))) then
+            call halt_program('time in row '//num2str(itb)//' of '//trim(keyword)//' '//trim(filename)//' ('// &
+                              num2str(tcheck(itb))//') differs from bhsfile ('//num2str(t_bwv(itb))//')')
+         end if
+      end do
+      !
+   end subroutine compare_times
+   !
+   subroutine log_boundary_series(keyword, ntimes)
+      !
+      ! Report time coverage and value ranges of the boundary conditions; warn for suspicious values
+      !
+      use snapwave_data, only: t_bwv, hs_bwv, tp_bwv, wd_bwv, ds_bwv, zs_bwv, tstart, tstop
+      !
+      character(len=*), intent(in) :: keyword
+      integer, intent(in) :: ntimes
+      integer :: itb
+      !
+      call writelog('ls', '   '//num2str(ntimes)//' times, from t = '//num2str(t_bwv(1))//' to '// &
+                          num2str(t_bwv(ntimes))//' s after tref')
+      call writelog('ls', '   Hm0    : '//num2str(minval(hs_bwv))//' to '//num2str(maxval(hs_bwv))//' m')
+      call writelog('ls', '   Tp     : '//num2str(minval(tp_bwv))//' to '//num2str(maxval(tp_bwv))//' s')
+      call writelog('ls', '   dir    : '//num2str(minval(wd_bwv))//' to '//num2str(maxval(wd_bwv))//' deg (nautical)')
+      call writelog('ls', '   dirspr : '//num2str(minval(ds_bwv))//' to '//num2str(maxval(ds_bwv))//' deg')
+      call writelog('ls', '   zs     : '//num2str(minval(zs_bwv))//' to '//num2str(maxval(zs_bwv))//' m')
+      !
+      do itb = 2, ntimes
+         if (t_bwv(itb) <= t_bwv(itb - 1)) then
+            call halt_program(trim(keyword)//': times are not increasing at row '//num2str(itb))
+         end if
+      end do
+      if (t_bwv(1) > tstart) call writewarning('boundary time series starts (t = '//num2str(t_bwv(1))// &
+                                               ' s) after tstart (t = '//num2str(tstart)//' s)')
+      if (t_bwv(ntimes) < tstop) call writewarning('boundary time series ends (t = '//num2str(t_bwv(ntimes))// &
+                                                   ' s) before tstop (t = '//num2str(tstop)//' s)')
+      if (minval(hs_bwv) < 0.0) call writewarning('negative wave heights in boundary conditions')
+      if (minval(tp_bwv) <= 0.0) call writewarning('zero or negative wave periods in boundary conditions')
+      if (maxval(ds_bwv) > 0.0 .and. maxval(ds_bwv) < 2.0) &
+         call writewarning('directional spreading is at most '//num2str(maxval(ds_bwv))// &
+                           ' - it should be given in degrees, not radians')
+      if (minval(wd_bwv) < -360.0 .or. maxval(wd_bwv) > 720.0) &
+         call writewarning('wave directions outside the expected range (nautical degrees)')
+      !
+   end subroutine log_boundary_series
+   !
    subroutine find_boundary_indices()
       use snapwave_data
       use omp_lib
@@ -241,6 +348,12 @@ contains
                temp_indices(nb) = k
             end if
          end do
+         !
+         call writelog('ls', '   '//num2str(nb)//' grid nodes are wave boundary nodes (inside encfile)')
+         if (nb == 0) then
+            call writewarning('there are '//num2str(nwbnd)//' boundary points, but no grid boundary nodes '// &
+                              'lie inside the enclosure polygon (encfile '//trim(encfile)//'): no waves enter the grid')
+         end if
          !
          ! Count number of boundary points
          !
@@ -307,8 +420,28 @@ contains
             end if
          end do
          !$omp end parallel do
-
+         !
+         ! Report the largest distance between a grid boundary node and its nearest boundary point
+         !
+         if (nwbnd > 1) then
+            dst1 = 0.0
+            do i = 1, nb
+               k = temp_indices(i)
+               dst = sqrt((x_bwv(ind1_bwv_cst(i)) - x(k))**2 + (y_bwv(ind1_bwv_cst(i)) - y(k))**2)
+               dst1 = max(dst1, dst)
+            end do
+            if (sferic == 1) then
+               call writelog('ls', '   largest distance from a grid boundary node to the nearest boundary point: '// &
+                                   num2str(dst1)//' deg')
+            else
+               call writelog('ls', '   largest distance from a grid boundary node to the nearest boundary point: '// &
+                                   num2str(dst1)//' m')
+            end if
+         end if
+         !
          deallocate (temp_indices)
+      else
+         call writelog('ls', '   no wave boundary points: no waves imposed at the grid boundary')
       end if
    end subroutine find_boundary_indices
 !
@@ -322,7 +455,7 @@ contains
       !
       real*8, intent(in) :: t
       !
-      write (*, *) 'Update boundary conditions ...'
+      if (verbose == 1) call writelog('s', 'Update boundary conditions ...')
       !
       ! Update boundary conditions at boundary points
       !
@@ -483,7 +616,7 @@ contains
       !
       allocate (windspread360k(ntheta360))
       windspread360k = 0.0
-      write (*, *) 'Update wind field ...'
+      if (verbose == 1) call writelog('s', 'Update wind field ...')
       !
       ! Interpolate boundary conditions in timeseries to boundary points
       !
@@ -694,7 +827,7 @@ contains
             !
          else
             !
-            write (*, *) '   Magnitude of u10 has uniform value of ', trim(u10str)
+            call writelog('ls', '   Magnitude of u10 has uniform value of '//trim(u10str))
             read (u10str, *) u10_0
             u10_bwv(1, :) = u10_0
             !
@@ -706,7 +839,7 @@ contains
             !
          else
             !
-            write (*, *) '   Direction of u10 has uniform value of ', trim(u10dirstr)
+            call writelog('ls', '   Direction of u10 has uniform value of '//trim(u10dirstr))
             read (u10dirstr, *) u10dir_0
             u10dir_bwv(1, :) = u10dir_0
             !
@@ -737,7 +870,7 @@ contains
       character*256 :: u10str_it, u10dirstr_it
       logical :: fileu10_exists, fileu10dir_exists
       !
-      write (*, *) 'Reading windlist file ', trim(windlistfile), ' ...'
+      call writelog('ls', 'Reading windlist file '//trim(windlistfile)//' ...')
       !
       ! Find out how many consecutive wind fields are given
       !

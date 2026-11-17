@@ -1,4 +1,5 @@
 module snapwave_obspoints
+   use snapwave_log
    implicit none
 contains
    ! 
@@ -27,7 +28,7 @@ contains
    !
    if (obsfile(1:4) /= 'none') then
       ! 
-      write(*,*)'Reading observation points ...'
+      call writelog('ls', 'Reading observation points from '//trim(obsfile)//' ...')
       !
       open(500, file=trim(obsfile))       
       do while(.true.)
@@ -69,6 +70,8 @@ contains
          ! 
       enddo             
       close(500)
+      call writelog('ls', '   '//num2str(nobs)//' observation points')
+      if (nobs == 0) call writewarning('obsfile '//trim(obsfile)//' contains no points')
       !
       ! Determine indices and weights of observation points
       !

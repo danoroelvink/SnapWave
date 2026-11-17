@@ -4,6 +4,7 @@ module snapwave_ncoutput
    !
    use netcdf
    use snapwave_date
+   use snapwave_log
    !
    implicit none
    !
@@ -65,7 +66,7 @@ contains
       !
       use snapwave_data
       !
-      write (*, *) 'Initialize ncoutput'
+      call writelog('ls', 'Initializing NetCDF output')
       if (map_filename /= '') call ncoutput_map_init()
       if (his_filename /= '') call ncoutput_his_init()
       !
@@ -129,7 +130,7 @@ contains
       NF90(nf90_put_att(map_file%ncid, nf90_global, "title", "SnapWave map netcdf output"))
       !
       ! add input params for reproducability
-!   call ncoutput_add_params(map_file%ncid,map_file%inp_varid)
+      call ncoutput_add_params(map_file%ncid)
       !
       ! Create variables
       ! Domain
@@ -489,7 +490,7 @@ contains
       NF90(nf90_put_att(his_file%ncid, nf90_global, "title", "Snapwave his point netcdf output"))
       !
       ! add input params for reproducability
-      !call ncoutput_add_params(his_file%ncid,his_file%inp_varid)
+      call ncoutput_add_params(his_file%ncid)
       !
       ! Create variables
       ! Point identifier
@@ -829,6 +830,36 @@ contains
       !
    end subroutine
    !
+   subroutine ncoutput_add_params(ncid)
+      !
+      ! Write all input parameters (as read from snapwave.inp, including defaults) as attributes
+      ! of a scalar variable 'inp', for reproducibility. Must be called in define mode.
+      !
+      use snapwave_input, only: npar, par_name, par_value, par_default
+      !
+      implicit none
+      !
+      integer, intent(in) :: ncid
+      integer :: varid, i
+      character(len=:), allocatable :: deflist
+      !
+      NF90(nf90_def_var(ncid, 'inp', NF90_INT, varid))
+      NF90(nf90_put_att(ncid, varid, 'long_name', 'SnapWave input parameters'))
+      NF90(nf90_put_att(ncid, varid, 'comment', 'attributes hold the value of each snapwave.inp keyword; parameters_with_default_values lists keywords not given in snapwave.inp'))
+      deflist = ''
+      do i = 1, npar
+         if (len_trim(par_value(i)) > 0) then
+            NF90(nf90_put_att(ncid, varid, trim(par_name(i)), trim(par_value(i))))
+         else
+            NF90(nf90_put_att(ncid, varid, trim(par_name(i)), ' '))
+         end if
+         if (par_default(i)) deflist = deflist//' '//trim(par_name(i))
+      end do
+      if (len_trim(deflist) == 0) deflist = ' '
+      NF90(nf90_put_att(ncid, varid, 'parameters_with_default_values', trim(adjustl(deflist))))
+      !
+   end subroutine ncoutput_add_params
+   !
    subroutine handle_err(status, file, line)
       !
       integer, intent(in) :: status
@@ -839,6 +870,7 @@ contains
       if (status /= nf90_noerr) then
          !UNIT=6 for stdout and UNIT=0 for stderr.
          write (0, '("NETCDF ERROR: ",a,i6,":",a)') file, line, trim(nf90_strerror(status))
+         call writelog('lw', 'NETCDF ERROR: '//trim(file)//' line '//num2str(line)//': '//trim(nf90_strerror(status)))
          write (0, *) 'closing file'
          status2 = nf90_close(map_file%ncid)
          if (status2 /= nf90_noerr) then
@@ -891,6 +923,7 @@ contains
       ierror = nf90_inq_varid(idfile, 'mesh2d_node_z', idvar_node_z); call nc_check_err(ierror, "inq_varid mesh2d_node_z", gridfile)
       ierror = nf90_inq_varid(idfile, 'mesh2d_face_nodes', idvar_face_nodes); call nc_check_err(ierror, "inq_varid mesh2d_face_nodes", gridfile)
 
+      string = ''
       ierror = nf90_get_att(idfile, idvar_node_x, 'standard_name', string); call nc_check_err(ierror, "get_att node_x standard_name", gridfile)
       ! TODO Check if sferic option is compatible with grid (both ways)
       !if (string == 'longitude') then
@@ -921,7 +954,15 @@ contains
          face_nodes = 0
       end where
 
-      if (abs(y(1)) > 90.) sferic = 0 ! Fix to deal with case that network wasconverted to UTM but admin not adjusted
+      if (abs(y(1)) > 90. .and. sferic == 1) then ! Fix to deal with case that network wasconverted to UTM but admin not adjusted
+         call writewarning('sferic = 1 but the grid y coordinates are not latitudes; using sferic = 0')
+         sferic = 0
+      end if
+      if (sferic == 0 .and. trim(string) == 'longitude') then
+         call writewarning('sferic = 0 but the grid coordinates in '//trim(gridfile)//' are longitude/latitude; set sferic = 1')
+      end if
+      call writelog('ls', '   grid x from '//num2str(minval(x))//' to '//num2str(maxval(x))// &
+                          ', y from '//num2str(minval(y))//' to '//num2str(maxval(y)))
       !
       msk = 1
       !
@@ -991,7 +1032,7 @@ contains
 !! executable statements -------------------------------------------------------
 !
       if (ierror /= nf90_noerr) then
-         write (*, '(6a)') 'ERROR ', trim(description), '. NetCDF file : "', trim(filename), '". Error message:', nf90_strerror(ierror)
+         call writewarning('NetCDF: '//trim(description)//' in file "'//trim(filename)//'": '//trim(nf90_strerror(ierror)))
       end if
    end subroutine nc_check_err
 

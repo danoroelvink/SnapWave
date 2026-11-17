@@ -25,3 +25,24 @@ To automatically remove module and object files, run with
 make clean
 make STRIP_BUILD=1
 ```
+## Log files
+
+SnapWave writes its log to the run directory (modelled on XBeach):
+
+| File | Contents |
+|---|---|
+| `snapwave_log.txt` | Start/end time, every input parameter (defaults marked `(default)`), grid and boundary summaries, one line per time step with solver convergence, total run time and number of warnings |
+| `snapwave_warning.txt` | Only created when there are warnings, e.g. unknown or misspelled keywords in `snapwave.inp`, lines without `=`, boundary series not covering the simulation period, solver not converged |
+| `snapwave_error.txt` | Only created when SnapWave stops on an input error, with the reason, e.g. a missing input file, an empty `bndfile`, or boundary files whose number of columns does not match the number of boundary points |
+
+During the run, the screen and log show one line per time step with the model date and time, progress, mean boundary wave conditions (Hm0, Tp, direction, water level), solver iterations, maximum relative error and percentage of converged nodes, wall-clock time per step and the estimated time and clock time at which the run will finish, e.g.
+
+```
+   1985-03-14 06:00:00  step   366/ 14245   2.6%  Hm0  1.82 m  Tp  8.4 s  dir 112  zs  0.12 m  iter  12  max err 8.2E-06  ok  99.7%   0.92 s/step  ETA 3h 32m (16:20)
+```
+
+Set `verbose = 1` in `snapwave.inp` to also get the detailed per-iteration screen output.
+
+The input parameters (including defaults) are also stored in the map and his files, as attributes of the scalar variable `inp`; the attribute `parameters_with_default_values` lists the keywords that were not given in `snapwave.inp`.
+
+In the code, use `writelog(destination, message)` from `snapwave_log` instead of `write(*,*)`. The destination is any combination of `l` (log file), `s` (screen), `w` (warning file) and `e` (error file). Use `writewarning(message)` for warnings and `halt_program(message)` to stop on an error. `num2str()` converts integers and reals to strings, for example `call writelog('ls', 'nodes: '//num2str(no_nodes))`.
