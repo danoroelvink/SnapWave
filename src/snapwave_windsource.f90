@@ -148,6 +148,14 @@ subroutine windinput(u10, rho, g, hh, ntheta, windspreadfac, E, A, cg, eeprev, a
    !
    pi = 4.d0 * atan(1.d0)
    !
+   ! no wind input for (near) calm conditions, avoids division by zero below
+   !
+   if (u10 < 0.1) then
+      wsorE = 0.0
+      wsorA = 0.0
+      return
+   end if
+   !
    !compute dimensionless wave state, maximized by Breugem and Holthuizen fully developed sea states
    !
 
